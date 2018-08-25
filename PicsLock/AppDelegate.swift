@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  PicsLock
-//
-//  Created by Michael Frick on 25/08/2018.
-//  Copyright © 2018 Michael Frick. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
@@ -15,7 +7,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let viewController = ViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        
         return true
     }
 

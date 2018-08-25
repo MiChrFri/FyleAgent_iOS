@@ -9,11 +9,10 @@
 /* Begin PBXBuildFile section */
 		799EB0C52131604E00D8A757 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0C42131604E00D8A757 /* AppDelegate.swift */; };
 		799EB0C72131604E00D8A757 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0C62131604E00D8A757 /* ViewController.swift */; };
-		799EB0CA2131604E00D8A757 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 799EB0C82131604E00D8A757 /* Main.storyboard */; };
 		799EB0CC2131605100D8A757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799EB0CB2131605100D8A757 /* Assets.xcassets */; };
-		799EB0CF2131605100D8A757 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 799EB0CD2131605100D8A757 /* LaunchScreen.storyboard */; };
 		799EB0DA2131605100D8A757 /* PicsLockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0D92131605100D8A757 /* PicsLockTests.swift */; };
 		799EB0E52131605100D8A757 /* PicsLockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0E42131605100D8A757 /* PicsLockUITests.swift */; };
+		799EB0F3213161CE00D8A757 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0F2213161CE00D8A757 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +36,7 @@
 		799EB0C12131604E00D8A757 /* PicsLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicsLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		799EB0C42131604E00D8A757 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		799EB0C62131604E00D8A757 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		799EB0C92131604E00D8A757 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		799EB0CB2131605100D8A757 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		799EB0CE2131605100D8A757 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		799EB0D02131605100D8A757 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		799EB0D52131605100D8A757 /* PicsLockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicsLockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		799EB0D92131605100D8A757 /* PicsLockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsLockTests.swift; sourceTree = "<group>"; };
@@ -47,6 +44,7 @@
 		799EB0E02131605100D8A757 /* PicsLockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicsLockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		799EB0E42131605100D8A757 /* PicsLockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsLockUITests.swift; sourceTree = "<group>"; };
 		799EB0E62131605100D8A757 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		799EB0F2213161CE00D8A757 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +97,8 @@
 			children = (
 				799EB0C42131604E00D8A757 /* AppDelegate.swift */,
 				799EB0C62131604E00D8A757 /* ViewController.swift */,
-				799EB0C82131604E00D8A757 /* Main.storyboard */,
+				799EB0F2213161CE00D8A757 /* Color.swift */,
 				799EB0CB2131605100D8A757 /* Assets.xcassets */,
-				799EB0CD2131605100D8A757 /* LaunchScreen.storyboard */,
 				799EB0D02131605100D8A757 /* Info.plist */,
 			);
 			path = PicsLock;
@@ -229,9 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				799EB0CF2131605100D8A757 /* LaunchScreen.storyboard in Resources */,
 				799EB0CC2131605100D8A757 /* Assets.xcassets in Resources */,
-				799EB0CA2131604E00D8A757 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +253,7 @@
 			files = (
 				799EB0C72131604E00D8A757 /* ViewController.swift in Sources */,
 				799EB0C52131604E00D8A757 /* AppDelegate.swift in Sources */,
+				799EB0F3213161CE00D8A757 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,25 +287,6 @@
 			targetProxy = 799EB0E12131605100D8A757 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		799EB0C82131604E00D8A757 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				799EB0C92131604E00D8A757 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		799EB0CD2131605100D8A757 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				799EB0CE2131605100D8A757 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		799EB0E72131605100D8A757 /* Debug */ = {
@@ -440,7 +417,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = m.PicsLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -458,7 +435,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = m.PicsLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
