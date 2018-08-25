@@ -8,11 +8,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let viewController = ViewController()
+        let viewController = AlbumsViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
+        
+//        let textAttributes = [NSAttributedStringKey.foregroundColor: Colors.contrast]
+//        navigationController.navigationBar.titleTextAttributes = textAttributes
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+        navigationController.navigationBar.barTintColor = Color.Dark.navbar
+        navigationController.navigationBar.tintColor = UIColor.green
+        
         window?.makeKeyAndVisible()
         
         return true

@@ -8,11 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		799EB0C52131604E00D8A757 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0C42131604E00D8A757 /* AppDelegate.swift */; };
-		799EB0C72131604E00D8A757 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0C62131604E00D8A757 /* ViewController.swift */; };
+		799EB0C72131604E00D8A757 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0C62131604E00D8A757 /* AlbumsViewController.swift */; };
 		799EB0CC2131605100D8A757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799EB0CB2131605100D8A757 /* Assets.xcassets */; };
 		799EB0DA2131605100D8A757 /* PicsLockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0D92131605100D8A757 /* PicsLockTests.swift */; };
 		799EB0E52131605100D8A757 /* PicsLockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0E42131605100D8A757 /* PicsLockUITests.swift */; };
 		799EB0F3213161CE00D8A757 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0F2213161CE00D8A757 /* Color.swift */; };
+		799EB0F52131656100D8A757 /* AlbumsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0F42131656100D8A757 /* AlbumsViewControllerTests.swift */; };
+		799EB0F72131696F00D8A757 /* AlbumsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0F62131696F00D8A757 /* AlbumsCollectionViewCell.swift */; };
+		799EB0F92131841700D8A757 /* DEBUG-ContentCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0F82131841700D8A757 /* DEBUG-ContentCreator.swift */; };
+		799EB0FB2131871200D8A757 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0FA2131871200D8A757 /* FileService.swift */; };
+		799EB0FD21318F5400D8A757 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0FC21318F5400D8A757 /* Folder.swift */; };
+		799EB0FF21318FF400D8A757 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0FE21318FF400D8A757 /* File.swift */; };
+		799EB10121319E4800D8A757 /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB10021319E4800D8A757 /* FilesViewController.swift */; };
+		799EB1032131A13A00D8A757 /* FilesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB1022131A13A00D8A757 /* FilesCollectionViewCell.swift */; };
+		799EB1052131A50C00D8A757 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB1042131A50C00D8A757 /* DetailViewController.swift */; };
+		799EB1072131B9F600D8A757 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799EB1062131B9F600D8A757 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +45,7 @@
 /* Begin PBXFileReference section */
 		799EB0C12131604E00D8A757 /* PicsLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicsLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		799EB0C42131604E00D8A757 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		799EB0C62131604E00D8A757 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		799EB0C62131604E00D8A757 /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
 		799EB0CB2131605100D8A757 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		799EB0D02131605100D8A757 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		799EB0D52131605100D8A757 /* PicsLockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicsLockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +55,16 @@
 		799EB0E42131605100D8A757 /* PicsLockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsLockUITests.swift; sourceTree = "<group>"; };
 		799EB0E62131605100D8A757 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		799EB0F2213161CE00D8A757 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		799EB0F42131656100D8A757 /* AlbumsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewControllerTests.swift; sourceTree = "<group>"; };
+		799EB0F62131696F00D8A757 /* AlbumsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsCollectionViewCell.swift; sourceTree = "<group>"; };
+		799EB0F82131841700D8A757 /* DEBUG-ContentCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DEBUG-ContentCreator.swift"; sourceTree = "<group>"; };
+		799EB0FA2131871200D8A757 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
+		799EB0FC21318F5400D8A757 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		799EB0FE21318FF400D8A757 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		799EB10021319E4800D8A757 /* FilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
+		799EB1022131A13A00D8A757 /* FilesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesCollectionViewCell.swift; sourceTree = "<group>"; };
+		799EB1042131A50C00D8A757 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		799EB1062131B9F600D8A757 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +116,19 @@
 			isa = PBXGroup;
 			children = (
 				799EB0C42131604E00D8A757 /* AppDelegate.swift */,
-				799EB0C62131604E00D8A757 /* ViewController.swift */,
+				799EB0C62131604E00D8A757 /* AlbumsViewController.swift */,
+				799EB10021319E4800D8A757 /* FilesViewController.swift */,
+				799EB0FA2131871200D8A757 /* FileService.swift */,
+				799EB0F82131841700D8A757 /* DEBUG-ContentCreator.swift */,
+				799EB0FC21318F5400D8A757 /* Folder.swift */,
+				799EB0FE21318FF400D8A757 /* File.swift */,
+				799EB0F62131696F00D8A757 /* AlbumsCollectionViewCell.swift */,
+				799EB1022131A13A00D8A757 /* FilesCollectionViewCell.swift */,
+				799EB1042131A50C00D8A757 /* DetailViewController.swift */,
 				799EB0F2213161CE00D8A757 /* Color.swift */,
 				799EB0CB2131605100D8A757 /* Assets.xcassets */,
 				799EB0D02131605100D8A757 /* Info.plist */,
+				799EB1062131B9F600D8A757 /* Images.xcassets */,
 			);
 			path = PicsLock;
 			sourceTree = "<group>";
@@ -108,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				799EB0D92131605100D8A757 /* PicsLockTests.swift */,
+				799EB0F42131656100D8A757 /* AlbumsViewControllerTests.swift */,
 				799EB0DB2131605100D8A757 /* Info.plist */,
 			);
 			path = PicsLockTests;
@@ -227,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				799EB0CC2131605100D8A757 /* Assets.xcassets in Resources */,
+				799EB1072131B9F600D8A757 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,9 +282,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				799EB0C72131604E00D8A757 /* ViewController.swift in Sources */,
+				799EB1052131A50C00D8A757 /* DetailViewController.swift in Sources */,
+				799EB0F92131841700D8A757 /* DEBUG-ContentCreator.swift in Sources */,
+				799EB0C72131604E00D8A757 /* AlbumsViewController.swift in Sources */,
+				799EB1032131A13A00D8A757 /* FilesCollectionViewCell.swift in Sources */,
 				799EB0C52131604E00D8A757 /* AppDelegate.swift in Sources */,
+				799EB10121319E4800D8A757 /* FilesViewController.swift in Sources */,
+				799EB0F72131696F00D8A757 /* AlbumsCollectionViewCell.swift in Sources */,
 				799EB0F3213161CE00D8A757 /* Color.swift in Sources */,
+				799EB0FF21318FF400D8A757 /* File.swift in Sources */,
+				799EB0FB2131871200D8A757 /* FileService.swift in Sources */,
+				799EB0FD21318F5400D8A757 /* Folder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				799EB0F52131656100D8A757 /* AlbumsViewControllerTests.swift in Sources */,
 				799EB0DA2131605100D8A757 /* PicsLockTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9R94XJAZ89;
 				INFOPLIST_FILE = PicsLock/Info.plist;
@@ -425,6 +466,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9R94XJAZ89;
 				INFOPLIST_FILE = PicsLock/Info.plist;
