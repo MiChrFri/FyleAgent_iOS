@@ -15,7 +15,6 @@ class AlbumsViewController: UIViewController {
         let fileService = FileService()
         folders = fileService.documentDirectories()
 
-        
         addCollectionView()
     }
     

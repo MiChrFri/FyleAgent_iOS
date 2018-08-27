@@ -59,6 +59,7 @@ extension FilesViewController: UICollectionViewDataSource, UICollectionViewDeleg
         
         if let img = UIImage(contentsOfFile: files[indexPath.row].path.relativePath) {
             cell.composeView(withImage: img)
+            cell.name = files[indexPath.row].name
         }
         
         return cell
@@ -91,7 +92,7 @@ extension FilesViewController: UICollectionViewDataSource, UICollectionViewDeleg
         
         let width = UIScreen.main.bounds.width / 3 - 16
         
-        return CGSize(width: width, height: width)
+        return CGSize(width: width, height: width+30)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
