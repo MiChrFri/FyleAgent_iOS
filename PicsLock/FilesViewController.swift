@@ -42,10 +42,13 @@ class FilesViewController: UIViewController {
     
     private func setupLayout() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+
+        NSLayoutConstraint.activate([
+        collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+        collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+        collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+        collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
     }
 }
 

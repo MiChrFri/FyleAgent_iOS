@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B076B0EA67779D69F1676E8 /* Pods_PicsLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2AC95F25921397A6C14385 /* Pods_PicsLock.framework */; };
+		5EA1CC8A5F53D57224A09B8D /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C73EA0716877EBA994ED /* PasswordViewController.swift */; };
+		60016C1BC3F4FE57F2CAE15A /* Pods_PicsLockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38BAD0E677A1BDE11A79F44 /* Pods_PicsLockUITests.framework */; };
 		799EB0C52131604E00D8A757 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0C42131604E00D8A757 /* AppDelegate.swift */; };
 		799EB0C72131604E00D8A757 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0C62131604E00D8A757 /* AlbumsViewController.swift */; };
 		799EB0CC2131605100D8A757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799EB0CB2131605100D8A757 /* Assets.xcassets */; };
@@ -23,6 +26,8 @@
 		799EB1032131A13A00D8A757 /* FilesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB1022131A13A00D8A757 /* FilesCollectionViewCell.swift */; };
 		799EB1052131A50C00D8A757 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB1042131A50C00D8A757 /* DetailViewController.swift */; };
 		799EB1072131B9F600D8A757 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799EB1062131B9F600D8A757 /* Images.xcassets */; };
+		79B02B9D21370B6E0045C6AD /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79B02B9C21370B6E0045C6AD /* CryptoSwift.framework */; };
+		876FAC8428907CFE565D9C4F /* Pods_PicsLockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C559A0ED8918EE3FE376BD /* Pods_PicsLockTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5EA1C73EA0716877EBA994ED /* PasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		5FBDE579901C334C19CC8A73 /* Pods-PicsLockTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicsLockTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicsLockTests/Pods-PicsLockTests.release.xcconfig"; sourceTree = "<group>"; };
+		6D2AC95F25921397A6C14385 /* Pods_PicsLock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicsLock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C559A0ED8918EE3FE376BD /* Pods_PicsLockTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicsLockTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		799EB0C12131604E00D8A757 /* PicsLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicsLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		799EB0C42131604E00D8A757 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		799EB0C62131604E00D8A757 /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +74,13 @@
 		799EB1022131A13A00D8A757 /* FilesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesCollectionViewCell.swift; sourceTree = "<group>"; };
 		799EB1042131A50C00D8A757 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		799EB1062131B9F600D8A757 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		79B02B9C21370B6E0045C6AD /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8353A87A20C14D5099E98CEC /* Pods-PicsLockTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicsLockTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicsLockTests/Pods-PicsLockTests.debug.xcconfig"; sourceTree = "<group>"; };
+		83BAB5F4C5CE4B00B61EE209 /* Pods-PicsLock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicsLock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicsLock/Pods-PicsLock.debug.xcconfig"; sourceTree = "<group>"; };
+		A38BAD0E677A1BDE11A79F44 /* Pods_PicsLockUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicsLockUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFC787A9E46D3E34ECA719AD /* Pods-PicsLockUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicsLockUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicsLockUITests/Pods-PicsLockUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D3985881F79B4BC3E3A667AB /* Pods-PicsLockUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicsLockUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicsLockUITests/Pods-PicsLockUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F034B497011E9DF4C7CEEC67 /* Pods-PicsLock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicsLock.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicsLock/Pods-PicsLock.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +88,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79B02B9D21370B6E0045C6AD /* CryptoSwift.framework in Frameworks */,
+				4B076B0EA67779D69F1676E8 /* Pods_PicsLock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				876FAC8428907CFE565D9C4F /* Pods_PicsLockTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,12 +105,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60016C1BC3F4FE57F2CAE15A /* Pods_PicsLockUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41C1B609F8094D31FD6BF91B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				83BAB5F4C5CE4B00B61EE209 /* Pods-PicsLock.debug.xcconfig */,
+				F034B497011E9DF4C7CEEC67 /* Pods-PicsLock.release.xcconfig */,
+				8353A87A20C14D5099E98CEC /* Pods-PicsLockTests.debug.xcconfig */,
+				5FBDE579901C334C19CC8A73 /* Pods-PicsLockTests.release.xcconfig */,
+				D3985881F79B4BC3E3A667AB /* Pods-PicsLockUITests.debug.xcconfig */,
+				AFC787A9E46D3E34ECA719AD /* Pods-PicsLockUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4A69C3D3FC2F056066915D34 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79B02B9C21370B6E0045C6AD /* CryptoSwift.framework */,
+				6D2AC95F25921397A6C14385 /* Pods_PicsLock.framework */,
+				78C559A0ED8918EE3FE376BD /* Pods_PicsLockTests.framework */,
+				A38BAD0E677A1BDE11A79F44 /* Pods_PicsLockUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		799EB0B82131604E00D8A757 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +143,8 @@
 				799EB0D82131605100D8A757 /* PicsLockTests */,
 				799EB0E32131605100D8A757 /* PicsLockUITests */,
 				799EB0C22131604E00D8A757 /* Products */,
+				41C1B609F8094D31FD6BF91B /* Pods */,
+				4A69C3D3FC2F056066915D34 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +175,7 @@
 				799EB0CB2131605100D8A757 /* Assets.xcassets */,
 				799EB0D02131605100D8A757 /* Info.plist */,
 				799EB1062131B9F600D8A757 /* Images.xcassets */,
+				5EA1C73EA0716877EBA994ED /* PasswordViewController.swift */,
 			);
 			path = PicsLock;
 			sourceTree = "<group>";
@@ -159,9 +206,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 799EB0E92131605100D8A757 /* Build configuration list for PBXNativeTarget "PicsLock" */;
 			buildPhases = (
+				A913C8F2E6568E5549DAF60E /* [CP] Check Pods Manifest.lock */,
 				799EB0BD2131604E00D8A757 /* Sources */,
 				799EB0BE2131604E00D8A757 /* Frameworks */,
 				799EB0BF2131604E00D8A757 /* Resources */,
+				EA4748BDD5CE6DC747F35817 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -176,6 +225,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 799EB0EC2131605100D8A757 /* Build configuration list for PBXNativeTarget "PicsLockTests" */;
 			buildPhases = (
+				282E22147229E15E554F2F90 /* [CP] Check Pods Manifest.lock */,
 				799EB0D12131605100D8A757 /* Sources */,
 				799EB0D22131605100D8A757 /* Frameworks */,
 				799EB0D32131605100D8A757 /* Resources */,
@@ -194,6 +244,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 799EB0EF2131605100D8A757 /* Build configuration list for PBXNativeTarget "PicsLockUITests" */;
 			buildPhases = (
+				5694DE78F6DD37FDE41A72C0 /* [CP] Check Pods Manifest.lock */,
 				799EB0DC2131605100D8A757 /* Sources */,
 				799EB0DD2131605100D8A757 /* Frameworks */,
 				799EB0DE2131605100D8A757 /* Resources */,
@@ -277,6 +328,81 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		282E22147229E15E554F2F90 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PicsLockTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5694DE78F6DD37FDE41A72C0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PicsLockUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A913C8F2E6568E5549DAF60E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PicsLock-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA4748BDD5CE6DC747F35817 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PicsLock/Pods-PicsLock-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PicsLock/Pods-PicsLock-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		799EB0BD2131604E00D8A757 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -293,6 +419,7 @@
 				799EB0FF21318FF400D8A757 /* File.swift in Sources */,
 				799EB0FB2131871200D8A757 /* FileService.swift in Sources */,
 				799EB0FD21318F5400D8A757 /* Folder.swift in Sources */,
+				5EA1CC8A5F53D57224A09B8D /* PasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +572,7 @@
 		};
 		799EB0EA2131605100D8A757 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83BAB5F4C5CE4B00B61EE209 /* Pods-PicsLock.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -464,6 +592,7 @@
 		};
 		799EB0EB2131605100D8A757 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F034B497011E9DF4C7CEEC67 /* Pods-PicsLock.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -483,6 +612,7 @@
 		};
 		799EB0ED2131605100D8A757 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8353A87A20C14D5099E98CEC /* Pods-PicsLockTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -504,6 +634,7 @@
 		};
 		799EB0EE2131605100D8A757 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FBDE579901C334C19CC8A73 /* Pods-PicsLockTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -525,6 +656,7 @@
 		};
 		799EB0F02131605100D8A757 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3985881F79B4BC3E3A667AB /* Pods-PicsLockUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -545,6 +677,7 @@
 		};
 		799EB0F12131605100D8A757 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFC787A9E46D3E34ECA719AD /* Pods-PicsLockUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
