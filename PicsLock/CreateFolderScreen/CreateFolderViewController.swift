@@ -20,12 +20,16 @@ extension CreateFolderViewController: CreateFolderViewDelegate {
         self.dismiss(animated: true)
     }
 
-    func didEnter(folderName: String) {
+    func didEnter(folderName: String, codeHash: String?) {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let folder = documentsDirectory.appendingPathComponent(folderName)
 
         do {
             try FileManager.default.createDirectory(atPath: folder.path, withIntermediateDirectories: true, attributes: nil)
+            if let accesscodeHash = codeHash {
+                let defaults = UserDefaults.standard
+                defaults.set(accesscodeHash, forKey: folderName)
+            }
         } catch let error as NSError {
             print("Error creating directory: \(error.localizedDescription)")
         }

@@ -3,6 +3,7 @@ import UIKit
 class AlbumsViewController: UIViewController {
     let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     private var folders = [Folder]()
+    private var visibleFolders = [Folder]()
     private var loggedIn = false
     private lazy var fileService = FileService()
 
@@ -47,17 +48,26 @@ class AlbumsViewController: UIViewController {
         setupLayout()
     }
 
-    @objc func newFolder(sender: UIBarButtonItem) {
+    @objc func newFolder() {
         let createFolderViewController = CreateFolderViewController()
         createFolderViewController.modalPresentationStyle = .overCurrentContext
         createFolderViewController.delegate = self
         self.present(createFolderViewController, animated:true, completion: nil)
     }
 
+    @objc func unlock() {
+        visibleFolders = folders
+        collectionView.reloadData()
+    }
+
     private func setupNavigationItems() {
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "New Folder", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.newFolder(sender:)))
-        self.navigationItem.rightBarButtonItem = newBackButton
+
+        let unlockButton = UIBarButtonItem(title: "🔐", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.unlock))
+        self.navigationItem.leftBarButtonItem = unlockButton
+
+        let newFolderButton = UIBarButtonItem(title: "New Folder", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.newFolder))
+        self.navigationItem.rightBarButtonItem = newFolderButton
     }
     
     private func setupLayout() {
@@ -77,6 +87,15 @@ extension AlbumsViewController: LoginDelegate {
     func successfullyLoggedIn() {
         loggedIn = true
         folders = fileService.documentDirectories()
+
+        for (i, folder) in folders.enumerated() {
+            if let accesscodeHash = UserDefaults.standard.object(forKey: folder.name) as? String {
+                folders[i].accesscodeHash = accesscodeHash
+            }
+        }
+
+        visibleFolders = folders.filter { $0.accesscodeHash?.count ?? 0 == 0 }
+
         addCollectionView()
     }
 }
@@ -91,12 +110,14 @@ extension AlbumsViewController: CreateFolderDelegate {
 
 extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return folders.count
+        return visibleFolders.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell_Id", for: indexPath) as! AlbumsCollectionViewCell
-        cell.name = folders[indexPath.row].name
+//        cell.name = folders[indexPath.row].name
+        cell.name = visibleFolders[indexPath.row].name
+
         return cell
     }
     
@@ -115,7 +136,7 @@ extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDele
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = 80//UIScreen.main.bounds.width / 3 - 26
+        let width = 80
         
         return CGSize(width: width, height: width)
     }

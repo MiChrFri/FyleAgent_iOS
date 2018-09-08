@@ -1,7 +1,6 @@
 import UIKit
 
 class FilesViewController: UIViewController {
-   // let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     private let permissionsManager = PermissionManager()
     private let imageProvider = ImageProvider()
     let fileService = FileService()

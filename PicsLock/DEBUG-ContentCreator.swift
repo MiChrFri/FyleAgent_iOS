@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import CryptoSwift
 
 struct ContentCreator {
     
@@ -18,6 +19,7 @@ struct ContentCreator {
             let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
             let folder1 = documentsDirectory.appendingPathComponent("MyFolder")
             let folder2 = documentsDirectory.appendingPathComponent("MyFolder_cpy")
+            let folder3 = documentsDirectory.appendingPathComponent("MyFolder_hidden")
             
             do {
                 try FileManager.default.createDirectory(atPath: folder1.path, withIntermediateDirectories: true, attributes: nil)
@@ -30,7 +32,16 @@ struct ContentCreator {
             } catch let error as NSError {
                 print("Error creating directory: \(error.localizedDescription)")
             }
-            
+
+            do {
+                try FileManager.default.createDirectory(atPath: folder3.path, withIntermediateDirectories: true, attributes: nil)
+            } catch let error as NSError {
+                print("Error creating directory: \(error.localizedDescription)")
+            }
+
+            let defaults = UserDefaults.standard
+            defaults.set("test".sha256(), forKey: "MyFolder_hidden")
+
             
             let imagePath = folder1.appendingPathComponent(name)
             try data.write(to: imagePath)

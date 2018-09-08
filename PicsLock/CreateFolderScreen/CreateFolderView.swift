@@ -1,7 +1,7 @@
 import UIKit
 
 protocol CreateFolderViewDelegate: class {
-    func didEnter(folderName: String)
+    func didEnter(folderName: String, codeHash: String?)
     func didClose()
 }
 
@@ -46,24 +46,18 @@ class CreateFolderView: UIView {
 
     lazy var nameField: InputField = {
         let nameField = InputField()
+        nameField.placeholder = "Foldername"
         nameField.translatesAutoresizingMaskIntoConstraints = false
         return nameField
     }()
 
-    @objc func closeView() {
-        delegate?.didClose()
-    }
-
-    @objc func doneEntering() {
-        if let folderName = nameField.text {
-            if folderName.count > 0 {
-                delegate?.didEnter(folderName: folderName)
-            } else {
-                print("no text entered")
-                // TODO: Error message for user
-            }
-        }
-    }
+    lazy var folderCode: InputField = {
+        let folderCode = InputField()
+        folderCode.placeholder = "FolderCode"
+        folderCode.isSecureTextEntry = true
+        folderCode.translatesAutoresizingMaskIntoConstraints = false
+        return folderCode
+    }()
 
     init() {
         super.init(frame: CGRect.zero)
@@ -73,6 +67,7 @@ class CreateFolderView: UIView {
         newFolderView.addSubview(closeButton)
         newFolderView.addSubview(doneButton)
         newFolderView.addSubview(nameField)
+        newFolderView.addSubview(folderCode)
         nameField.becomeFirstResponder()
 
         setupLayout()
@@ -80,6 +75,22 @@ class CreateFolderView: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    @objc func closeView() {
+        delegate?.didClose()
+    }
+
+    @objc func doneEntering() {
+        if let folderName = nameField.text {
+            if folderName.count > 0 {
+                let passcodeHash = folderCode.text?.sha256()
+                delegate?.didEnter(folderName: folderName, codeHash: passcodeHash)
+            } else {
+                print("no text entered")
+                // TODO: Error message for user
+            }
+        }
     }
 
     private func setupLayout() {
@@ -108,6 +119,11 @@ class CreateFolderView: UIView {
             nameField.trailingAnchor.constraint(equalTo: newFolderView.trailingAnchor, constant: -16.0),
             nameField.centerYAnchor.constraint(equalTo: newFolderView.centerYAnchor),
             nameField.centerXAnchor.constraint(equalTo: newFolderView.centerXAnchor),
+
+            folderCode.leadingAnchor.constraint(equalTo: newFolderView.leadingAnchor, constant: 16.0),
+            folderCode.trailingAnchor.constraint(equalTo: newFolderView.trailingAnchor, constant: -16.0),
+            folderCode.topAnchor.constraint(equalTo:  nameField.bottomAnchor, constant: 16.0),
+            folderCode.centerXAnchor.constraint(equalTo: newFolderView.centerXAnchor),
         ])
     }
 
