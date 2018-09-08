@@ -1,14 +1,31 @@
 import UIKit
 
 class FilesViewController: UIViewController {
-    let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+   // let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+    private let permissionsManager = PermissionManager()
+    private let imageProvider = ImageProvider()
     let fileService = FileService()
     var files = [File]()
     let folderPath: URL
+
+    let collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+        collectionView.register(FilesCollectionViewCell.self, forCellWithReuseIdentifier: "files_cell_Id")
+        let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
+
+        layout.scrollDirection = UICollectionViewScrollDirection.vertical
+        collectionView.setCollectionViewLayout(layout, animated: true)
+        collectionView.backgroundColor = Color.Dark.background
+        collectionView.contentInset = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
+
+        return collectionView
+    }()
     
     init(folderPath: URL) {
         self.folderPath = folderPath
         super.init(nibName: nil, bundle: nil)
+
+        permissionsManager.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -18,26 +35,35 @@ class FilesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = folderPath.lastPathComponent
         files = fileService.files(at: folderPath)
 
-        addCollectionView()
-    }
-    
-    func addCollectionView() {
-        collectionView.register(FilesCollectionViewCell.self, forCellWithReuseIdentifier: "files_cell_Id")
-        let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
-        
-        layout.scrollDirection = UICollectionViewScrollDirection.vertical
-        collectionView.setCollectionViewLayout(layout, animated: true)
-        collectionView.backgroundColor = Color.Dark.background
+        view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        collectionView.contentInset = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
-        self.view.addSubview(collectionView)
 
+        setupNavigationItems()
         setupLayout()
+    }
+
+    private func setupNavigationItems() {
+        title = folderPath.lastPathComponent
+        let newBackButton = UIBarButtonItem(title: "Add Image", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.addImage(sender:)))
+        self.navigationItem.rightBarButtonItem = newBackButton
+    }
+
+    @objc func addImage(sender: UIBarButtonItem) {
+        let imagePickerAlert = UIAlertController(title: "Select an Image", message: nil, preferredStyle: .alert)
+
+        imagePickerAlert.view.tintColor = UIColor.blue
+        imagePickerAlert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        imagePickerAlert.addAction(UIAlertAction(title: "Camera", style: UIAlertActionStyle.default, handler: { (action) in
+            self.permissionsManager.handleCameraPermission()
+        }))
+        imagePickerAlert.addAction(UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.default, handler: { (action) in
+            self.permissionsManager.handlePhotoLibraryPermission()
+        }))
+
+        self.present(imagePickerAlert, animated: true, completion: nil)
     }
     
     private func setupLayout() {
@@ -50,61 +76,70 @@ class FilesViewController: UIViewController {
         collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
+
+    private func presentImagePicker(withType type: UIImagePickerControllerSourceType) {
+        if let imagePicker = self.imageProvider.pickerController(from: type ) {
+            imagePicker.delegate = self
+            self.present(imagePicker, animated: false)
+        }
+    }
+
+    func pickedImage(image: UIImage?) {
+        if let img = image {
+            guard let data = UIImageJPEGRepresentation(img, 0.5) ?? UIImagePNGRepresentation(img) else {return}
+
+            do {
+                let imagePath = folderPath.appendingPathComponent("balas")
+                try data.write(to: imagePath)
+
+            } catch {
+                print(error.localizedDescription)
+            }
+
+            files = fileService.files(at: folderPath)
+            collectionView.reloadData()
+        }
+    }
 }
 
-extension FilesViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return files.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "files_cell_Id", for: indexPath) as! FilesCollectionViewCell
-        
-        if let img = UIImage(contentsOfFile: files[indexPath.row].path.relativePath) {
-            cell.composeView(withImage: img)
-            cell.name = files[indexPath.row].name
-        }
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let index = indexPath.row
-        
-        if let img = UIImage(contentsOfFile: files[index].path.relativePath) {
-            let detailViewController = DetailViewController(image: img)
-            
-            let transition = CATransition()
-            transition.duration = 0.1
-            transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-            transition.type = kCATransitionFade
-            self.navigationController?.view.layer.add(transition, forKey: nil)
+extension FilesViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        guard let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {dismiss(animated:false, completion:nil); return }
 
-            
-            self.navigationController?.pushViewController(detailViewController, animated: false)
+        dismiss(animated:false, completion: { () in
+            self.pickedImage(image: pickedImage)
+        })
+    }
+}
+
+extension FilesViewController: PermissionManagerDelegate {
+    func allowed(for sourceType: UIImagePickerControllerSourceType) {
+        self.presentImagePicker(withType: sourceType)
+    }
+
+    func denied(for permissionType: UIImagePickerControllerSourceType) {
+        var alertTitle: String
+        var alertMessage: String
+
+        switch permissionType {
+        case .camera:
+            alertTitle = "Photos"
+            alertMessage = "Allow APPNAME to access your camera if you want to take photos. You can change the permissions in your settings and try again"
+        case .photoLibrary, .savedPhotosAlbum:
+            alertTitle = "Photo Library"
+            alertMessage = "Allow APPNAME to access your photo library if you want load and store photos from it. You can change the permissions in your settings and try again"
         }
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let width = UIScreen.main.bounds.width / 3 - 16
-        
-        return CGSize(width: width, height: width+30)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 5.0
+
+        let errorAlert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        errorAlert.view.tintColor = Color.Dark.lightText
+        errorAlert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        errorAlert.addAction(UIAlertAction(title: "Settings", style: UIAlertActionStyle.default, handler: { (action) in
+            let app = UIApplication.shared
+            let settingsUrl = URL(string: UIApplicationOpenSettingsURLString)
+
+            app.open(settingsUrl!, options: [:], completionHandler: nil)
+        }))
+
+        self.present(errorAlert, animated: true, completion: nil)
     }
 }

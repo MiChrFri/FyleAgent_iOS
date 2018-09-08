@@ -6,8 +6,6 @@ class SetPasscodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("hola")
-
         view = SetPasscodeView()
         (view as! SetPasscodeView).delegate = self
     }

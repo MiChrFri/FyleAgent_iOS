@@ -47,7 +47,6 @@ class AlbumsViewController: UIViewController {
         setupLayout()
     }
 
-
     @objc func newFolder(sender: UIBarButtonItem) {
         let createFolderViewController = CreateFolderViewController()
         createFolderViewController.modalPresentationStyle = .overCurrentContext
