@@ -2,8 +2,9 @@ import UIKit
 
 class AlbumsViewController: UIViewController {
     let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-    private var folders = [Folder]()
-    private var visibleFolders = [Folder]()
+    private var hiddenFolders: Set<Folder> = []
+    private var visibleFolders: Set<Folder> = []
+    private var visibleFoldersSorted = [Folder]()
     private var loggedIn = false
     private lazy var fileService = FileService()
 
@@ -56,8 +57,10 @@ class AlbumsViewController: UIViewController {
     }
 
     @objc func unlock() {
-        visibleFolders = folders
-        collectionView.reloadData()
+        let unlockHiddenFolderViewController = UnlockHiddenFolderViewController()
+        unlockHiddenFolderViewController.modalPresentationStyle = .overCurrentContext
+        unlockHiddenFolderViewController.delegate = self
+        self.present(unlockHiddenFolderViewController, animated:true, completion: nil)
     }
 
     private func setupNavigationItems() {
@@ -86,15 +89,20 @@ class AlbumsViewController: UIViewController {
 extension AlbumsViewController: LoginDelegate {
     func successfullyLoggedIn() {
         loggedIn = true
-        folders = fileService.documentDirectories()
+        var folders = fileService.documentDirectories()
 
-        for (i, folder) in folders.enumerated() {
+        for folder in folders {
+
             if let accesscodeHash = UserDefaults.standard.object(forKey: folder.name) as? String {
-                folders[i].accesscodeHash = accesscodeHash
+                var f = folder
+                f.accesscodeHash = accesscodeHash
+                hiddenFolders.insert(f)
+            } else {
+                visibleFolders.insert(folder)
             }
         }
 
-        visibleFolders = folders.filter { $0.accesscodeHash?.count ?? 0 == 0 }
+        visibleFoldersSorted = Array(visibleFolders).sorted(by: { $0.name > $1.name })
 
         addCollectionView()
     }
@@ -102,8 +110,40 @@ extension AlbumsViewController: LoginDelegate {
 
 extension AlbumsViewController: CreateFolderDelegate {
     func didCreate() {
-        let fileService = FileService()
-        folders = fileService.documentDirectories()
+
+        var folders = fileService.documentDirectories()
+
+        for (i, folder) in folders.enumerated() {
+            if let accesscodeHash = UserDefaults.standard.object(forKey: folder.name) as? String {
+                folders[i].accesscodeHash = accesscodeHash
+                hiddenFolders.insert(folders[i])
+            } else {
+                visibleFolders.insert(folders[i])
+            }
+        }
+
+        visibleFoldersSorted = Array(visibleFolders).sorted(by: { $0.name > $1.name })
+
+        collectionView.reloadData()
+    }
+}
+
+extension AlbumsViewController: UnlockHiddenFolderDelegate {
+    func didEnter(folderCodeHash: String) {
+
+        for folder in hiddenFolders {
+            if folder.accesscodeHash == folderCodeHash {
+                visibleFolders.insert(folder)
+              //  hiddenFolders.remove(folder)
+            }
+        }
+
+        for v in visibleFolders {
+            print(v.name)
+        }
+
+        visibleFoldersSorted = Array(visibleFolders).sorted(by: { $0.name > $1.name })
+
         collectionView.reloadData()
     }
 }
@@ -115,8 +155,7 @@ extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell_Id", for: indexPath) as! AlbumsCollectionViewCell
-//        cell.name = folders[indexPath.row].name
-        cell.name = visibleFolders[indexPath.row].name
+        cell.name = visibleFoldersSorted[indexPath.row].name
 
         return cell
     }
@@ -124,7 +163,7 @@ extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let index = indexPath.row
 
-        let filesViewController = FilesViewController(folderPath: folders[index].path)
+        let filesViewController = FilesViewController(folderPath: visibleFoldersSorted[index].path)
         self.navigationController?.pushViewController(filesViewController, animated: true)
     }
     

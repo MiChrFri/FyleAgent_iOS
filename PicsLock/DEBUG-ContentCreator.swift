@@ -19,7 +19,7 @@ struct ContentCreator {
             let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
             let folder1 = documentsDirectory.appendingPathComponent("MyFolder")
             let folder2 = documentsDirectory.appendingPathComponent("MyFolder_cpy")
-            let folder3 = documentsDirectory.appendingPathComponent("MyFolder_hidden")
+            let folder3 = documentsDirectory.appendingPathComponent("Ghost")
             
             do {
                 try FileManager.default.createDirectory(atPath: folder1.path, withIntermediateDirectories: true, attributes: nil)
@@ -40,7 +40,7 @@ struct ContentCreator {
             }
 
             let defaults = UserDefaults.standard
-            defaults.set("test".sha256(), forKey: "MyFolder_hidden")
+            defaults.set("test".sha256(), forKey: "Ghost")
 
             
             let imagePath = folder1.appendingPathComponent(name)
