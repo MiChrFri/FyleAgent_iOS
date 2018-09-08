@@ -13,11 +13,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
-    
-        UIApplication.shared.statusBarStyle = .lightContent
+
         navigationController.navigationBar.barTintColor = Color.Dark.navBar
-        navigationController.navigationBar.tintColor = UIColor.green
-        
+        navigationController.navigationBar.tintColor = Color.Dark.navBarItems
+
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : Color.Dark.navBarTitle]
+
         window?.makeKeyAndVisible()
         
         return true

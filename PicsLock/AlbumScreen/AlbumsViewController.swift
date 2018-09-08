@@ -4,6 +4,7 @@ class AlbumsViewController: UIViewController {
     let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     private var folders = [Folder]()
     private var loggedIn = false
+    private lazy var fileService = FileService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +42,23 @@ class AlbumsViewController: UIViewController {
         
         collectionView.contentInset = UIEdgeInsets(top: 8.0, left: 16.0, bottom: 8.0, right: 16.0)
         self.view.addSubview(collectionView)
-        
+
+        setupNavigationItems()
         setupLayout()
+    }
+
+
+    @objc func newFolder(sender: UIBarButtonItem) {
+        let createFolderViewController = CreateFolderViewController()
+        createFolderViewController.modalPresentationStyle = .overCurrentContext
+        createFolderViewController.delegate = self
+        self.present(createFolderViewController, animated:true, completion: nil)
+    }
+
+    private func setupNavigationItems() {
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "New Folder", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.newFolder(sender:)))
+        self.navigationItem.rightBarButtonItem = newBackButton
     }
     
     private func setupLayout() {
@@ -60,11 +76,17 @@ class AlbumsViewController: UIViewController {
 
 extension AlbumsViewController: LoginDelegate {
     func successfullyLoggedIn() {
-
         loggedIn = true
-        let fileService = FileService()
         folders = fileService.documentDirectories()
         addCollectionView()
+    }
+}
+
+extension AlbumsViewController: CreateFolderDelegate {
+    func didCreate() {
+        let fileService = FileService()
+        folders = fileService.documentDirectories()
+        collectionView.reloadData()
     }
 }
 
@@ -81,7 +103,7 @@ extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let index = indexPath.row
-        
+
         let filesViewController = FilesViewController(folderPath: folders[index].path)
         self.navigationController?.pushViewController(filesViewController, animated: true)
     }

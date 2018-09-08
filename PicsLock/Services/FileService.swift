@@ -37,11 +37,9 @@ struct FileService {
         
         do {
             let resourceKeys : [URLResourceKey] = [.creationDateKey, .isDirectoryKey, .fileSizeKey]
-            let documentsURL = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             let enumerator = FileManager.default.enumerator(at: documentsURL,
                                                             includingPropertiesForKeys: resourceKeys,
                                                             options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in
-                                                                print("directoryEnumerator error at \(url): ", error)
                                                                 return true
             })!
             
@@ -50,10 +48,7 @@ struct FileService {
                 if !(resourceValues.isDirectory ?? false) {
                     
                     files.append(File(name: fileURL.lastPathComponent, path: fileURL.absoluteURL))
-
-                    print("🌅 \(fileURL.lastPathComponent)")
                 }
-                
             }
         } catch {
             print(error)

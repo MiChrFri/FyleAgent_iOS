@@ -3,10 +3,8 @@ import UIKit
 class FilesViewController: UIViewController {
     let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     let fileService = FileService()
-    
     var files = [File]()
     let folderPath: URL
-    
     
     init(folderPath: URL) {
         self.folderPath = folderPath
@@ -19,8 +17,10 @@ class FilesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        title = folderPath.lastPathComponent
         files = fileService.files(at: folderPath)
+
         addCollectionView()
     }
     
@@ -36,7 +36,7 @@ class FilesViewController: UIViewController {
         
         collectionView.contentInset = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
         self.view.addSubview(collectionView)
-        
+
         setupLayout()
     }
     
