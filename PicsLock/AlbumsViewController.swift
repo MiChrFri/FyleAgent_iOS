@@ -2,22 +2,31 @@ import UIKit
 
 class AlbumsViewController: UIViewController {
     let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-    
-    var folders = [Folder]()
+    private var folders = [Folder]()
+    private var loggedIn = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         #if DEBUG
         ContentCreator.addTextContent()
         #endif
-        
-        let fileService = FileService()
-        folders = fileService.documentDirectories()
-
-        addCollectionView()
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if !loggedIn {
+            login()
+        }
+    }
+
+    private func login() {
+        let loginViewController = LoginViewController()
+        loginViewController.delegate = self
+        self.present(loginViewController, animated:true, completion: nil)
+    }
+
     func addCollectionView() {
         setNeedsStatusBarAppearanceUpdate()
         
@@ -46,6 +55,16 @@ class AlbumsViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+}
+
+extension AlbumsViewController: LoginDelegate {
+    func successfullyLoggedIn() {
+
+        loggedIn = true
+        let fileService = FileService()
+        folders = fileService.documentDirectories()
+        addCollectionView()
     }
 }
 

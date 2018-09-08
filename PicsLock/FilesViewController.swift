@@ -107,5 +107,4 @@ extension FilesViewController: UICollectionViewDataSource, UICollectionViewDeleg
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 5.0
     }
-    
 }

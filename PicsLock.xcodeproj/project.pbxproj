@@ -8,7 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		4B076B0EA67779D69F1676E8 /* Pods_PicsLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2AC95F25921397A6C14385 /* Pods_PicsLock.framework */; };
-		5EA1CC8A5F53D57224A09B8D /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C73EA0716877EBA994ED /* PasswordViewController.swift */; };
+		5EA1C0E3C88B84ECACE2935F /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C7A3220BA3BE2856EEE4 /* LoginDelegate.swift */; };
+		5EA1C3E1DC63BC894080728E /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CECD369E87EE6CF13365 /* InputField.swift */; };
+		5EA1CADBD145C910BF3205BF /* SetPasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C805301E8C6D49E6153C /* SetPasscodeView.swift */; };
+		5EA1CC8A5F53D57224A09B8D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C73EA0716877EBA994ED /* LoginViewController.swift */; };
+		5EA1CE05B6E319A6E193B0E7 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C3F025FCFDB612C932F7 /* Font.swift */; };
+		5EA1CEB3B89F7EFB5EB934D9 /* SetPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CB638007D59C728BAB81 /* SetPasscodeViewController.swift */; };
 		60016C1BC3F4FE57F2CAE15A /* Pods_PicsLockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38BAD0E677A1BDE11A79F44 /* Pods_PicsLockUITests.framework */; };
 		799EB0C52131604E00D8A757 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0C42131604E00D8A757 /* AppDelegate.swift */; };
 		799EB0C72131604E00D8A757 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0C62131604E00D8A757 /* AlbumsViewController.swift */; };
@@ -48,7 +53,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5EA1C73EA0716877EBA994ED /* PasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		5EA1C3F025FCFDB612C932F7 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		5EA1C73EA0716877EBA994ED /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5EA1C7A3220BA3BE2856EEE4 /* LoginDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDelegate.swift; sourceTree = "<group>"; };
+		5EA1C805301E8C6D49E6153C /* SetPasscodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPasscodeView.swift; sourceTree = "<group>"; };
+		5EA1CB638007D59C728BAB81 /* SetPasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPasscodeViewController.swift; sourceTree = "<group>"; };
+		5EA1CECD369E87EE6CF13365 /* InputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		5FBDE579901C334C19CC8A73 /* Pods-PicsLockTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicsLockTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicsLockTests/Pods-PicsLockTests.release.xcconfig"; sourceTree = "<group>"; };
 		6D2AC95F25921397A6C14385 /* Pods_PicsLock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicsLock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C559A0ED8918EE3FE376BD /* Pods_PicsLockTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicsLockTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,7 +185,12 @@
 				799EB0CB2131605100D8A757 /* Assets.xcassets */,
 				799EB0D02131605100D8A757 /* Info.plist */,
 				799EB1062131B9F600D8A757 /* Images.xcassets */,
-				5EA1C73EA0716877EBA994ED /* PasswordViewController.swift */,
+				5EA1C73EA0716877EBA994ED /* LoginViewController.swift */,
+				5EA1CB638007D59C728BAB81 /* SetPasscodeViewController.swift */,
+				5EA1C805301E8C6D49E6153C /* SetPasscodeView.swift */,
+				5EA1CECD369E87EE6CF13365 /* InputField.swift */,
+				5EA1C3F025FCFDB612C932F7 /* Font.swift */,
+				5EA1C7A3220BA3BE2856EEE4 /* LoginDelegate.swift */,
 			);
 			path = PicsLock;
 			sourceTree = "<group>";
@@ -419,7 +434,12 @@
 				799EB0FF21318FF400D8A757 /* File.swift in Sources */,
 				799EB0FB2131871200D8A757 /* FileService.swift in Sources */,
 				799EB0FD21318F5400D8A757 /* Folder.swift in Sources */,
-				5EA1CC8A5F53D57224A09B8D /* PasswordViewController.swift in Sources */,
+				5EA1CC8A5F53D57224A09B8D /* LoginViewController.swift in Sources */,
+				5EA1CEB3B89F7EFB5EB934D9 /* SetPasscodeViewController.swift in Sources */,
+				5EA1CADBD145C910BF3205BF /* SetPasscodeView.swift in Sources */,
+				5EA1C3E1DC63BC894080728E /* InputField.swift in Sources */,
+				5EA1CE05B6E319A6E193B0E7 /* Font.swift in Sources */,
+				5EA1C0E3C88B84ECACE2935F /* LoginDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
