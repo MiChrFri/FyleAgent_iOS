@@ -50,9 +50,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         if passcodeHash.count > 0 {
-
             view.backgroundColor = Color.Dark.background
 
             view.addSubview(descriptionField)
@@ -63,7 +61,6 @@ class LoginViewController: UIViewController {
 
             setupLayout()
         }
-
 
     }
 
