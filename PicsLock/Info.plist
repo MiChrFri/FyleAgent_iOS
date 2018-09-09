@@ -23,9 +23,6 @@
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
 
-	<key>UIFileSharingEnabled</key>
-	<true/>
-
 	<key>NSCameraUsageDescription</key>
 	<string>APPNAME needs access to your camera if you want to store photos with the app.</string>
 	<key>NSPhotoLibraryUsageDescription</key>

@@ -17,7 +17,7 @@ class CreateFolderView: UIView {
 
     lazy var newFolderView: UIView = {
         let newFolderView = UIView(frame: CGRect.zero)
-        newFolderView.backgroundColor = UIColor.gray
+        newFolderView.backgroundColor = Color.Dark.alertBackground
         newFolderView.layer.cornerRadius = 12.0
         newFolderView.translatesAutoresizingMaskIntoConstraints = false
         return newFolderView
@@ -27,21 +27,18 @@ class CreateFolderView: UIView {
         let closeButton = UIButton(frame: CGRect.zero)
         closeButton.layer.cornerRadius = 20.0
         closeButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
-        closeButton.setTitle("×", for: .normal)
+        closeButton.setTitle("✖︎", for: .normal)
         closeButton.titleLabel?.font = Font.closeButton
         closeButton.addTarget(self, action: #selector(closeView), for: .touchUpInside)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         return closeButton
     }()
 
-    lazy var doneButton: UIButton = {
-        let doneButton = UIButton(frame: CGRect.zero)
-        doneButton.layer.cornerRadius = 4.0
-        doneButton.setTitle("Done", for: .normal)
-        doneButton.titleLabel?.font = Font.inputField
-        doneButton.addTarget(self, action: #selector(doneEntering), for: .touchUpInside)
-        doneButton.translatesAutoresizingMaskIntoConstraints = false
-        return doneButton
+    lazy var infoTextView: InfoTextView = {
+        let infoTextView = InfoTextView()
+        infoTextView.text = "Set the name for your folder and if you want a password for it"
+        infoTextView.translatesAutoresizingMaskIntoConstraints = false
+        return infoTextView
     }()
 
     lazy var nameField: InputField = {
@@ -59,15 +56,27 @@ class CreateFolderView: UIView {
         return folderCode
     }()
 
+    lazy var doneButton: UIButton = {
+        let doneButton = UIButton(frame: CGRect.zero)
+        doneButton.layer.cornerRadius = 8.0
+        doneButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        doneButton.setTitle("Create Folder", for: .normal)
+        doneButton.titleLabel?.font = Font.textButton
+        doneButton.addTarget(self, action: #selector(doneEntering), for: .touchUpInside)
+        doneButton.translatesAutoresizingMaskIntoConstraints = false
+        return doneButton
+    }()
+
     init() {
         super.init(frame: CGRect.zero)
 
         self.addSubview(backgroundView)
         self.addSubview(newFolderView)
         newFolderView.addSubview(closeButton)
-        newFolderView.addSubview(doneButton)
+        newFolderView.addSubview(infoTextView)
         newFolderView.addSubview(nameField)
         newFolderView.addSubview(folderCode)
+        newFolderView.addSubview(doneButton)
         nameField.becomeFirstResponder()
 
         setupLayout()
@@ -103,16 +112,16 @@ class CreateFolderView: UIView {
             newFolderView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 30.0),
             newFolderView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -30.0),
             newFolderView.topAnchor.constraint(equalTo: backgroundView.safeAreaLayoutGuide.topAnchor, constant: 30.0),
-            newFolderView.bottomAnchor.constraint(equalTo: backgroundView.centerYAnchor),
+            newFolderView.bottomAnchor.constraint(equalTo: backgroundView.centerYAnchor, constant: 50.0),
 
-            closeButton.topAnchor.constraint(equalTo: newFolderView.topAnchor, constant: 4.0),
-            closeButton.trailingAnchor.constraint(equalTo: newFolderView.trailingAnchor, constant: -4.0),
+            closeButton.topAnchor.constraint(equalTo: newFolderView.topAnchor, constant: 8.0),
+            closeButton.trailingAnchor.constraint(equalTo: newFolderView.trailingAnchor, constant: -8.0),
             closeButton.widthAnchor.constraint(equalToConstant: 40.0),
             closeButton.heightAnchor.constraint(equalToConstant: 40.0),
 
-            doneButton.bottomAnchor.constraint(equalTo: newFolderView.bottomAnchor, constant: 4.0),
-            doneButton.trailingAnchor.constraint(equalTo: newFolderView.trailingAnchor, constant: -4.0),
-            doneButton.widthAnchor.constraint(equalToConstant: 80.0),
+            doneButton.bottomAnchor.constraint(equalTo: newFolderView.bottomAnchor, constant: -12.0),
+            doneButton.centerXAnchor.constraint(equalTo: newFolderView.centerXAnchor),
+            doneButton.widthAnchor.constraint(equalToConstant: 160.0),
             doneButton.heightAnchor.constraint(equalToConstant: 40.0),
 
             nameField.leadingAnchor.constraint(equalTo: newFolderView.leadingAnchor, constant: 16.0),
@@ -124,6 +133,12 @@ class CreateFolderView: UIView {
             folderCode.trailingAnchor.constraint(equalTo: newFolderView.trailingAnchor, constant: -16.0),
             folderCode.topAnchor.constraint(equalTo:  nameField.bottomAnchor, constant: 16.0),
             folderCode.centerXAnchor.constraint(equalTo: newFolderView.centerXAnchor),
+
+            infoTextView.leadingAnchor.constraint(equalTo: newFolderView.leadingAnchor, constant: 16.0),
+            infoTextView.trailingAnchor.constraint(equalTo: newFolderView.trailingAnchor, constant: -16.0),
+            infoTextView.bottomAnchor.constraint(equalTo: nameField.topAnchor, constant: -20.0),
+            infoTextView.topAnchor.constraint(equalTo: closeButton.bottomAnchor, constant: 24.0),
+            infoTextView.centerXAnchor.constraint(equalTo: newFolderView.centerXAnchor),
         ])
     }
 

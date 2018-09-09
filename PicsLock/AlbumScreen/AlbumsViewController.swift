@@ -68,10 +68,10 @@ class AlbumsViewController: UIViewController {
     private func setupNavigationItems() {
         self.navigationItem.hidesBackButton = true
 
-        let unlockButton = UIBarButtonItem(title: "🔐", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.unlock))
+        let unlockButton = UIBarButtonItem(image: UIImage(named: "lockIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.unlock))
         self.navigationItem.leftBarButtonItem = unlockButton
 
-        let newFolderButton = UIBarButtonItem(title: "New Folder", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.newFolder))
+        let newFolderButton = UIBarButtonItem(image: UIImage(named: "newFolderIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.newFolder))
         self.navigationItem.rightBarButtonItem = newFolderButton
     }
     

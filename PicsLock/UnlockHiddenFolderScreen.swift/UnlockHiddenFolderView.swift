@@ -17,7 +17,7 @@ class UnlockHiddenFolderView: UIView {
 
     lazy var passcodeView: UIView = {
         let passcodeView = UIView(frame: CGRect.zero)
-        passcodeView.backgroundColor = UIColor.gray
+        passcodeView.backgroundColor = Color.Dark.alertBackground
         passcodeView.layer.cornerRadius = 12.0
         passcodeView.translatesAutoresizingMaskIntoConstraints = false
         return passcodeView
@@ -27,21 +27,18 @@ class UnlockHiddenFolderView: UIView {
         let closeButton = UIButton(frame: CGRect.zero)
         closeButton.layer.cornerRadius = 20.0
         closeButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
-        closeButton.setTitle("×", for: .normal)
+        closeButton.setTitle("✖︎", for: .normal)
         closeButton.titleLabel?.font = Font.closeButton
         closeButton.addTarget(self, action: #selector(closeView), for: .touchUpInside)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         return closeButton
     }()
 
-    lazy var doneButton: UIButton = {
-        let doneButton = UIButton(frame: CGRect.zero)
-        doneButton.layer.cornerRadius = 4.0
-        doneButton.setTitle("Done", for: .normal)
-        doneButton.titleLabel?.font = Font.inputField
-        doneButton.addTarget(self, action: #selector(doneEntering), for: .touchUpInside)
-        doneButton.translatesAutoresizingMaskIntoConstraints = false
-        return doneButton
+    lazy var infoTextView: InfoTextView = {
+        let infoTextView = InfoTextView()
+        infoTextView.text = "Enter your passcode for you hidden folder to show them temporary in the folder-overview"
+        infoTextView.translatesAutoresizingMaskIntoConstraints = false
+        return infoTextView
     }()
 
     lazy var folderCode: InputField = {
@@ -52,14 +49,26 @@ class UnlockHiddenFolderView: UIView {
         return folderCode
     }()
 
+    lazy var doneButton: UIButton = {
+        let doneButton = UIButton(frame: CGRect.zero)
+        doneButton.layer.cornerRadius = 8.0
+        doneButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        doneButton.setTitle("Unlock", for: .normal)
+        doneButton.titleLabel?.font = Font.textButton
+        doneButton.addTarget(self, action: #selector(doneEntering), for: .touchUpInside)
+        doneButton.translatesAutoresizingMaskIntoConstraints = false
+        return doneButton
+    }()
+
     init() {
         super.init(frame: CGRect.zero)
 
         self.addSubview(backgroundView)
         self.addSubview(passcodeView)
         passcodeView.addSubview(closeButton)
-        passcodeView.addSubview(doneButton)
+        passcodeView.addSubview(infoTextView)
         passcodeView.addSubview(folderCode)
+        passcodeView.addSubview(doneButton)
         folderCode.becomeFirstResponder()
 
         setupLayout()
@@ -91,23 +100,29 @@ class UnlockHiddenFolderView: UIView {
 
             passcodeView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 30.0),
             passcodeView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -30.0),
-            passcodeView.topAnchor.constraint(equalTo: backgroundView.safeAreaLayoutGuide.topAnchor, constant: 30.0),
-            passcodeView.bottomAnchor.constraint(equalTo: backgroundView.centerYAnchor),
+            passcodeView.topAnchor.constraint(equalTo: backgroundView.safeAreaLayoutGuide.topAnchor, constant: 60.0),
+            passcodeView.bottomAnchor.constraint(equalTo: backgroundView.centerYAnchor, constant: 50.0),
 
-            closeButton.topAnchor.constraint(equalTo: passcodeView.topAnchor, constant: 4.0),
-            closeButton.trailingAnchor.constraint(equalTo: passcodeView.trailingAnchor, constant: -4.0),
+            closeButton.topAnchor.constraint(equalTo: passcodeView.topAnchor, constant: 8.0),
+            closeButton.trailingAnchor.constraint(equalTo: passcodeView.trailingAnchor, constant: -8.0),
             closeButton.widthAnchor.constraint(equalToConstant: 40.0),
             closeButton.heightAnchor.constraint(equalToConstant: 40.0),
 
-            doneButton.bottomAnchor.constraint(equalTo: passcodeView.bottomAnchor, constant: 4.0),
-            doneButton.trailingAnchor.constraint(equalTo: passcodeView.trailingAnchor, constant: -4.0),
-            doneButton.widthAnchor.constraint(equalToConstant: 80.0),
+            doneButton.bottomAnchor.constraint(equalTo: passcodeView.bottomAnchor, constant: -12.0),
+            doneButton.centerXAnchor.constraint(equalTo: passcodeView.centerXAnchor),
+            doneButton.widthAnchor.constraint(equalToConstant: 100.0),
             doneButton.heightAnchor.constraint(equalToConstant: 40.0),
 
             folderCode.leadingAnchor.constraint(equalTo: passcodeView.leadingAnchor, constant: 16.0),
             folderCode.trailingAnchor.constraint(equalTo: passcodeView.trailingAnchor, constant: -16.0),
-            folderCode.topAnchor.constraint(equalTo:  passcodeView.bottomAnchor, constant: 16.0),
+            folderCode.bottomAnchor.constraint(equalTo: doneButton.topAnchor, constant: -34.0),
             folderCode.centerXAnchor.constraint(equalTo: passcodeView.centerXAnchor),
+
+            infoTextView.leadingAnchor.constraint(equalTo: passcodeView.leadingAnchor, constant: 16.0),
+            infoTextView.trailingAnchor.constraint(equalTo: passcodeView.trailingAnchor, constant: -16.0),
+            infoTextView.bottomAnchor.constraint(equalTo: folderCode.topAnchor, constant: -20.0),
+            infoTextView.topAnchor.constraint(equalTo: closeButton.bottomAnchor, constant: 24.0),
+            infoTextView.centerXAnchor.constraint(equalTo: passcodeView.centerXAnchor),
         ])
     }
 
