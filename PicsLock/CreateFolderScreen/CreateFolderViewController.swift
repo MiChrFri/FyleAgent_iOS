@@ -26,7 +26,7 @@ extension CreateFolderViewController: CreateFolderViewDelegate {
 
         do {
             try FileManager.default.createDirectory(atPath: folder.path, withIntermediateDirectories: true, attributes: nil)
-            if let accesscodeHash = codeHash {
+            if let accesscodeHash = codeHash{
                 let defaults = UserDefaults.standard
                 defaults.set(accesscodeHash, forKey: folderName)
             }

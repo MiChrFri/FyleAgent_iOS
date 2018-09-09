@@ -93,7 +93,12 @@ class CreateFolderView: UIView {
     @objc func doneEntering() {
         if let folderName = nameField.text {
             if folderName.count > 0 {
-                let passcodeHash = folderCode.text?.sha256()
+                var passcodeHash: String?
+
+                if folderCode.text?.count ?? 0 > 0 {
+                    passcodeHash = folderCode.text?.sha256()
+                }
+
                 delegate?.didEnter(folderName: folderName, codeHash: passcodeHash)
             } else {
                 print("no text entered")

@@ -89,8 +89,11 @@ extension AlbumsViewController: LoginDelegate {
         loggedIn = true
         var folders = fileService.documentDirectories()
 
-        for folder in folders {
+        for f in folders {
+            print(f.name)
+        }
 
+        for folder in folders {
             if let accesscodeHash = UserDefaults.standard.object(forKey: folder.name) as? String {
                 var f = folder
                 f.accesscodeHash = accesscodeHash
