@@ -20,7 +20,10 @@ extension FilesViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let index = indexPath.row
 
         if let img = UIImage(contentsOfFile: files[index].path.relativePath) {
-            let detailViewController = DetailViewController(image: img)
+            let document = Document(name: files[index].path.lastPathComponent, path: files[index].path, image: img)
+
+            let detailViewController = DetailViewController(document: document)
+            detailViewController.delegate = self
 
             let transition = CATransition()
             transition.duration = 0.1

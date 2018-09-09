@@ -39,7 +39,7 @@ class SetPasscodeView: UIView {
 
     lazy var primaryPasscodeField: InputField = {
         let passcodeField = InputField()
-        passcodeField.attributedPlaceholder = NSAttributedString(string: "Enter a Passcode", attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
+        passcodeField.attributedPlaceholder = NSAttributedString(string: "Enter a Passcode", attributes: [NSAttributedStringKey.foregroundColor: Color.Dark.placeholderText])
         passcodeField.isSecureTextEntry = true
         passcodeField.textAlignment = .center
         passcodeField.keyboardType = .numberPad
@@ -51,7 +51,7 @@ class SetPasscodeView: UIView {
 
     lazy var secondaryPasscodeField: UITextField = {
         let passcodeField = InputField()
-        passcodeField.attributedPlaceholder = NSAttributedString(string: "Repeat the Passcode", attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
+        passcodeField.attributedPlaceholder = NSAttributedString(string: "Repeat the Passcode", attributes: [NSAttributedStringKey.foregroundColor: Color.Dark.placeholderText])
         passcodeField.isSecureTextEntry = true
         passcodeField.textAlignment = .center
         passcodeField.keyboardType = .numberPad

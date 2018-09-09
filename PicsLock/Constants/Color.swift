@@ -10,6 +10,7 @@ struct Color {
         static let navBarTitle = UIColor.init(red: 0.0/255.0, green: 152.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         static let navBarItems = UIColor.init(red: 175.0/255.0, green: 255.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         static let lightText = UIColor.init(red: 240.0/255.0, green: 240.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        static let placeholderText = UIColor.init(red: 70.0/255.0, green: 70.0/255.0, blue: 80.0/255.0, alpha: 1.0)
         static let errorBackground = UIColor.init(red: 130.0/255.0, green: 15.0/255.0, blue: 44.0/255.0, alpha: 1.0)
         static let successBackground = UIColor.init(red: 39.0/255.0, green: 196.0/255.0, blue: 37.0/255.0, alpha: 1.0)
         static let warningBackground = UIColor.init(red: 232.0/255.0, green: 194.0/255.0, blue: 44.0/255.0, alpha: 1.0)

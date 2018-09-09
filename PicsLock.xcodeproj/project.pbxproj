@@ -16,6 +16,7 @@
 		5EA1C35059EBF3F51541F2C4 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C534009D0CEA4A2C30E0 /* PermissionManager.swift */; };
 		5EA1C3AF73959DE6F77A9A67 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C47A779452A1A87A90D5 /* Font.swift */; };
 		5EA1C3B2DCFD16F56C763E83 /* InfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CA3DD52D395DF040A37E /* InfoService.swift */; };
+		5EA1C407A544E3776D15DAF9 /* Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C37DF3FE777913033265 /* Documents.swift */; };
 		5EA1C4962BCBB4F8403EB312 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C6CC8D4D295B72729B27 /* Folder.swift */; };
 		5EA1C5F590A8BC55CE5F83E3 /* FilesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C2C489D0975BBFC3EFBA /* FilesCollectionViewCell.swift */; };
 		5EA1C6A2C5D8C900B046394E /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CE4B9C00B95DE5E16999 /* FileService.swift */; };
@@ -67,6 +68,7 @@
 		5EA1C1A2A8EC6688BB37A6ED /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EA1C2C489D0975BBFC3EFBA /* FilesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesCollectionViewCell.swift; sourceTree = "<group>"; };
 		5EA1C37C08EA671CB033C8B2 /* AlbumsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumsCollectionViewCell.swift; sourceTree = "<group>"; };
+		5EA1C37DF3FE777913033265 /* Documents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Documents.swift; sourceTree = "<group>"; };
 		5EA1C43CC3C047F021E471FA /* SetPasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPasscodeViewController.swift; sourceTree = "<group>"; };
 		5EA1C47A779452A1A87A90D5 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		5EA1C534009D0CEA4A2C30E0 /* PermissionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				5EA1C72C315A99B79FEFF5B2 /* File.swift */,
 				5EA1CDEE68145A02CB704C40 /* InputField.swift */,
 				5EA1CC5EC8FC3C132BD139A0 /* InfoTextView.swift */,
+				5EA1C37DF3FE777913033265 /* Documents.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				5EA1CDD678E185C3A9C278D3 /* UnlockHiddenFolderView.swift in Sources */,
 				5EA1C3B2DCFD16F56C763E83 /* InfoService.swift in Sources */,
 				5EA1C2CAC2167FBCB90D65E4 /* InfoTextView.swift in Sources */,
+				5EA1C407A544E3776D15DAF9 /* Documents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

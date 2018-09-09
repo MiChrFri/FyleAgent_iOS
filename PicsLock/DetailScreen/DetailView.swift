@@ -9,10 +9,19 @@ class DetailView: UIView {
         return scrollView
     }()
 
-    init(image: UIImage) {
+    lazy var nameField: InputField = {
+        let nameField = InputField()
+        nameField.placeholder = "Foldername"
+        nameField.translatesAutoresizingMaskIntoConstraints = false
+        return nameField
+    }()
+
+    init(image: UIImage, name: String) {
         super.init(frame: CGRect.zero)
 
         self.addSubview(scrollView)
+        self.addSubview(nameField)
+        nameField.text = name
         scrollView.image = image
 
         setupLayout()
@@ -28,6 +37,10 @@ class DetailView: UIView {
             scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+
+            nameField.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            nameField.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            nameField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
         ])
     }
 

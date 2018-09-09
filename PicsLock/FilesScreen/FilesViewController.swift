@@ -83,21 +83,32 @@ class FilesViewController: UIViewController {
         }
     }
 
+    private func reloadData() {
+        files = fileService.files(at: folderPath)
+        collectionView.reloadData()
+    }
+
     func pickedImage(image: UIImage?) {
         if let img = image {
             guard let data = UIImageJPEGRepresentation(img, 0.5) ?? UIImagePNGRepresentation(img) else {return}
 
             do {
-                let imagePath = folderPath.appendingPathComponent("balas")
+                let tmp_name = "\(Int(Date().timeIntervalSince1970)).png"
+                let imagePath = folderPath.appendingPathComponent(tmp_name)
                 try data.write(to: imagePath)
 
             } catch {
                 print(error.localizedDescription)
             }
 
-            files = fileService.files(at: folderPath)
-            collectionView.reloadData()
+            reloadData()
         }
+    }
+}
+
+extension FilesViewController: DocumentsDelegate {
+    func updated() {
+        reloadData()
     }
 }
 
