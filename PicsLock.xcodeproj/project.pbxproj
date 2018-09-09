@@ -14,6 +14,7 @@
 		5EA1C20349E73A70AB1C3519 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CE00AA04D7335F4635E1 /* Color.swift */; };
 		5EA1C35059EBF3F51541F2C4 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C534009D0CEA4A2C30E0 /* PermissionManager.swift */; };
 		5EA1C3AF73959DE6F77A9A67 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C47A779452A1A87A90D5 /* Font.swift */; };
+		5EA1C3B2DCFD16F56C763E83 /* InfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CA3DD52D395DF040A37E /* InfoService.swift */; };
 		5EA1C4962BCBB4F8403EB312 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C6CC8D4D295B72729B27 /* Folder.swift */; };
 		5EA1C5F590A8BC55CE5F83E3 /* FilesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C2C489D0975BBFC3EFBA /* FilesCollectionViewCell.swift */; };
 		5EA1C6A2C5D8C900B046394E /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CE4B9C00B95DE5E16999 /* FileService.swift */; };
@@ -79,6 +80,7 @@
 		5EA1C7928DEBD6716CC19B1B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5EA1C81B5F8A5AC7A252911E /* UnlockHiddenFolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnlockHiddenFolderView.swift; sourceTree = "<group>"; };
 		5EA1CA0185A5ED285F360EBF /* FilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
+		5EA1CA3DD52D395DF040A37E /* InfoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoService.swift; sourceTree = "<group>"; };
 		5EA1CA5482DFEA4FE3F58D44 /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		5EA1CB7772FBC3DD2DDCE7C1 /* LoginDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDelegate.swift; sourceTree = "<group>"; };
 		5EA1CCA45139EC6AA18F0E2B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				5EA1CE4B9C00B95DE5E16999 /* FileService.swift */,
 				5EA1C534009D0CEA4A2C30E0 /* PermissionManager.swift */,
 				5EA1CA5482DFEA4FE3F58D44 /* ImageProvider.swift */,
+				5EA1CA3DD52D395DF040A37E /* InfoService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -510,11 +513,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PicsLock/Pods-PicsLock-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/GSMessages/GSMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/ZoomImageView/ZoomImageView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GSMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZoomImageView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,6 +559,7 @@
 				5EA1CFDD65C0928F232F4E3F /* UnlockHiddenFolderViewController.swift in Sources */,
 				5EA1C950CE0529340813A417 /* CreateFolderViewController.swift in Sources */,
 				5EA1CDD678E185C3A9C278D3 /* UnlockHiddenFolderView.swift in Sources */,
+				5EA1C3B2DCFD16F56C763E83 /* InfoService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,6 +4,7 @@ target 'PicsLock' do
   use_frameworks!
   pod 'CryptoSwift'
   pod 'ZoomImageView'
+  pod "GSMessages"
 
   target 'PicsLockTests' do
     inherit! :search_paths

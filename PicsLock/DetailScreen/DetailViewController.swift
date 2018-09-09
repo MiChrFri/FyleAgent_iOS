@@ -8,7 +8,7 @@ class DetailViewController: UIViewController {
         view = DetailView(image: image)
         setupNavigationItems()
     }
-    
+
     @objc func back(sender: UIBarButtonItem) {
         let transition = CATransition()
         transition.duration = 0.1

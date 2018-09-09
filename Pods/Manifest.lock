@@ -1,20 +1,24 @@
 PODS:
   - CryptoSwift (0.11.0)
+  - GSMessages (1.5.1)
   - ZoomImageView (0.4.0)
 
 DEPENDENCIES:
   - CryptoSwift
+  - GSMessages
   - ZoomImageView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - CryptoSwift
+    - GSMessages
     - ZoomImageView
 
 SPEC CHECKSUMS:
   CryptoSwift: ad5208dd2aae0a764ea4ce2c2d34bd067cae67f0
+  GSMessages: 2e6893301ae99f59d72a6d8c920ad41be407216c
   ZoomImageView: 25559e92b53db499681706b61024bd4906e57abe
 
-PODFILE CHECKSUM: 96b8316b7043b522253b05bd09b83dda4efda94e
+PODFILE CHECKSUM: d3cc45f7a9fe93f3437559fd782b476161a435d8
 
 COCOAPODS: 1.5.3

@@ -1,9 +1,11 @@
 import UIKit
 import CryptoSwift
+import GSMessages
 
 class LoginViewController: UIViewController {
     weak var delegate: LoginDelegate?
     private let passcodeHash: String!
+    private lazy var infoService = InfoService(view: self.view)
 
     init() {
         self.passcodeHash = UserDefaults.standard.object(forKey: "codeHash") as? String ?? ""
@@ -80,17 +82,37 @@ class LoginViewController: UIViewController {
     @objc func didChange(textField: UITextField) {
         if textField.text?.count == 4 {
             if textField.text?.sha256() ?? "" == passcodeHash {
-                
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.descriptionField.text = "😀😀"
-                }) { (true) in
+                infoService.showInfo(message: "successfully logged in", type: .success)
 
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.delegate?.successfullyLoggedIn()
                     self.dismiss(animated: true)
                 }
+            } else {
+                infoService.showInfo(message: "wrong passcode", type: .error)
             }
         }
     }
+
+//    private func showInfo(message: String, type: GSMessageType) {
+//        GSMessage.successBackgroundColor = Color.Dark.successBackground
+//        GSMessage.warningBackgroundColor = Color.Dark.warningBackground
+//        GSMessage.errorBackgroundColor   = Color.Dark.errorBackground
+//        GSMessage.infoBackgroundColor    = Color.Dark.infoBackground
+//
+//        self.showMessage(message, type: type, options: [
+//            .animation(.slide),
+//            .animationDuration(0.3),
+//            .autoHide(true),
+//            .autoHideDelay(0.7),
+//            .height(24.0),
+//            .margin(.zero),
+//            .padding(.init(top: 4, left: 30, bottom: 4, right: 30)),
+//            .position(.top),
+//            .textAlignment(.center),
+//            .textColor(.white),
+//        ])
+//    }
 }
 
 extension LoginViewController: LoginDelegate {

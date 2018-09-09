@@ -7,6 +7,7 @@ class AlbumsViewController: UIViewController {
     private var visibleFoldersSorted = [Folder]()
     private var loggedIn = false
     private lazy var fileService = FileService()
+    private lazy var infoService = InfoService(viewController: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,8 @@ class AlbumsViewController: UIViewController {
     private func login() {
         let loginViewController = LoginViewController()
         loginViewController.delegate = self
-        self.present(loginViewController, animated:true, completion: nil)
+
+        self.navigationController?.present(loginViewController, animated:true, completion: nil)
     }
 
     func addCollectionView() {
@@ -80,10 +82,6 @@ class AlbumsViewController: UIViewController {
         collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
 }
 
 extension AlbumsViewController: LoginDelegate {
@@ -103,14 +101,12 @@ extension AlbumsViewController: LoginDelegate {
         }
 
         visibleFoldersSorted = Array(visibleFolders).sorted(by: { $0.name > $1.name })
-
         addCollectionView()
     }
 }
 
 extension AlbumsViewController: CreateFolderDelegate {
     func didCreate() {
-
         var folders = fileService.documentDirectories()
 
         for (i, folder) in folders.enumerated() {
@@ -123,8 +119,9 @@ extension AlbumsViewController: CreateFolderDelegate {
         }
 
         visibleFoldersSorted = Array(visibleFolders).sorted(by: { $0.name > $1.name })
-
         collectionView.reloadData()
+
+        infoService.showInfo(message: "folder created", type: .info)
     }
 }
 
@@ -134,16 +131,11 @@ extension AlbumsViewController: UnlockHiddenFolderDelegate {
         for folder in hiddenFolders {
             if folder.accesscodeHash == folderCodeHash {
                 visibleFolders.insert(folder)
-              //  hiddenFolders.remove(folder)
+                hiddenFolders.remove(folder)
             }
         }
 
-        for v in visibleFolders {
-            print(v.name)
-        }
-
         visibleFoldersSorted = Array(visibleFolders).sorted(by: { $0.name > $1.name })
-
         collectionView.reloadData()
     }
 }

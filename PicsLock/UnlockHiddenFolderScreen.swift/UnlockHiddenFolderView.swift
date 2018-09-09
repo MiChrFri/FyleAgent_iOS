@@ -78,9 +78,6 @@ class UnlockHiddenFolderView: UIView {
             if folderCode.count > 0 {
                 let passcodeHash = folderCode.sha256()
                 delegate?.didEnter(codeHash: passcodeHash)
-            } else {
-                print("no text entered")
-                // TODO: Error message for user
             }
         }
     }

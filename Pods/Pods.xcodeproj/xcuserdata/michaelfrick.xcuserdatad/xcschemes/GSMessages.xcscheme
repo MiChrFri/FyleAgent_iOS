@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "611850777808B55347D528BA6BC54C8B"
-               BlueprintName = "ZoomImageView"
+               BlueprintIdentifier = "80A1AAD476BC6D0D87976DE91984E49D"
+               BlueprintName = "GSMessages"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "ZoomImageView.framework">
+               BuildableName = "GSMessages.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
