@@ -46,7 +46,8 @@ class FilesViewController: UIViewController {
 
     private func setupNavigationItems() {
         title = folderPath.lastPathComponent
-        let newBackButton = UIBarButtonItem(title: "Add Image", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.addImage(sender:)))
+
+        let newBackButton = UIBarButtonItem(image: UIImage(named: "newDocIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.addImage(sender:)))
         self.navigationItem.rightBarButtonItem = newBackButton
     }
 

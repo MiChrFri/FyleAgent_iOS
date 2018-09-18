@@ -7,14 +7,12 @@ class AlbumsViewController: UIViewController {
     private var visibleFoldersSorted = [Folder]()
     private var loggedIn = false
     private lazy var fileService = FileService()
-    private lazy var infoService = InfoService(viewController: self)
+    private lazy var infoService = InfoService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        #if DEBUG
-        ContentCreator.addTextContent()
-        #endif
+
     }
 
     override func viewWillAppear(_ animated: Bool) {

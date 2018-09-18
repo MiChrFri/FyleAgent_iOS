@@ -9,9 +9,10 @@ class DetailView: UIView {
         return scrollView
     }()
 
-    lazy var nameField: InputField = {
-        let nameField = InputField()
+    lazy var nameField: NameField = {
+        let nameField = NameField()
         nameField.placeholder = "Foldername"
+        nameField.isUserInteractionEnabled = false
         nameField.translatesAutoresizingMaskIntoConstraints = false
         return nameField
     }()
@@ -41,6 +42,7 @@ class DetailView: UIView {
             nameField.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             nameField.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             nameField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            nameField.heightAnchor.constraint(equalToConstant: 40.0),
         ])
     }
 

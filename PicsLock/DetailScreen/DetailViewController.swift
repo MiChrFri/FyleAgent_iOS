@@ -6,7 +6,8 @@ protocol DocumentsDelegate: class {
 
 class DetailViewController: UIViewController {
     weak var delegate: DocumentsDelegate?
-    private lazy var infoService = InfoService(viewController: self)
+    private lazy var infoService = InfoService()
+    private let fileManager = FileManager.default
     var document: Document!
 
     init(document: Document) {
@@ -27,7 +28,15 @@ class DetailViewController: UIViewController {
         _ = navigationController?.popViewController(animated: false)
     }
 
-    @objc func saveName() {
+    @objc func editName() {
+        (view as? DetailView)?.nameField.isUserInteractionEnabled = true
+        (view as? DetailView)?.nameField.becomeFirstResponder()
+        
+        let saveBtn = UIBarButtonItem(image: UIImage(named: "saveIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.saveDocument))
+        self.navigationItem.rightBarButtonItem = saveBtn
+    }
+    
+    @objc func saveDocument() {
         if let newName = (view as? DetailView)?.nameField.text {
             if newName != document.name {
                 do {
@@ -35,12 +44,28 @@ class DetailViewController: UIViewController {
                     directory.deleteLastPathComponent()
 
                     let destinationPath = directory.appendingPathComponent(newName)
-                    try FileManager.default.moveItem(at: document.path, to: destinationPath)
+                    try fileManager.moveItem(at: document.path, to: destinationPath)
                     self.document = Document(name: newName, path: destinationPath, image: document.image)
                     delegate?.updated()
+                    
+                    (view as? DetailView)?.nameField.isUserInteractionEnabled = false
+                    setupNavigationItems()
                 } catch {
-                    infoService.showInfo(message: "\(error)", type: .error)
+                    infoService.showInfo(message: "\(error)", type: .danger)
                 }
+            }
+        }
+    }
+    
+    @objc func deleteDocument() {
+        UIView.animate(withDuration: 0, animations: {
+            self.back()
+        }) { (true) in
+            do {
+                try self.fileManager.removeItem(at: self.document.path)
+                self.delegate?.updated()
+            } catch {
+                self.infoService.showInfo(message: "Couldn't delete document", type: .danger)
             }
         }
     }
@@ -54,8 +79,11 @@ class DetailViewController: UIViewController {
         let newBackButton = UIBarButtonItem(title: "Close", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.back))
         self.navigationItem.leftBarButtonItem = newBackButton
 
-        let saveName = UIBarButtonItem(title: "Save name", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.saveName))
-        self.navigationItem.rightBarButtonItem = saveName
+        let editName = UIBarButtonItem(image: UIImage(named: "editIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.editName))
+        
+        let delete = UIBarButtonItem(image: UIImage(named: "deleteIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.deleteDocument))
+        
+        self.navigationItem.rightBarButtonItems = [editName, delete]
     }
 
 }

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "611850777808B55347D528BA6BC54C8B"
+               BlueprintIdentifier = "90B382176BF55EC72A2DE8540A47210C"
                BlueprintName = "ZoomImageView"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "ZoomImageView.framework">
