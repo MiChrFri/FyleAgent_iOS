@@ -1,9 +1,16 @@
-//
-//  AlbumsViewTabBarController.swift
-//  PicsLock
-//
-//  Created by Michael Frick on 25/09/2018.
-//  Copyright © 2018 Michael Frick. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class AlbumsViewTabBarController: UITabBarController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let firstViewController = AlbumsViewController()
+        firstViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 0)
+        
+        let secondViewController = SearchViewController()
+        secondViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
+        
+        let tabBarList = [firstViewController, secondViewController]
+        viewControllers = tabBarList
+    }
+}
