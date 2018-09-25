@@ -7,7 +7,6 @@ protocol CreateFolderViewDelegate: class {
 
 class CreateFolderView: UIView {
     weak var delegate: CreateFolderViewDelegate?
-    private lazy var infoService = InfoService()
 
     lazy var backgroundView: UIView = {
         let backgroundView = UIView(frame: CGRect.zero)
@@ -101,8 +100,6 @@ class CreateFolderView: UIView {
                 }
 
                 delegate?.didEnter(folderName: folderName, codeHash: passcodeHash)
-            } else {
-                infoService.showInfo(message: "no text entered", type: .warning)
             }
         }
     }

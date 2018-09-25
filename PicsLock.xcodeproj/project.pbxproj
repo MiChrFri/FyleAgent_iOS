@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4B076B0EA67779D69F1676E8 /* Pods_PicsLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2AC95F25921397A6C14385 /* Pods_PicsLock.framework */; };
-		5EA1C007CF3FCC3F6671D1E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EA1C7928DEBD6716CC19B1B /* Images.xcassets */; };
 		5EA1C14F6A97E0F8108F7284 /* NameField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CB6E1DB5B04FAC904660 /* NameField.swift */; };
 		5EA1C1EB775B4B3FF22C29DB /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CE885AAC5651DE05F8E2 /* AlbumsViewController.swift */; };
 		5EA1C1F010C69750F2A6E973 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CDEE68145A02CB704C40 /* InputField.swift */; };
@@ -16,10 +15,8 @@
 		5EA1C2CAC2167FBCB90D65E4 /* InfoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CC5EC8FC3C132BD139A0 /* InfoTextView.swift */; };
 		5EA1C35059EBF3F51541F2C4 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C534009D0CEA4A2C30E0 /* PermissionManager.swift */; };
 		5EA1C3AF73959DE6F77A9A67 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C47A779452A1A87A90D5 /* Font.swift */; };
-		5EA1C3B2DCFD16F56C763E83 /* InfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CA3DD52D395DF040A37E /* InfoService.swift */; };
 		5EA1C407A544E3776D15DAF9 /* Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C37DF3FE777913033265 /* Documents.swift */; };
 		5EA1C4962BCBB4F8403EB312 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C6CC8D4D295B72729B27 /* Folder.swift */; };
-		5EA1C51627D6062089C1E4DF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C88F6E627A4DA671B9CE /* LoginView.swift */; };
 		5EA1C5F590A8BC55CE5F83E3 /* FilesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C2C489D0975BBFC3EFBA /* FilesCollectionViewCell.swift */; };
 		5EA1C6A2C5D8C900B046394E /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CE4B9C00B95DE5E16999 /* FileService.swift */; };
 		5EA1C7091B840ACBD7F77C94 /* SetPasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C657D813E9907FB7DB7A /* SetPasscodeView.swift */; };
@@ -40,10 +37,11 @@
 		5EA1CFDD65C0928F232F4E3F /* UnlockHiddenFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C726680E932A3F77034F /* UnlockHiddenFolderViewController.swift */; };
 		5EA1CFE0D167F68B04BFEC84 /* CreateFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C7822E720FA1B1781AA0 /* CreateFolderView.swift */; };
 		60016C1BC3F4FE57F2CAE15A /* Pods_PicsLockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38BAD0E677A1BDE11A79F44 /* Pods_PicsLockUITests.framework */; };
+		79033FAB21565AFA00766799 /* NewLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79033FAA21565AFA00766799 /* NewLoginView.swift */; };
+		79033FB12158E2F900766799 /* padlock_tick.json in Resources */ = {isa = PBXBuildFile; fileRef = 79033FB02158E2F900766799 /* padlock_tick.json */; };
 		799EB0DA2131605100D8A757 /* PicsLockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0D92131605100D8A757 /* PicsLockTests.swift */; };
 		799EB0E52131605100D8A757 /* PicsLockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0E42131605100D8A757 /* PicsLockUITests.swift */; };
 		799EB0F52131656100D8A757 /* AlbumsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0F42131656100D8A757 /* AlbumsViewControllerTests.swift */; };
-		799EB0F92131841700D8A757 /* DEBUG-ContentCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0F82131841700D8A757 /* DEBUG-ContentCreator.swift */; };
 		79B02B9D21370B6E0045C6AD /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79B02B9C21370B6E0045C6AD /* CryptoSwift.framework */; };
 		876FAC8428907CFE565D9C4F /* Pods_PicsLockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C559A0ED8918EE3FE376BD /* Pods_PicsLockTests.framework */; };
 /* End PBXBuildFile section */
@@ -82,11 +80,8 @@
 		5EA1C72C315A99B79FEFF5B2 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		5EA1C746FC9A95F0C951A57C /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		5EA1C7822E720FA1B1781AA0 /* CreateFolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFolderView.swift; sourceTree = "<group>"; };
-		5EA1C7928DEBD6716CC19B1B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5EA1C81B5F8A5AC7A252911E /* UnlockHiddenFolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnlockHiddenFolderView.swift; sourceTree = "<group>"; };
-		5EA1C88F6E627A4DA671B9CE /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5EA1CA0185A5ED285F360EBF /* FilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
-		5EA1CA3DD52D395DF040A37E /* InfoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoService.swift; sourceTree = "<group>"; };
 		5EA1CA5482DFEA4FE3F58D44 /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		5EA1CB6E1DB5B04FAC904660 /* NameField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameField.swift; sourceTree = "<group>"; };
 		5EA1CB7772FBC3DD2DDCE7C1 /* LoginDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +96,8 @@
 		5FBDE579901C334C19CC8A73 /* Pods-PicsLockTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicsLockTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicsLockTests/Pods-PicsLockTests.release.xcconfig"; sourceTree = "<group>"; };
 		6D2AC95F25921397A6C14385 /* Pods_PicsLock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicsLock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C559A0ED8918EE3FE376BD /* Pods_PicsLockTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicsLockTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79033FAA21565AFA00766799 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
+		79033FB02158E2F900766799 /* padlock_tick.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = padlock_tick.json; sourceTree = "<group>"; };
 		799EB0C12131604E00D8A757 /* PicsLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicsLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		799EB0D52131605100D8A757 /* PicsLockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicsLockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		799EB0D92131605100D8A757 /* PicsLockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsLockTests.swift; sourceTree = "<group>"; };
@@ -109,7 +106,6 @@
 		799EB0E42131605100D8A757 /* PicsLockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsLockUITests.swift; sourceTree = "<group>"; };
 		799EB0E62131605100D8A757 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		799EB0F42131656100D8A757 /* AlbumsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewControllerTests.swift; sourceTree = "<group>"; };
-		799EB0F82131841700D8A757 /* DEBUG-ContentCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DEBUG-ContentCreator.swift"; sourceTree = "<group>"; };
 		79B02B9C21370B6E0045C6AD /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8353A87A20C14D5099E98CEC /* Pods-PicsLockTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicsLockTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicsLockTests/Pods-PicsLockTests.debug.xcconfig"; sourceTree = "<group>"; };
 		83BAB5F4C5CE4B00B61EE209 /* Pods-PicsLock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicsLock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicsLock/Pods-PicsLock.debug.xcconfig"; sourceTree = "<group>"; };
@@ -185,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				5EA1C041490F6524A4137130 /* Assets.xcassets */,
-				5EA1C7928DEBD6716CC19B1B /* Images.xcassets */,
 				5EA1C1A2A8EC6688BB37A6ED /* AppDelegate.swift */,
 			);
 			path = Supporting;
@@ -229,7 +224,7 @@
 				5EA1CE49A0D5A6C3241422BC /* LoginViewController.swift */,
 				5EA1C657D813E9907FB7DB7A /* SetPasscodeView.swift */,
 				5EA1C43CC3C047F021E471FA /* SetPasscodeViewController.swift */,
-				5EA1C88F6E627A4DA671B9CE /* LoginView.swift */,
+				79033FAA21565AFA00766799 /* NewLoginView.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -240,7 +235,6 @@
 				5EA1CE4B9C00B95DE5E16999 /* FileService.swift */,
 				5EA1C534009D0CEA4A2C30E0 /* PermissionManager.swift */,
 				5EA1CA5482DFEA4FE3F58D44 /* ImageProvider.swift */,
-				5EA1CA3DD52D395DF040A37E /* InfoService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -273,6 +267,14 @@
 			path = UnlockHiddenFolderScreen.swift;
 			sourceTree = "<group>";
 		};
+		797B2F56215AA850007622C8 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				79033FB02158E2F900766799 /* padlock_tick.json */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		799EB0B82131604E00D8A757 = {
 			isa = PBXGroup;
 			children = (
@@ -298,7 +300,7 @@
 		799EB0C32131604E00D8A757 /* PicsLock */ = {
 			isa = PBXGroup;
 			children = (
-				799EB0F82131841700D8A757 /* DEBUG-ContentCreator.swift */,
+				797B2F56215AA850007622C8 /* Animation */,
 				5EA1C770951C6B24947ADD6A /* AlbumScreen */,
 				5EA1C112F45421A37A41C9B9 /* Constants */,
 				5EA1CACD80C72FE0DF29537C /* LoginScreen */,
@@ -442,7 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EA1C798993BDA5611DD6318 /* Assets.xcassets in Resources */,
-				5EA1C007CF3FCC3F6671D1E8 /* Images.xcassets in Resources */,
+				79033FB12158E2F900766799 /* padlock_tick.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,18 +527,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PicsLock/Pods-PicsLock-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ZoomImageView/ZoomImageView.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZoomImageView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -550,7 +548,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				799EB0F92131841700D8A757 /* DEBUG-ContentCreator.swift in Sources */,
 				5EA1C81B83C5996F2BF4D308 /* AlbumsCollectionViewCell.swift in Sources */,
 				5EA1C1EB775B4B3FF22C29DB /* AlbumsViewController.swift in Sources */,
 				5EA1C20349E73A70AB1C3519 /* Color.swift in Sources */,
@@ -562,6 +559,7 @@
 				5EA1CB14D7C62792BCD7212E /* AppDelegate.swift in Sources */,
 				5EA1C4962BCBB4F8403EB312 /* Folder.swift in Sources */,
 				5EA1CB093C8D058F7FD22F09 /* File.swift in Sources */,
+				79033FAB21565AFA00766799 /* NewLoginView.swift in Sources */,
 				5EA1CC35F1A3D2971A321A5E /* FilesViewController.swift in Sources */,
 				5EA1C5F590A8BC55CE5F83E3 /* FilesCollectionViewCell.swift in Sources */,
 				5EA1C1F010C69750F2A6E973 /* InputField.swift in Sources */,
@@ -575,10 +573,8 @@
 				5EA1CFDD65C0928F232F4E3F /* UnlockHiddenFolderViewController.swift in Sources */,
 				5EA1C950CE0529340813A417 /* CreateFolderViewController.swift in Sources */,
 				5EA1CDD678E185C3A9C278D3 /* UnlockHiddenFolderView.swift in Sources */,
-				5EA1C3B2DCFD16F56C763E83 /* InfoService.swift in Sources */,
 				5EA1C2CAC2167FBCB90D65E4 /* InfoTextView.swift in Sources */,
 				5EA1C407A544E3776D15DAF9 /* Documents.swift in Sources */,
-				5EA1C51627D6062089C1E4DF /* LoginView.swift in Sources */,
 				5EA1C14F6A97E0F8108F7284 /* NameField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -743,7 +739,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = m.PicsLock;
+				PRODUCT_BUNDLE_IDENTIFIER = m.frick.FyleAgent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -763,7 +759,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = m.PicsLock;
+				PRODUCT_BUNDLE_IDENTIFIER = m.frick.FyleAgent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

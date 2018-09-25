@@ -7,7 +7,6 @@ class AlbumsViewController: UIViewController {
     private var visibleFoldersSorted = [Folder]()
     private var loggedIn = false
     private lazy var fileService = FileService()
-    private lazy var infoService = InfoService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,8 +120,6 @@ extension AlbumsViewController: CreateFolderDelegate {
 
         visibleFoldersSorted = Array(visibleFolders).sorted(by: { $0.name > $1.name })
         collectionView.reloadData()
-
-        infoService.showInfo(message: "folder created", type: .info)
     }
 }
 

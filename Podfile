@@ -4,7 +4,7 @@ target 'PicsLock' do
   use_frameworks!
   pod 'CryptoSwift'
   pod 'ZoomImageView'
-  pod 'NotificationBannerSwift'
+  pod 'lottie-ios'
 
   target 'PicsLockTests' do
     inherit! :search_paths

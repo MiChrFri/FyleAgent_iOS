@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9291179AFD5290E1E5ECB687D46309A0"
+               BlueprintIdentifier = "95F2CE3C8792A9F06D29A12703F5F9FE"
                BuildableName = "Pods_PicsLock.framework"
                BlueprintName = "Pods-PicsLock"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9291179AFD5290E1E5ECB687D46309A0"
+            BlueprintIdentifier = "95F2CE3C8792A9F06D29A12703F5F9FE"
             BuildableName = "Pods_PicsLock.framework"
             BlueprintName = "Pods-PicsLock"
             ReferencedContainer = "container:Pods.xcodeproj">

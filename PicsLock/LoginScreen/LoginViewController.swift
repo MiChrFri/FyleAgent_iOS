@@ -1,11 +1,9 @@
 import UIKit
 import CryptoSwift
-import NotificationBannerSwift
 
 class LoginViewController: UIViewController {
     weak var delegate: LoginDelegate?
     private let passcodeHash: String!
-    private lazy var infoService = InfoService()
 
     init() {
         self.passcodeHash = UserDefaults.standard.object(forKey: "codeHash") as? String ?? ""
@@ -15,8 +13,8 @@ class LoginViewController: UIViewController {
             view = SetPasscodeView()
             (view as! SetPasscodeView).delegate = self
         } else {
-            view = LoginView()
-            (view as! LoginView).passwordField.addTarget(self, action: #selector(didChange(textField:)), for: .editingChanged)
+             view = NewLoginView()
+            (view as! NewLoginView).passwordField.addTarget(self, action: #selector(didChange(textField:)), for: .editingChanged)
         }
     }
 
@@ -25,17 +23,30 @@ class LoginViewController: UIViewController {
     }
 
     @objc func didChange(textField: UITextField) {
-        if textField.text?.count == 4 {
+        if textField.text?.count ?? 0 >= 4 {
             if textField.text?.sha256() ?? "" == passcodeHash {
-                infoService.showInfo(message: "successfully logged in", type: .success)
-
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.delegate?.successfullyLoggedIn()
-                    self.dismiss(animated: true)
+                textField.isUserInteractionEnabled = false
+                
+                if let loginview = view as? NewLoginView {
+                    loginview.animationView.play(toFrame: 60, withCompletion: { (finished) in
+                                                self.delegate?.successfullyLoggedIn()
+                                                self.dismiss(animated: true)
+                    })
                 }
             } else {
-                infoService.showInfo(message: "wrong passcode", type: .danger)
+                textField.text = ""
+                self.redFlash()
             }
+        }
+    }
+    
+    private func redFlash() {
+        UIView.animate(withDuration: 0.1, animations: {
+            self.view.backgroundColor = Color.Dark.errorBackground
+        }) { (true) in
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.backgroundColor = Color.Dark.background
+            })
         }
     }
 }

@@ -6,7 +6,6 @@ protocol DocumentsDelegate: class {
 
 class DetailViewController: UIViewController {
     weak var delegate: DocumentsDelegate?
-    private lazy var infoService = InfoService()
     private let fileManager = FileManager.default
     var document: Document!
 
@@ -51,7 +50,7 @@ class DetailViewController: UIViewController {
                     (view as? DetailView)?.nameField.isUserInteractionEnabled = false
                     setupNavigationItems()
                 } catch {
-                    infoService.showInfo(message: "\(error)", type: .danger)
+                    //TODO: handle error
                 }
             }
         }
@@ -65,7 +64,7 @@ class DetailViewController: UIViewController {
                 try self.fileManager.removeItem(at: self.document.path)
                 self.delegate?.updated()
             } catch {
-                self.infoService.showInfo(message: "Couldn't delete document", type: .danger)
+                //TODO: handle error
             }
         }
     }
