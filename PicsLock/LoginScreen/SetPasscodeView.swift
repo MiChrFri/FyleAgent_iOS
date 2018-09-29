@@ -12,7 +12,7 @@ class SetPasscodeView: UIView {
         self.backgroundColor = Color.Dark.background
 
         self.addSubview(descriptionField)
-        descriptionField.text = "Welcome to APPNAME \n add a passcode to secure your files"
+        descriptionField.text = "Welcome to PicsLock \n add a passcode to secure your files"
 
         self.addSubview(primaryPasscodeField)
         self.addSubview(secondaryPasscodeField)

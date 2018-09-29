@@ -39,12 +39,12 @@
 		60016C1BC3F4FE57F2CAE15A /* Pods_PicsLockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38BAD0E677A1BDE11A79F44 /* Pods_PicsLockUITests.framework */; };
 		79033FAB21565AFA00766799 /* NewLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79033FAA21565AFA00766799 /* NewLoginView.swift */; };
 		79033FB12158E2F900766799 /* padlock_tick.json in Resources */ = {isa = PBXBuildFile; fileRef = 79033FB02158E2F900766799 /* padlock_tick.json */; };
-		797B2F58215AAD56007622C8 /* AlbumsViewTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797B2F57215AAD56007622C8 /* AlbumsViewTabBarController.swift */; };
 		797B2F5A215AB01D007622C8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797B2F59215AB01D007622C8 /* SearchViewController.swift */; };
 		799EB0DA2131605100D8A757 /* PicsLockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0D92131605100D8A757 /* PicsLockTests.swift */; };
 		799EB0E52131605100D8A757 /* PicsLockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0E42131605100D8A757 /* PicsLockUITests.swift */; };
 		799EB0F52131656100D8A757 /* AlbumsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0F42131656100D8A757 /* AlbumsViewControllerTests.swift */; };
 		79B02B9D21370B6E0045C6AD /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79B02B9C21370B6E0045C6AD /* CryptoSwift.framework */; };
+		79DEC914215F775D00A337DB /* URL+DataPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DEC913215F775D00A337DB /* URL+DataPath.swift */; };
 		876FAC8428907CFE565D9C4F /* Pods_PicsLockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C559A0ED8918EE3FE376BD /* Pods_PicsLockTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,7 +100,6 @@
 		78C559A0ED8918EE3FE376BD /* Pods_PicsLockTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicsLockTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79033FAA21565AFA00766799 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
 		79033FB02158E2F900766799 /* padlock_tick.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = padlock_tick.json; sourceTree = "<group>"; };
-		797B2F57215AAD56007622C8 /* AlbumsViewTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewTabBarController.swift; sourceTree = "<group>"; };
 		797B2F59215AB01D007622C8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		799EB0C12131604E00D8A757 /* PicsLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicsLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		799EB0D52131605100D8A757 /* PicsLockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicsLockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +110,7 @@
 		799EB0E62131605100D8A757 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		799EB0F42131656100D8A757 /* AlbumsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewControllerTests.swift; sourceTree = "<group>"; };
 		79B02B9C21370B6E0045C6AD /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79DEC913215F775D00A337DB /* URL+DataPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+DataPath.swift"; sourceTree = "<group>"; };
 		8353A87A20C14D5099E98CEC /* Pods-PicsLockTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicsLockTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicsLockTests/Pods-PicsLockTests.debug.xcconfig"; sourceTree = "<group>"; };
 		83BAB5F4C5CE4B00B61EE209 /* Pods-PicsLock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicsLock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicsLock/Pods-PicsLock.debug.xcconfig"; sourceTree = "<group>"; };
 		A38BAD0E677A1BDE11A79F44 /* Pods_PicsLockUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicsLockUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,7 +208,6 @@
 			children = (
 				5EA1C37C08EA671CB033C8B2 /* AlbumsCollectionViewCell.swift */,
 				5EA1CE885AAC5651DE05F8E2 /* AlbumsViewController.swift */,
-				797B2F57215AAD56007622C8 /* AlbumsViewTabBarController.swift */,
 			);
 			path = AlbumScreen;
 			sourceTree = "<group>";
@@ -305,6 +304,7 @@
 		799EB0C32131604E00D8A757 /* PicsLock */ = {
 			isa = PBXGroup;
 			children = (
+				79DEC912215F773900A337DB /* Extensions */,
 				797B2F56215AA850007622C8 /* Animation */,
 				5EA1C770951C6B24947ADD6A /* AlbumScreen */,
 				5EA1C112F45421A37A41C9B9 /* Constants */,
@@ -339,6 +339,14 @@
 				799EB0E62131605100D8A757 /* Info.plist */,
 			);
 			path = PicsLockUITests;
+			sourceTree = "<group>";
+		};
+		79DEC912215F773900A337DB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				79DEC913215F775D00A337DB /* URL+DataPath.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -571,7 +579,6 @@
 				5EA1C5F590A8BC55CE5F83E3 /* FilesCollectionViewCell.swift in Sources */,
 				5EA1C1F010C69750F2A6E973 /* InputField.swift in Sources */,
 				5EA1C6A2C5D8C900B046394E /* FileService.swift in Sources */,
-				797B2F58215AAD56007622C8 /* AlbumsViewTabBarController.swift in Sources */,
 				5EA1CE7C4AF04E7483D7B84E /* DetailViewController.swift in Sources */,
 				5EA1CE692D30DC44899ECD07 /* DetailView.swift in Sources */,
 				5EA1CFE0D167F68B04BFEC84 /* CreateFolderView.swift in Sources */,
@@ -581,6 +588,7 @@
 				5EA1CFDD65C0928F232F4E3F /* UnlockHiddenFolderViewController.swift in Sources */,
 				5EA1C950CE0529340813A417 /* CreateFolderViewController.swift in Sources */,
 				5EA1CDD678E185C3A9C278D3 /* UnlockHiddenFolderView.swift in Sources */,
+				79DEC914215F775D00A337DB /* URL+DataPath.swift in Sources */,
 				5EA1C2CAC2167FBCB90D65E4 /* InfoTextView.swift in Sources */,
 				5EA1C407A544E3776D15DAF9 /* Documents.swift in Sources */,
 				5EA1C14F6A97E0F8108F7284 /* NameField.swift in Sources */,

@@ -41,7 +41,6 @@ class NewLoginView: UIView {
     }()
     
     private func setupLayout() {
-
         NSLayoutConstraint.activate([
             animationView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             animationView.widthAnchor.constraint(equalToConstant: 200),

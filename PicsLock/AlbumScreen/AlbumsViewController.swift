@@ -8,12 +8,6 @@ class AlbumsViewController: UIViewController {
     private var loggedIn = false
     private lazy var fileService = FileService()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -84,11 +78,7 @@ class AlbumsViewController: UIViewController {
 extension AlbumsViewController: LoginDelegate {
     func successfullyLoggedIn() {
         loggedIn = true
-        var folders = fileService.documentDirectories()
-
-        for f in folders {
-            print(f.name)
-        }
+        let folders = fileService.documentDirectories()
 
         for folder in folders {
             if let accesscodeHash = UserDefaults.standard.object(forKey: folder.name) as? String {
@@ -180,4 +170,13 @@ extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDele
         return 5.0
     }
     
+}
+
+extension AlbumsViewController: UITabBarDelegate {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        if item.tag == 1 {
+            navigationController?.pushViewController(SearchViewController(), animated: true)
+        }
+    }
 }

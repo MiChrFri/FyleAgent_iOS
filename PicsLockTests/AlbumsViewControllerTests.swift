@@ -16,11 +16,6 @@ class AlbumsViewControllerTests: XCTestCase {
         let _ = viewController.view
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testViewControllerNotNil() {
         XCTAssertNotNil(viewController.view)
     }
@@ -30,14 +25,7 @@ class AlbumsViewControllerTests: XCTestCase {
     }
     
     func testNumberOfCollectionViewCells() {
-        XCTAssertEqual(viewController.collectionView.numberOfItems(inSection: 0), 4)
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        XCTAssertEqual(0, viewController.collectionView.numberOfItems(inSection: 0))
     }
     
 }
