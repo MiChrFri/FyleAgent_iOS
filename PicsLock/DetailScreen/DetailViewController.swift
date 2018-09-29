@@ -8,7 +8,7 @@ class DetailViewController: UIViewController {
     weak var delegate: DocumentsDelegate?
     private let fileManager = FileManager.default
     var document: Document!
-
+    
     init(document: Document) {
         self.document = document
         super.init(nibName: nil, bundle: nil)

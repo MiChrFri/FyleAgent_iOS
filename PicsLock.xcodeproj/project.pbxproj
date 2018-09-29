@@ -39,7 +39,7 @@
 		60016C1BC3F4FE57F2CAE15A /* Pods_PicsLockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38BAD0E677A1BDE11A79F44 /* Pods_PicsLockUITests.framework */; };
 		79033FAB21565AFA00766799 /* NewLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79033FAA21565AFA00766799 /* NewLoginView.swift */; };
 		79033FB12158E2F900766799 /* padlock_tick.json in Resources */ = {isa = PBXBuildFile; fileRef = 79033FB02158E2F900766799 /* padlock_tick.json */; };
-		797B2F5A215AB01D007622C8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797B2F59215AB01D007622C8 /* SearchViewController.swift */; };
+		797B2F5A215AB01D007622C8 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797B2F59215AB01D007622C8 /* SearchResultsController.swift */; };
 		799EB0DA2131605100D8A757 /* PicsLockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0D92131605100D8A757 /* PicsLockTests.swift */; };
 		799EB0E52131605100D8A757 /* PicsLockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0E42131605100D8A757 /* PicsLockUITests.swift */; };
 		799EB0F52131656100D8A757 /* AlbumsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0F42131656100D8A757 /* AlbumsViewControllerTests.swift */; };
@@ -100,7 +100,7 @@
 		78C559A0ED8918EE3FE376BD /* Pods_PicsLockTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicsLockTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79033FAA21565AFA00766799 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
 		79033FB02158E2F900766799 /* padlock_tick.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = padlock_tick.json; sourceTree = "<group>"; };
-		797B2F59215AB01D007622C8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		797B2F59215AB01D007622C8 /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		799EB0C12131604E00D8A757 /* PicsLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicsLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		799EB0D52131605100D8A757 /* PicsLockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicsLockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		799EB0D92131605100D8A757 /* PicsLockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsLockTests.swift; sourceTree = "<group>"; };
@@ -317,7 +317,7 @@
 				5EA1C6AF55726B3D9E92F5DB /* Info.plist */,
 				5EA1CD3EBB6A8F78B1A2B276 /* CreateFolderScreen */,
 				5EA1CEED81352B69726925C3 /* UnlockHiddenFolderScreen.swift */,
-				797B2F59215AB01D007622C8 /* SearchViewController.swift */,
+				797B2F59215AB01D007622C8 /* SearchResultsController.swift */,
 			);
 			path = PicsLock;
 			sourceTree = "<group>";
@@ -562,7 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				797B2F5A215AB01D007622C8 /* SearchViewController.swift in Sources */,
+				797B2F5A215AB01D007622C8 /* SearchResultsController.swift in Sources */,
 				5EA1C81B83C5996F2BF4D308 /* AlbumsCollectionViewCell.swift in Sources */,
 				5EA1C1EB775B4B3FF22C29DB /* AlbumsViewController.swift in Sources */,
 				5EA1C20349E73A70AB1C3519 /* Color.swift in Sources */,

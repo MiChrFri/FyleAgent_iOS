@@ -10,17 +10,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = UITabBarController()
         UITabBar.appearance().barTintColor = Color.Dark.navBar
         UITabBar.appearance().unselectedItemTintColor = Color.Dark.lightText
-        
-        let searchViewController = SearchViewController()
+                
+        let searchNavigationController = UINavigationController(rootViewController: SearchViewController())
+        searchNavigationController.navigationBar.barTintColor = Color.Dark.navBar
         
         let albumsNavigationController = UINavigationController(rootViewController: AlbumsViewController())
         albumsNavigationController.navigationBar.barTintColor = Color.Dark.navBar
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : Color.Dark.navBarTitle]
         
         albumsNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostRecent, tag: 0)
-        searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
+        searchNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
 
-        tabBarController.viewControllers = [albumsNavigationController, searchViewController]
+        tabBarController.viewControllers = [albumsNavigationController, searchNavigationController]
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tabBarController
@@ -55,4 +56,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

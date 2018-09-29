@@ -171,12 +171,3 @@ extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
 }
-
-extension AlbumsViewController: UITabBarDelegate {
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        
-        if item.tag == 1 {
-            navigationController?.pushViewController(SearchViewController(), animated: true)
-        }
-    }
-}
