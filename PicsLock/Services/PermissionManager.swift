@@ -1,11 +1,11 @@
-import Foundation
 import AVFoundation
 import Photos
+import UIKit
 
 protocol PermissionManagerDelegate: class {
 
-    func allowed(for sourceType: UIImagePickerControllerSourceType)
-    func denied(for sourceType: UIImagePickerControllerSourceType)
+  func allowed(for sourceType: UIImagePickerController.SourceType)
+  func denied(for sourceType: UIImagePickerController.SourceType)
 }
 
 class PermissionManager {

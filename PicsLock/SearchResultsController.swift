@@ -51,14 +51,13 @@ class SearchViewController: UIViewController {
         searchController.searchBar.placeholder = "Search documents"
         searchController.dimsBackgroundDuringPresentation = false
 
-        if let txfSearchField = searchController.searchBar.value(forKey: "_searchField") as? UITextField {
-            txfSearchField.backgroundColor = Color.Dark.nameFieldBackground
-            txfSearchField.textColor = UIColor.white
+        let txfSearchField = searchController.searchBar.searchTextField
+        txfSearchField.backgroundColor = Color.Dark.nameFieldBackground
+        txfSearchField.textColor = UIColor.white
 
-            let leftIcon = txfSearchField.leftView as! UIImageView
-            leftIcon.image = leftIcon.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
-            leftIcon.tintColor = Color.Dark.navBarItems
-        }
+        let leftIcon = txfSearchField.leftView as! UIImageView
+        leftIcon.image = leftIcon.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        leftIcon.tintColor = Color.Dark.navBarItems
 
         self.navigationItem.titleView = searchController.searchBar
     }
