@@ -9,8 +9,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+      
+    - name: Install Cocoapods
+      run: gem install cocoapods
+      
     - name: Build
       run: swift build -v
+      
     - name: Run tests
       run: swift test -v
 
