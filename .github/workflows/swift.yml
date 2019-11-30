@@ -3,20 +3,23 @@ name: Swift
 on: [push]
 
 jobs:
-  build:
-
+  test:
+    name: Test
     runs-on: macOS-latest
-
+    strategy:
+        matrix:
+            destination: ['platform=iOS Simulator,OS=13.0,name=iPhone 11 Pro']
     steps:
-    - uses: actions/checkout@v1
-      
+        - name: Checkout
+            uses: actions/checkout@master
+        
     - name: Install Cocoapods
-      run: gem install cocoapods
-      
-    - name: Build
-      run: swift build -v
-      
-    - name: Run tests
-      run: swift test -v
-
+        run: gem install cocoapods
     
+    - name: Build and test
+        run: |
+            cd Texstyle
+            xcodebuild clean test -project PicsLock.xcworkspace -scheme Texstyle -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+            bash <(curl -s https://codecov.io/bash)
+        env: 
+            destination: ${{ matrix.destination }}
