@@ -18,10 +18,10 @@ class InputField: UITextField {
 
     init() {
         super.init(frame: CGRect.zero)
-        self.backgroundColor = Color.Dark.textBackgroundLight
+        self.backgroundColor = .textBackgroundLight
         self.layer.cornerRadius = 8.0
-        self.textColor = Color.Dark.lightText
-        self.font = Font.inputField
+        self.textColor = .lightText
+        self.font = .inputField
         self.textAlignment = .center
     }
 

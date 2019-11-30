@@ -9,7 +9,7 @@ class SetPasscodeView: UIView {
 
     init() {
         super.init(frame: CGRect.zero)
-        self.backgroundColor = Color.Dark.background
+        self.backgroundColor = .background
 
         self.addSubview(descriptionField)
         descriptionField.text = "Welcome to PicsLock \n add a passcode to secure your files"
@@ -28,7 +28,7 @@ class SetPasscodeView: UIView {
     lazy var descriptionField: UITextView = {
         let descriptionField = UITextView(frame: CGRect.zero)
         descriptionField.textColor = UIColor.white
-        descriptionField.backgroundColor = Color.Dark.background
+        descriptionField.backgroundColor = .background
         descriptionField.isUserInteractionEnabled = false
         descriptionField.font = UIFont.systemFont(ofSize: 24.0)
         descriptionField.textAlignment = .center
@@ -39,7 +39,7 @@ class SetPasscodeView: UIView {
 
     lazy var primaryPasscodeField: InputField = {
         let passcodeField = InputField()
-        passcodeField.attributedPlaceholder = NSAttributedString(string: "Enter a Passcode", attributes: [NSAttributedStringKey.foregroundColor: Color.Dark.placeholderText])
+        passcodeField.attributedPlaceholder = NSAttributedString(string: "Enter a Passcode", attributes: [NSAttributedStringKey.foregroundColor: UIColor.placeholderText])
         passcodeField.isSecureTextEntry = true
         passcodeField.textAlignment = .center
         passcodeField.keyboardType = .numberPad
@@ -51,7 +51,7 @@ class SetPasscodeView: UIView {
 
     lazy var secondaryPasscodeField: UITextField = {
         let passcodeField = InputField()
-        passcodeField.attributedPlaceholder = NSAttributedString(string: "Repeat the Passcode", attributes: [NSAttributedStringKey.foregroundColor: Color.Dark.placeholderText])
+        passcodeField.attributedPlaceholder = NSAttributedString(string: "Repeat the Passcode", attributes: [NSAttributedStringKey.foregroundColor: UIColor.placeholderText])
         passcodeField.isSecureTextEntry = true
         passcodeField.textAlignment = .center
         passcodeField.keyboardType = .numberPad

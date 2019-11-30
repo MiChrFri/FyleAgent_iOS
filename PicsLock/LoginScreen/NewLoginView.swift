@@ -7,7 +7,7 @@ class NewLoginView: UIView {
     init() {
         super.init(frame: CGRect.zero)
         
-        self.backgroundColor = Color.Dark.background
+        self.backgroundColor = .background
         self.addSubview(animationView)
         
         self.addSubview(passwordField)
@@ -31,7 +31,7 @@ class NewLoginView: UIView {
         let passwordField = UITextField(frame: CGRect.zero)
         passwordField.isSecureTextEntry = true
         passwordField.translatesAutoresizingMaskIntoConstraints = false
-        passwordField.tintColor = Color.Dark.navBarItems
+        passwordField.tintColor = .navBarItems
         passwordField.textColor = UIColor.white
         passwordField.font = UIFont.systemFont(ofSize: 24.0)
         passwordField.textAlignment = .center

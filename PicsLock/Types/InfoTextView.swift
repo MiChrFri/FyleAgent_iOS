@@ -7,9 +7,9 @@ class InfoTextView: UITextView {
         self.isUserInteractionEnabled = false
         self.textAlignment = .center
         self.isUserInteractionEnabled = true
-        self.backgroundColor = Color.Dark.alertBackground
-        self.textColor = Color.Dark.lightText
-        self.font = Font.infoText
+        self.backgroundColor = .alertBackground
+        self.textColor = .lightText
+        self.font = .infoText
     }
 
     required init?(coder aDecoder: NSCoder) {

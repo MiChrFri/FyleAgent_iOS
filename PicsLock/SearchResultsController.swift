@@ -12,9 +12,9 @@ class SearchViewController: UIViewController {
     
     lazy var tableView: UITableView = {
        let tableView = UITableView(frame: CGRect.zero)
-        view.backgroundColor = Color.Dark.alertBackground
-        tableView.backgroundColor = Color.Dark.background
-        tableView.separatorColor = Color.Dark.alertBackground
+        view.backgroundColor = .alertBackground
+        tableView.backgroundColor = .background
+        tableView.separatorColor = .alertBackground
         tableView.bounces = false
         tableView.dataSource = self
         tableView.delegate = self
@@ -52,12 +52,12 @@ class SearchViewController: UIViewController {
         searchController.dimsBackgroundDuringPresentation = false
 
         let txfSearchField = searchController.searchBar.searchTextField
-        txfSearchField.backgroundColor = Color.Dark.nameFieldBackground
+        txfSearchField.backgroundColor = .nameFieldBackground
         txfSearchField.textColor = UIColor.white
 
         let leftIcon = txfSearchField.leftView as! UIImageView
         leftIcon.image = leftIcon.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
-        leftIcon.tintColor = Color.Dark.navBarItems
+        leftIcon.tintColor = .navBarItems
 
         self.navigationItem.titleView = searchController.searchBar
     }

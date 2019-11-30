@@ -1,6 +1,6 @@
 import UIKit
 
-struct Font {
+extension UIFont {
     static let infoText = UIFont.systemFont(ofSize: 18.0, weight: .light)
     static let inputField = UIFont.systemFont(ofSize: 24.0)
     static let closeButton = UIFont.systemFont(ofSize: 36.0)

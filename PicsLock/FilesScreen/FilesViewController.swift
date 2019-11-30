@@ -31,7 +31,7 @@ class FilesViewController: UIViewController {
     
     layout.scrollDirection = UICollectionViewScrollDirection.vertical
     collectionView.setCollectionViewLayout(layout, animated: true)
-    collectionView.backgroundColor = Color.Dark.background
+    collectionView.backgroundColor = .background
     collectionView.contentInset = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
     
     return collectionView
@@ -159,7 +159,7 @@ extension FilesViewController: PermissionManagerDelegate {
     }
     
     let errorAlert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-    errorAlert.view.tintColor = Color.Dark.lightText
+    errorAlert.view.tintColor = .lightText
     errorAlert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
     errorAlert.addAction(UIAlertAction(title: "Settings", style: UIAlertActionStyle.default, handler: { (action) in
       let app = UIApplication.shared

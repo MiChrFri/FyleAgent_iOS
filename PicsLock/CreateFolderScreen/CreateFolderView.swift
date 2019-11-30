@@ -17,7 +17,7 @@ class CreateFolderView: UIView {
 
     lazy var newFolderView: UIView = {
         let newFolderView = UIView(frame: CGRect.zero)
-        newFolderView.backgroundColor = Color.Dark.alertBackground
+        newFolderView.backgroundColor = .alertBackground
         newFolderView.layer.cornerRadius = 12.0
         newFolderView.translatesAutoresizingMaskIntoConstraints = false
         return newFolderView
@@ -28,7 +28,7 @@ class CreateFolderView: UIView {
         closeButton.layer.cornerRadius = 20.0
         closeButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         closeButton.setTitle("✖︎", for: .normal)
-        closeButton.titleLabel?.font = Font.closeButton
+        closeButton.titleLabel?.font = .closeButton
         closeButton.addTarget(self, action: #selector(closeView), for: .touchUpInside)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         return closeButton
@@ -61,7 +61,7 @@ class CreateFolderView: UIView {
         doneButton.layer.cornerRadius = 8.0
         doneButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         doneButton.setTitle("Create Folder", for: .normal)
-        doneButton.titleLabel?.font = Font.textButton
+        doneButton.titleLabel?.font = .textButton
         doneButton.addTarget(self, action: #selector(doneEntering), for: .touchUpInside)
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         return doneButton

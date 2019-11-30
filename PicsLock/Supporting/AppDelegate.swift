@@ -8,15 +8,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let tabBarController = UITabBarController()
-        UITabBar.appearance().barTintColor = Color.Dark.navBar
-        UITabBar.appearance().unselectedItemTintColor = Color.Dark.lightText
+        UITabBar.appearance().barTintColor = .navBar
+        UITabBar.appearance().unselectedItemTintColor = .lightText
                 
         let searchNavigationController = UINavigationController(rootViewController: SearchViewController())
-        searchNavigationController.navigationBar.barTintColor = Color.Dark.navBar
+        searchNavigationController.navigationBar.barTintColor = .navBar
         
         let albumsNavigationController = UINavigationController(rootViewController: AlbumsViewController())
-        albumsNavigationController.navigationBar.barTintColor = Color.Dark.navBar
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : Color.Dark.navBarTitle]
+        albumsNavigationController.navigationBar.barTintColor = .navBar
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.navBarTitle]
         
         albumsNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostRecent, tag: 0)
         searchNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
-        window?.tintColor = Color.Dark.navBarItems
+        window?.tintColor = .navBarItems
         
         return true
     }

@@ -42,10 +42,10 @@ class LoginViewController: UIViewController {
     
     private func redFlash() {
         UIView.animate(withDuration: 0.1, animations: {
-            self.view.backgroundColor = Color.Dark.errorBackground
+            self.view.backgroundColor = .errorBackground
         }) { (true) in
             UIView.animate(withDuration: 0.3, animations: {
-                self.view.backgroundColor = Color.Dark.background
+                self.view.backgroundColor = .background
             })
         }
     }

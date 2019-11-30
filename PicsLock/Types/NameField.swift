@@ -18,9 +18,9 @@ class NameField: UITextField {
 
     init() {
         super.init(frame: CGRect.zero)
-        self.backgroundColor = Color.Dark.nameFieldBackground
-        self.textColor = Color.Dark.lightText
-        self.font = Font.inputField
+        self.backgroundColor = .nameFieldBackground
+        self.textColor = .lightText
+        self.font = .inputField
         self.textAlignment = .center
     }
 

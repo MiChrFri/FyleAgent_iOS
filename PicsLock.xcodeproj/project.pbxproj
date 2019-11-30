@@ -11,10 +11,10 @@
 		5EA1C14F6A97E0F8108F7284 /* NameField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CB6E1DB5B04FAC904660 /* NameField.swift */; };
 		5EA1C1EB775B4B3FF22C29DB /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CE885AAC5651DE05F8E2 /* AlbumsViewController.swift */; };
 		5EA1C1F010C69750F2A6E973 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CDEE68145A02CB704C40 /* InputField.swift */; };
-		5EA1C20349E73A70AB1C3519 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CE00AA04D7335F4635E1 /* Color.swift */; };
+		5EA1C20349E73A70AB1C3519 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CE00AA04D7335F4635E1 /* UIColor.swift */; };
 		5EA1C2CAC2167FBCB90D65E4 /* InfoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CC5EC8FC3C132BD139A0 /* InfoTextView.swift */; };
 		5EA1C35059EBF3F51541F2C4 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C534009D0CEA4A2C30E0 /* PermissionManager.swift */; };
-		5EA1C3AF73959DE6F77A9A67 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C47A779452A1A87A90D5 /* Font.swift */; };
+		5EA1C3AF73959DE6F77A9A67 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C47A779452A1A87A90D5 /* UIFont.swift */; };
 		5EA1C407A544E3776D15DAF9 /* Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C37DF3FE777913033265 /* Documents.swift */; };
 		5EA1C4962BCBB4F8403EB312 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C6CC8D4D295B72729B27 /* Folder.swift */; };
 		5EA1C5F590A8BC55CE5F83E3 /* FilesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C2C489D0975BBFC3EFBA /* FilesCollectionViewCell.swift */; };
@@ -74,7 +74,7 @@
 		5EA1C37C08EA671CB033C8B2 /* AlbumsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumsCollectionViewCell.swift; sourceTree = "<group>"; };
 		5EA1C37DF3FE777913033265 /* Documents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Documents.swift; sourceTree = "<group>"; };
 		5EA1C43CC3C047F021E471FA /* SetPasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPasscodeViewController.swift; sourceTree = "<group>"; };
-		5EA1C47A779452A1A87A90D5 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		5EA1C47A779452A1A87A90D5 /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		5EA1C534009D0CEA4A2C30E0 /* PermissionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
 		5EA1C657D813E9907FB7DB7A /* SetPasscodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPasscodeView.swift; sourceTree = "<group>"; };
 		5EA1C6AF55726B3D9E92F5DB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		5EA1CCA45139EC6AA18F0E2B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5EA1CD0670D9FD4F592288AC /* CreateFolderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFolderViewController.swift; sourceTree = "<group>"; };
 		5EA1CDEE68145A02CB704C40 /* InputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
-		5EA1CE00AA04D7335F4635E1 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		5EA1CE00AA04D7335F4635E1 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5EA1CE49A0D5A6C3241422BC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5EA1CE4B9C00B95DE5E16999 /* FileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		5EA1CE885AAC5651DE05F8E2 /* AlbumsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
@@ -176,13 +176,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5EA1C112F45421A37A41C9B9 /* Constants */ = {
+		5EA1C112F45421A37A41C9B9 /* Extensions  */ = {
 			isa = PBXGroup;
 			children = (
-				5EA1CE00AA04D7335F4635E1 /* Color.swift */,
-				5EA1C47A779452A1A87A90D5 /* Font.swift */,
+				5EA1CE00AA04D7335F4635E1 /* UIColor.swift */,
+				5EA1C47A779452A1A87A90D5 /* UIFont.swift */,
 			);
-			path = Constants;
+			path = "Extensions ";
 			sourceTree = "<group>";
 		};
 		5EA1C2F89F832A8E8AAF9A84 /* Supporting */ = {
@@ -312,7 +312,7 @@
 				79DEC912215F773900A337DB /* Extensions */,
 				797B2F56215AA850007622C8 /* Animation */,
 				5EA1C770951C6B24947ADD6A /* AlbumScreen */,
-				5EA1C112F45421A37A41C9B9 /* Constants */,
+				5EA1C112F45421A37A41C9B9 /* Extensions  */,
 				5EA1CACD80C72FE0DF29537C /* LoginScreen */,
 				5EA1C2F89F832A8E8AAF9A84 /* Supporting */,
 				5EA1C3DE43EB4E91E3FED9B1 /* Types */,
@@ -566,8 +566,8 @@
 				797B2F5A215AB01D007622C8 /* SearchResultsController.swift in Sources */,
 				5EA1C81B83C5996F2BF4D308 /* AlbumsCollectionViewCell.swift in Sources */,
 				5EA1C1EB775B4B3FF22C29DB /* AlbumsViewController.swift in Sources */,
-				5EA1C20349E73A70AB1C3519 /* Color.swift in Sources */,
-				5EA1C3AF73959DE6F77A9A67 /* Font.swift in Sources */,
+				5EA1C20349E73A70AB1C3519 /* UIColor.swift in Sources */,
+				5EA1C3AF73959DE6F77A9A67 /* UIFont.swift in Sources */,
 				5EA1C9ED782656E3EE239C23 /* LoginDelegate.swift in Sources */,
 				5EA1CF60372C5CDB04768FB0 /* LoginViewController.swift in Sources */,
 				5EA1C7091B840ACBD7F77C94 /* SetPasscodeView.swift in Sources */,
@@ -798,6 +798,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9R94XJAZ89;
 				INFOPLIST_FILE = PicsLockTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -820,6 +821,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9R94XJAZ89;
 				INFOPLIST_FILE = PicsLockTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -841,6 +843,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9R94XJAZ89;
 				INFOPLIST_FILE = PicsLockUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -862,6 +865,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9R94XJAZ89;
 				INFOPLIST_FILE = PicsLockUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

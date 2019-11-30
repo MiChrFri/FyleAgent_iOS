@@ -17,7 +17,7 @@ class UnlockHiddenFolderView: UIView {
 
     lazy var passcodeView: UIView = {
         let passcodeView = UIView(frame: CGRect.zero)
-        passcodeView.backgroundColor = Color.Dark.alertBackground
+        passcodeView.backgroundColor = .alertBackground
         passcodeView.layer.cornerRadius = 12.0
         passcodeView.translatesAutoresizingMaskIntoConstraints = false
         return passcodeView
@@ -28,7 +28,7 @@ class UnlockHiddenFolderView: UIView {
         closeButton.layer.cornerRadius = 20.0
         closeButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         closeButton.setTitle("✖︎", for: .normal)
-        closeButton.titleLabel?.font = Font.closeButton
+        closeButton.titleLabel?.font = .closeButton
         closeButton.addTarget(self, action: #selector(closeView), for: .touchUpInside)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         return closeButton
@@ -54,7 +54,7 @@ class UnlockHiddenFolderView: UIView {
         doneButton.layer.cornerRadius = 8.0
         doneButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         doneButton.setTitle("Unlock", for: .normal)
-        doneButton.titleLabel?.font = Font.textButton
+        doneButton.titleLabel?.font = .textButton
         doneButton.addTarget(self, action: #selector(doneEntering), for: .touchUpInside)
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         return doneButton

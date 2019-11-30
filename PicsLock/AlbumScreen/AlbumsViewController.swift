@@ -33,7 +33,7 @@ class AlbumsViewController: UIViewController {
     collectionView.setCollectionViewLayout(layout, animated: true)
     collectionView.delegate = self
     collectionView.dataSource = self
-    collectionView.backgroundColor = Color.Dark.background
+    collectionView.backgroundColor = .background
     
     collectionView.contentInset = UIEdgeInsets(top: 8.0, left: 16.0, bottom: 8.0, right: 16.0)
     self.view.addSubview(collectionView)
