@@ -1,6 +1,0 @@
-framework module Pods_PicsLockTests {
-  umbrella header "Pods-PicsLockTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

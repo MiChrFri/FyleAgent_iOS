@@ -1,10 +1,10 @@
 import UIKit
-import ZoomImageView
+//import ZoomImageView
 
 class DetailView: UIView {
 
-    lazy var scrollView: ZoomImageView = {
-        let scrollView = ZoomImageView()
+    lazy var scrollView: ZoomView = {
+        let scrollView = ZoomView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()

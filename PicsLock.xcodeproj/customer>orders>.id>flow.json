@@ -1,0 +1,62 @@
+{
+    "mapData": {
+        "courierData": {
+            "location": {
+                "latitude": 41.3901,
+                "longitude": 2.195
+            },
+            "icons": {
+                "leftIconUrl": "left icon TBD",
+                "rightIconUrl": "right icon TBD"
+            },
+            "message": "Courier message"
+        },
+        "stateDescriptionData": {
+            "title": "Status title",
+            "subtitle": null,
+            "animationUrl": "animation url TBD",
+            "body": "Get ready your order is coming",
+            "progressData": {
+                "steps": [
+                    {
+                        "weight": 30,
+                        "status": "FILLED"
+                    },
+                    {
+                        "weight": 50,
+                        "status": "FILLED"
+                    },
+                    {
+                        "weight": 20,
+                        "status": "ANIMATED"
+                    }
+                ]
+            }
+        },
+        "points": [
+            {
+                "type": "PICKUP",
+                "title": "Pickup point",
+                "details": null,
+                "iconUrl": "icon TBD",
+                "coordinate": {
+                    "latitude": 41.3961,
+                    "longitude": 2.1936
+                }
+            },
+            {
+                "type": "DELIVERY",
+                "title": "Delivery point",
+                "details": "Delivery details",
+                "iconUrl": "icon TBD",
+                "coordinate": {
+                    "latitude": 41.4001,
+                    "longitude": 2.1982
+                }
+            }
+        ]
+    },
+    "secondsToNextRequest": 30,
+    "orderUpdateTime": 1575282524778,
+    "page": "MAP"
+}

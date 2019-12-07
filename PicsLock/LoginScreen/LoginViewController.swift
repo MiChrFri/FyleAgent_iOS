@@ -1,5 +1,4 @@
 import UIKit
-import CryptoSwift
 
 class LoginViewController: UIViewController {
     weak var delegate: LoginDelegate?
@@ -28,7 +27,7 @@ class LoginViewController: UIViewController {
                 textField.isUserInteractionEnabled = false
                 
                 if let loginview = view as? NewLoginView {
-                    loginview.animationView.play(toFrame: 60, withCompletion: { (finished) in
+                  loginview.animationView.play(toFrame: 60, completion: { (finished) in
                                                 self.delegate?.successfullyLoggedIn()
                                                 self.dismiss(animated: true)
                     })

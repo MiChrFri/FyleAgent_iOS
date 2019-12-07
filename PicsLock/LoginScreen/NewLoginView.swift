@@ -1,5 +1,4 @@
 import UIKit
-import CryptoSwift
 import Lottie
 
 class NewLoginView: UIView {
@@ -20,8 +19,8 @@ class NewLoginView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    lazy var animationView: LOTAnimationView = {
-        let animationView = LOTAnimationView(name: "padlock_tick")
+    lazy var animationView: AnimationView = {
+        let animationView = AnimationView(name: "padlock_tick")
         animationView.contentMode = .scaleAspectFill
         animationView.translatesAutoresizingMaskIntoConstraints = false
         return animationView
