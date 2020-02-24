@@ -14,4 +14,4 @@ jobs:
           run: gem install cocoapods
     
         - name: Start xcodebuild test
-          run: xcodebuild clean test -workspace PicsLock.xcworkspace -scheme PicsLock -destination "platform=iOS Simulator,OS=latest,name=iPhone 11 Pro"
+          run: xcodebuild clean test -project PicsLock.xcodeproj -scheme PicsLock -destination "platform=iOS Simulator,OS=latest,name=iPhone 11 Pro"
