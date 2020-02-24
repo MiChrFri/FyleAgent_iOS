@@ -29,7 +29,7 @@ class AlbumsViewController: UIViewController {
     collectionView.register(AlbumsCollectionViewCell.self, forCellWithReuseIdentifier: "cell_Id")
     let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
     
-    layout.scrollDirection = UICollectionViewScrollDirection.vertical
+    layout.scrollDirection = UICollectionView.ScrollDirection.vertical
     collectionView.setCollectionViewLayout(layout, animated: true)
     collectionView.delegate = self
     collectionView.dataSource = self
@@ -59,10 +59,10 @@ class AlbumsViewController: UIViewController {
   private func setupNavigationItems() {
     self.navigationItem.hidesBackButton = true
     
-    let unlockButton = UIBarButtonItem(image: UIImage(named: "lockIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.unlock))
+    let unlockButton = UIBarButtonItem(image: UIImage(named: "lockIcon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.unlock))
     self.navigationItem.leftBarButtonItem = unlockButton
     
-    let newFolderButton = UIBarButtonItem(image: UIImage(named: "newFolderIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.newFolder))
+    let newFolderButton = UIBarButtonItem(image: UIImage(named: "newFolderIcon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.newFolder))
     self.navigationItem.rightBarButtonItem = newFolderButton
   }
   

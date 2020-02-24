@@ -56,7 +56,7 @@ class SearchViewController: UIViewController {
         txfSearchField.textColor = UIColor.white
 
         let leftIcon = txfSearchField.leftView as! UIImageView
-        leftIcon.image = leftIcon.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        leftIcon.image = leftIcon.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         leftIcon.tintColor = .navBarItems
 
         self.navigationItem.titleView = searchController.searchBar
@@ -71,7 +71,7 @@ class SearchViewController: UIViewController {
             return fileName.lowercased().contains(searchText.lowercased())
         })
         
-        tableView.reloadSections(IndexSet(integer: 0), with: UITableViewRowAnimation.fade)
+        tableView.reloadSections(IndexSet(integer: 0), with: UITableView.RowAnimation.fade)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -87,7 +87,7 @@ extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellIdentifier)
+            cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: cellIdentifier)
             cell?.backgroundColor = UIColor.init(red: 67.0/255.0, green: 68.0/255.0, blue: 76.0/255.0, alpha: 1.0)
             
             let fileName = searchResults[indexPath.row]
@@ -130,8 +130,8 @@ extension SearchViewController: UITableViewDelegate {
                 
                 let transition = CATransition()
                 transition.duration = 0.1
-                transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-                transition.type = kCATransitionFade
+                transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+                transition.type = CATransitionType.fade
                 self.navigationController?.view.layer.add(transition, forKey: nil)
                 
                 

@@ -19,9 +19,7 @@ struct FileService {
             for case let url as URL in enumerator {
                 let resourceValues = try url.resourceValues(forKeys: Set(resourceKeys))
                 if resourceValues.isDirectory ?? false {
-                    
                     folders.append(Folder(name: url.lastPathComponent, path: url.absoluteURL))
-                    print("🗂 \(url.path) - \(resourceValues.fileSize)")
                 }
                 
             }

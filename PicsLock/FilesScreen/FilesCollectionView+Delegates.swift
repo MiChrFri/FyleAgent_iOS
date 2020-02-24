@@ -27,8 +27,8 @@ extension FilesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     let transition = CATransition()
     transition.duration = 0.1
-    transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-    transition.type = kCATransitionFade
+    transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+    transition.type = CATransitionType.fade
     self.navigationController?.view.layer.add(transition, forKey: nil)
     self.navigationController?.pushViewController(detailViewController, animated: false)
   }

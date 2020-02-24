@@ -20,8 +20,8 @@ class DetailViewController: UIViewController {
     @objc func back() {
         let transition = CATransition()
         transition.duration = 0.1
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        transition.type = kCATransitionFade
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+        transition.type = CATransitionType.fade
         self.navigationController?.view.layer.add(transition, forKey: nil)
 
         _ = navigationController?.popViewController(animated: false)
@@ -31,7 +31,7 @@ class DetailViewController: UIViewController {
         (view as? DetailView)?.nameField.isUserInteractionEnabled = true
         (view as? DetailView)?.nameField.becomeFirstResponder()
         
-        let saveBtn = UIBarButtonItem(image: UIImage(named: "saveIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.saveDocument))
+        let saveBtn = UIBarButtonItem(image: UIImage(named: "saveIcon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.saveDocument))
         self.navigationItem.rightBarButtonItem = saveBtn
     }
     
@@ -75,12 +75,12 @@ class DetailViewController: UIViewController {
 
     private func setupNavigationItems() {
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "Close", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.back))
+        let newBackButton = UIBarButtonItem(title: "Close", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back))
         self.navigationItem.leftBarButtonItem = newBackButton
 
-        let editName = UIBarButtonItem(image: UIImage(named: "editIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.editName))
+        let editName = UIBarButtonItem(image: UIImage(named: "editIcon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.editName))
         
-        let delete = UIBarButtonItem(image: UIImage(named: "deleteIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.deleteDocument))
+        let delete = UIBarButtonItem(image: UIImage(named: "deleteIcon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.deleteDocument))
         
         self.navigationItem.rightBarButtonItems = [editName, delete]
     }

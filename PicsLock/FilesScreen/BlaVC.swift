@@ -19,7 +19,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         pageController.dataSource = self
         pageController.delegate = self
 
-      addChildViewController(pageController)
+      addChild(pageController)
         view.addSubview(pageController.view)
 
         let views = ["pageController": pageController.view] as [String: AnyObject]

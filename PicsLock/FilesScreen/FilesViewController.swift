@@ -29,7 +29,7 @@ class FilesViewController: UIViewController {
     collectionView.register(FilesCollectionViewCell.self, forCellWithReuseIdentifier: "files_cell_Id")
     let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
     
-    layout.scrollDirection = UICollectionViewScrollDirection.vertical
+    layout.scrollDirection = UICollectionView.ScrollDirection.vertical
     collectionView.setCollectionViewLayout(layout, animated: true)
     collectionView.backgroundColor = .background
     collectionView.contentInset = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
@@ -64,7 +64,7 @@ class FilesViewController: UIViewController {
   private func setupNavigationItems() {
     title = folderPath.lastPathComponent
     
-    let newBackButton = UIBarButtonItem(image: UIImage(named: "newDocIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.addImage(sender:)))
+    let newBackButton = UIBarButtonItem(image: UIImage(named: "newDocIcon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.addImage(sender:)))
     self.navigationItem.rightBarButtonItem = newBackButton
   }
   
@@ -72,11 +72,11 @@ class FilesViewController: UIViewController {
     let imagePickerAlert = UIAlertController(title: "Select an Image", message: nil, preferredStyle: .alert)
     
     imagePickerAlert.view.tintColor = UIColor.systemPink
-    imagePickerAlert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
-    imagePickerAlert.addAction(UIAlertAction(title: "Camera", style: UIAlertActionStyle.default, handler: { (action) in
+    imagePickerAlert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+    imagePickerAlert.addAction(UIAlertAction(title: "Camera", style: UIAlertAction.Style.default, handler: { (action) in
       self.permissionsManager.handleCameraPermission()
     }))
-    imagePickerAlert.addAction(UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.default, handler: { (action) in
+    imagePickerAlert.addAction(UIAlertAction(title: "Photo Library", style: UIAlertAction.Style.default, handler: { (action) in
       self.permissionsManager.handlePhotoLibraryPermission()
     }))
     
@@ -94,7 +94,7 @@ class FilesViewController: UIViewController {
     ])
   }
   
-  private func presentImagePicker(withType type: UIImagePickerControllerSourceType) {
+  private func presentImagePicker(withType type: UIImagePickerController.SourceType) {
     if let imagePicker = self.imageProvider.pickerController(from: type ) {
       imagePicker.delegate = self
       self.present(imagePicker, animated: false)
@@ -108,7 +108,7 @@ class FilesViewController: UIViewController {
   
   func pickedImage(image: UIImage?) {
     if let img = image {
-      guard let data = UIImageJPEGRepresentation(img, 0.5) ?? UIImagePNGRepresentation(img) else {return}
+      guard let data = img.jpegData(compressionQuality: 0.5) ?? img.pngData() else {return}
       
       do {
         let tmp_name = "\(Int(Date().timeIntervalSince1970)).png"
@@ -132,7 +132,7 @@ extension FilesViewController: DocumentsDelegate {
 
 extension FilesViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-    guard let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {dismiss(animated:false, completion:nil); return }
+    guard let pickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage else {dismiss(animated:false, completion:nil); return }
     
     dismiss(animated:false, completion: { () in
       self.pickedImage(image: pickedImage)
@@ -141,11 +141,11 @@ extension FilesViewController: UIImagePickerControllerDelegate, UINavigationCont
 }
 
 extension FilesViewController: PermissionManagerDelegate {
-  func allowed(for sourceType: UIImagePickerControllerSourceType) {
+  func allowed(for sourceType: UIImagePickerController.SourceType) {
     self.presentImagePicker(withType: sourceType)
   }
   
-  func denied(for permissionType: UIImagePickerControllerSourceType) {
+  func denied(for permissionType: UIImagePickerController.SourceType) {
     var alertTitle: String
     var alertMessage: String
     
@@ -160,14 +160,24 @@ extension FilesViewController: PermissionManagerDelegate {
     
     let errorAlert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
     errorAlert.view.tintColor = .lightText
-    errorAlert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
-    errorAlert.addAction(UIAlertAction(title: "Settings", style: UIAlertActionStyle.default, handler: { (action) in
+    errorAlert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+    errorAlert.addAction(UIAlertAction(title: "Settings", style: UIAlertAction.Style.default, handler: { (action) in
       let app = UIApplication.shared
-      let settingsUrl = URL(string: UIApplicationOpenSettingsURLString)
+      let settingsUrl = URL(string: UIApplication.openSettingsURLString)
       
-      app.open(settingsUrl!, options: [:], completionHandler: nil)
+      app.open(settingsUrl!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
     }))
     
     self.present(errorAlert, animated: true, completion: nil)
   }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

@@ -16,24 +16,23 @@ class CameraViewController: UIViewController {
   var videoPreviewLayer: AVCaptureVideoPreviewLayer!
   
   override func viewDidAppear(_ animated: Bool) {
-      super.viewDidAppear(animated)
-      
-      captureSession = AVCaptureSession()
-      captureSession.sessionPreset = .medium
+    super.viewDidAppear(animated)
+    
+    captureSession = AVCaptureSession()
+    captureSession.sessionPreset = .medium
     
     
     guard let backCamera = AVCaptureDevice.default(for: AVMediaType.video)
-        else {
-            print("Unable to access back camera!")
-            return
+      else {
+        print("Unable to access back camera!")
+        return
     }
     
     do {
-        let input = try AVCaptureDeviceInput(device: backCamera)
-        //Step 9
+      try AVCaptureDeviceInput(device: backCamera)
     }
     catch let error  {
-        print("Error Unable to initialize back camera:  \(error.localizedDescription)")
+      print("Error Unable to initialize back camera:  \(error.localizedDescription)")
     }
   }
   
