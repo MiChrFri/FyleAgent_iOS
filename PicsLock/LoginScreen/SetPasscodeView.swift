@@ -83,7 +83,7 @@ class SetPasscodeView: UIView {
         if primaryPasscodeField.text?.count ?? 0 >= 4 {
             if secondaryPasscodeField.text == primaryPasscodeField.text {
                 UIView.animate(withDuration: 0.5, animations: {
-                    self.descriptionField.text = "Awesome 😀😀"
+                    self.descriptionField.text = "Weclome"
                 }) { (true) in
                     let passcodeHash = textField.text?.sha256() ?? ""
                     self.delegate?.didSetPasscode(passcodeHash: passcodeHash)
