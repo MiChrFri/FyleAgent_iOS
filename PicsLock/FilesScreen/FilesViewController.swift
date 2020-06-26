@@ -2,6 +2,7 @@ import UIKit
 
 class FilesViewController: UIViewController {
   var currentIndex = 0
+  var currentPage = 0
   var detailViewController: UIPageViewController?
   
   private(set) lazy var orderedViewControllers: [UIViewController] = {
@@ -136,15 +137,15 @@ class FilesViewController: UIViewController {
   }
   
   @objc func editName() {
-    (orderedViewControllers[currentIndex].view as? DetailView)?.nameField.isUserInteractionEnabled = true
-    (orderedViewControllers[currentIndex].view as? DetailView)?.nameField.becomeFirstResponder()
+    (orderedViewControllers[currentPage].view as? DetailView)?.nameField.isUserInteractionEnabled = true
+    (orderedViewControllers[currentPage].view as? DetailView)?.nameField.becomeFirstResponder()
     
     let saveBtn = UIBarButtonItem(image: UIImage(named: "saveIcon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.saveDocument))
     self.detailViewController?.navigationItem.rightBarButtonItem = saveBtn
   }
   
   @objc func saveDocument() {
-    let deatilVC = (orderedViewControllers[currentIndex] as? DetailViewController)
+    let deatilVC = (orderedViewControllers[currentPage] as? DetailViewController)
     
     guard var document = deatilVC?.document else { return }
     
@@ -162,9 +163,9 @@ class FilesViewController: UIViewController {
   }
   
   @objc func deleteDocument() {
-    let deatilVC = (orderedViewControllers[currentIndex] as? DetailViewController)
+    let deatilVC = (orderedViewControllers[currentPage] as? DetailViewController)
     guard let document = deatilVC?.document else { return }
-    
+
     self.back()
     try? FileManager.default.removeItem(at: document.path)
     reloadData()

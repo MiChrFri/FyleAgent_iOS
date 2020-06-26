@@ -20,7 +20,8 @@ extension FilesViewController: UICollectionViewDelegate, UICollectionViewDataSou
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let index = indexPath.row
     
-    self.currentIndex = index
+    currentIndex = index
+    currentPage = index
     
     let transition = CATransition()
     transition.duration = 0.1
@@ -28,32 +29,27 @@ extension FilesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     transition.type = CATransitionType.fade
     self.navigationController?.view.layer.add(transition, forKey: nil)
     
-    if files.count < 2 {
-      let detailViewController = orderedViewControllers[index]
-      self.navigationController?.pushViewController(detailViewController, animated: false)
-    }
-    else {
-      let detailViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-      detailViewController.setViewControllers([orderedViewControllers[index]], direction: .forward, animated: true, completion: nil)
-      detailViewController.dataSource = self
-      
-      self.detailViewController = detailViewController
-      
-      self.detailViewController?.title = "-"
-      
-      self.navigationController?.pushViewController(detailViewController, animated: false)
-      
-      setupNavigationItems()
-    }
+    let detailViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    detailViewController.setViewControllers([orderedViewControllers[index]], direction: .forward, animated: true, completion: nil)
+    detailViewController.dataSource = self
+    
+    self.detailViewController = detailViewController
+    
+    self.detailViewController?.title = "-"
+    
+    self.navigationController?.pushViewController(detailViewController, animated: false)
+    
+    setupNavigationItems()
   }
   
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 1
   }
   
-  func collectionView(_ collectionView: UICollectionView,
-                      layout collectionViewLayout: UICollectionViewLayout,
-                      sizeForItemAt indexPath: IndexPath) -> CGSize {
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    sizeForItemAt indexPath: IndexPath) -> CGSize {
     
     let width = UIScreen.main.bounds.width / 3 - 16
     
@@ -64,13 +60,13 @@ extension FilesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0)
   }
   
-  func collectionView(_ collectionView: UICollectionView,
-                      layout collectionViewLayout: UICollectionViewLayout,
-                      minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
     return 5.0
   }
 }
-
 
 // MARK: UIPageViewControllerDataSource
 extension FilesViewController: UIPageViewControllerDataSource {
@@ -87,6 +83,7 @@ extension FilesViewController: UIPageViewControllerDataSource {
     
     if let index = orderedViewControllers.firstIndex(of: viewController) {
       setupNavigationItems()
+      currentPage = index
       
       if index > 0 {
         let index = index - 1
@@ -106,7 +103,7 @@ extension FilesViewController: UIPageViewControllerDataSource {
     
     if let index = orderedViewControllers.firstIndex(of: viewController) {
       setupNavigationItems()
-      
+      currentPage = index
       if index < orderedViewControllers.count - 1 {
         let index = index + 1
         currentIndex = index
