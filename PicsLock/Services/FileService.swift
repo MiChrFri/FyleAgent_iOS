@@ -1,59 +1,46 @@
 import Foundation
 
 struct FileService {
-    let fileManager = FileManager.default
+  private let fileManager = FileManager.default
+  private let resourceKeys: [URLResourceKey] = [.creationDateKey, .isDirectoryKey, .fileSizeKey]
+  
+  var folders: [Folder] {
+    guard let documentsURL = DocumentsManager.documentsURL,
+    let enumerator = enumerator(forUrl: documentsURL) else { return [] }
+    var folders = [Folder]()
     
-    func documentDirectories() -> [Folder] {
-        var folders = [Folder]()
-        
-        do {
-            let resourceKeys : [URLResourceKey] = [.creationDateKey, .isDirectoryKey, .fileSizeKey]
-            let documentsURL = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-            let enumerator = FileManager.default.enumerator(at: documentsURL,
-                                                            includingPropertiesForKeys: resourceKeys,
-                                                            options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in
-                                                                print("directoryEnumerator error at \(url): ", error)
-                                                                return true
-            })!
-            
-            for case let url as URL in enumerator {
-                let resourceValues = try url.resourceValues(forKeys: Set(resourceKeys))
-                if resourceValues.isDirectory ?? false {
-                    folders.append(Folder(name: url.lastPathComponent, path: url.absoluteURL))
-                }
-                
-            }
-        } catch {
-            print(error)
-        }
-        
-        return folders
+    for case let url as URL in enumerator {
+      let resourceValues = try? url.resourceValues(forKeys: Set(resourceKeys))
+      if resourceValues?.isDirectory ?? false {
+        folders.append(Folder(name: url.lastPathComponent, path: url.absoluteURL))
+      }
     }
     
-    func files(at documentsURL: URL ) -> [File] {
-        var files = [File]()
-        
-        do {
-            let resourceKeys : [URLResourceKey] = [.creationDateKey, .isDirectoryKey, .fileSizeKey]
-            let enumerator = FileManager.default.enumerator(at: documentsURL,
-                                                            includingPropertiesForKeys: resourceKeys,
-                                                            options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in
-                                                                return true
-            })!
-            
-            for case let fileURL as URL in enumerator {
-                let resourceValues = try fileURL.resourceValues(forKeys: Set(resourceKeys))
-                if !(resourceValues.isDirectory ?? false) {
-                    
-                    files.append(File(name: fileURL.lastPathComponent, path: fileURL.absoluteURL))
-                }
-            }
-        } catch {
-            print(error)
-        }
-        
-        return files
+    return folders
+  }
+  
+  func files(at documentsURL: URL ) -> [File] {
+    guard let enumerator = enumerator(forUrl: documentsURL) else { return [] }
+    var files = [File]()
+    
+    for case let fileURL as URL in enumerator {
+      let resourceValues = try? fileURL.resourceValues(forKeys: Set(resourceKeys))
+      if !(resourceValues?.isDirectory ?? false) {
+        files.append(File(name: fileURL.lastPathComponent, path: fileURL.absoluteURL))
+      }
     }
+    
+    return files
+  }
+  
+  private func enumerator(forUrl url: URL) -> FileManager.DirectoryEnumerator? {
+    return FileManager.default.enumerator(
+      at: url,
+      includingPropertiesForKeys: resourceKeys,
+      options: [.skipsHiddenFiles],
+      errorHandler: nil)
+  }
+  
 }
 
 

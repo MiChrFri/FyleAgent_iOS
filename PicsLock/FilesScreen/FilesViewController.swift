@@ -1,7 +1,8 @@
 import UIKit
 
 class FilesViewController: UIViewController {
-  var  currentIndex = 0
+  var currentIndex = 0
+  var detailViewController: UIPageViewController?
   
   private(set) lazy var orderedViewControllers: [UIViewController] = {
     var vcs = [UIViewController]()
@@ -16,7 +17,6 @@ class FilesViewController: UIViewController {
     
     return vcs
   }()
-  
   
   private let permissionsManager = PermissionManager()
   private let imageProvider = ImageProvider()
@@ -103,6 +103,18 @@ class FilesViewController: UIViewController {
   
   private func reloadData() {
     files = fileService.files(at: folderPath)
+    
+    var vcs = [UIViewController]()
+
+    for file in files {
+      if let img = UIImage(contentsOfFile: file.path.relativePath) {
+        let doc = Document(name: file.path.lastPathComponent, path: file.path, image: img)
+        let vc = DetailViewController(document: doc)
+        vcs.append(vc)
+      }
+    }
+
+    orderedViewControllers = vcs
     collectionView.reloadData()
   }
   
@@ -122,17 +134,59 @@ class FilesViewController: UIViewController {
       reloadData()
     }
   }
-}
-
-extension FilesViewController: DocumentsDelegate {
-  func updated() {
+  
+  @objc func editName() {
+    (orderedViewControllers[currentIndex].view as? DetailView)?.nameField.isUserInteractionEnabled = true
+    (orderedViewControllers[currentIndex].view as? DetailView)?.nameField.becomeFirstResponder()
+    
+    let saveBtn = UIBarButtonItem(image: UIImage(named: "saveIcon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.saveDocument))
+    self.detailViewController?.navigationItem.rightBarButtonItem = saveBtn
+  }
+  
+  @objc func saveDocument() {
+    let deatilVC = (orderedViewControllers[currentIndex] as? DetailViewController)
+    
+    guard var document = deatilVC?.document else { return }
+    
+    if let newName = (deatilVC?.view as? DetailView)?.nameField.text {
+      
+      let documentsMananger = DocumentsManager()
+      if let savedDocument = documentsMananger.saveDocument(document, forName: newName) {
+        document = savedDocument
+        
+        reloadData()
+        (view as? DetailView)?.nameField.isUserInteractionEnabled = false
+        setupNavigationItems()
+      }
+    }
+  }
+  
+  @objc func deleteDocument() {
+    let deatilVC = (orderedViewControllers[currentIndex] as? DetailViewController)
+    guard let document = deatilVC?.document else { return }
+    
+    self.back()
+    try? FileManager.default.removeItem(at: document.path)
     reloadData()
+  }
+  
+  @objc func back() {
+    let transition = CATransition()
+    transition.duration = 0.1
+    transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+    transition.type = CATransitionType.fade
+    self.navigationController?.view.layer.add(transition, forKey: nil)
+    
+    _ = navigationController?.popViewController(animated: false)
   }
 }
 
 extension FilesViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-  @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-    guard let pickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage else {dismiss(animated:false, completion:nil); return }
+  
+  func imagePickerController(
+    _ picker: UIImagePickerController,
+    didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    guard let pickedImage = info[UIImagePickerController.InfoKey(rawValue: convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage))] as? UIImage else {dismiss(animated:false, completion:nil); return }
     
     dismiss(animated:false, completion: { () in
       self.pickedImage(image: pickedImage)
@@ -142,7 +196,11 @@ extension FilesViewController: UIImagePickerControllerDelegate, UINavigationCont
 
 extension FilesViewController: PermissionManagerDelegate {
   func allowed(for sourceType: UIImagePickerController.SourceType) {
-    self.presentImagePicker(withType: sourceType)
+    
+    DispatchQueue.main.async {
+      self.presentImagePicker(withType: sourceType)
+    }
+    
   }
   
   func denied(for permissionType: UIImagePickerController.SourceType) {

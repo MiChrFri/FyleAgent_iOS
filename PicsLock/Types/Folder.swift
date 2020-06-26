@@ -1,6 +1,6 @@
 import Foundation
 
-struct Folder: Hashable {
+struct Folder: Directory, Hashable {
   let name:String
   let path:URL
   var accesscodeHash: String?

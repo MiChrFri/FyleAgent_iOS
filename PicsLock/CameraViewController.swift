@@ -1,11 +1,3 @@
-//
-//  CameraViewController.swift
-//  PicsLock
-//
-//  Created by Michael Frick on 23/11/2019.
-//  Copyright © 2019 Michael Frick. All rights reserved.
-//
-
 import UIKit
 import AVFoundation
 

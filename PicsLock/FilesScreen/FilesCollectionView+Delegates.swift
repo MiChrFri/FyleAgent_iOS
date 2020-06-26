@@ -1,6 +1,7 @@
 import UIKit
 
 extension FilesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+  
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return files.count
   }
@@ -18,19 +19,32 @@ extension FilesViewController: UICollectionViewDelegate, UICollectionViewDataSou
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let index = indexPath.row
-
-    self.currentIndex = index
     
-    let detailViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-    detailViewController.setViewControllers([orderedViewControllers[index]], direction: .forward, animated: true, completion: nil)
-    detailViewController.dataSource = self
+    self.currentIndex = index
     
     let transition = CATransition()
     transition.duration = 0.1
     transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
     transition.type = CATransitionType.fade
     self.navigationController?.view.layer.add(transition, forKey: nil)
-    self.navigationController?.pushViewController(detailViewController, animated: false)
+    
+    if files.count < 2 {
+      let detailViewController = orderedViewControllers[index]
+      self.navigationController?.pushViewController(detailViewController, animated: false)
+    }
+    else {
+      let detailViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+      detailViewController.setViewControllers([orderedViewControllers[index]], direction: .forward, animated: true, completion: nil)
+      detailViewController.dataSource = self
+      
+      self.detailViewController = detailViewController
+      
+      self.detailViewController?.title = "-"
+      
+      self.navigationController?.pushViewController(detailViewController, animated: false)
+      
+      setupNavigationItems()
+    }
   }
   
   func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -70,35 +84,52 @@ extension FilesViewController: UIPageViewControllerDataSource {
   }
   
   func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-      if let index = orderedViewControllers.firstIndex(of: viewController) {
-          if index > 0 {
-            let index = index - 1
-            currentIndex = index
-            return orderedViewControllers[index]
-          } else {
-            let index = orderedViewControllers.count - 1
-            currentIndex = index
-            return orderedViewControllers[index]
-          }
+    
+    if let index = orderedViewControllers.firstIndex(of: viewController) {
+      setupNavigationItems()
+      
+      if index > 0 {
+        let index = index - 1
+        currentIndex = index
+        return orderedViewControllers[index]
+      } else {
+        let index = orderedViewControllers.count - 1
+        currentIndex = index
+        return orderedViewControllers[index]
       }
-
-      return nil
+    }
+    
+    return nil
   }
-
+  
   func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-      if let index = orderedViewControllers.firstIndex(of: viewController) {
-          if index < orderedViewControllers.count - 1 {
-              let index = index + 1
-              currentIndex = index
-              return orderedViewControllers[index]
-          } else {
-            let index = 0
-            currentIndex = index
-            return orderedViewControllers[index]
-          }
+    
+    if let index = orderedViewControllers.firstIndex(of: viewController) {
+      setupNavigationItems()
+      
+      if index < orderedViewControllers.count - 1 {
+        let index = index + 1
+        currentIndex = index
+        return orderedViewControllers[index]
+      } else {
+        let index = 0
+        currentIndex = index
+        return orderedViewControllers[index]
       }
-
-      return nil
+    }
+    
+    return nil
+  }
+  
+  private func setupNavigationItems() {
+    self.detailViewController?.navigationItem.hidesBackButton = true
+    let newBackButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(self.back))
+    self.detailViewController?.navigationItem.leftBarButtonItem = newBackButton
+    
+    let editName = UIBarButtonItem(image: UIImage(named: "editIcon"), style: .plain, target: self, action: #selector(self.editName))
+    let delete = UIBarButtonItem(image: UIImage(named: "deleteIcon"), style: .plain, target: self, action: #selector(self.deleteDocument))
+    
+    self.detailViewController?.navigationItem.rightBarButtonItems = [editName, delete]
   }
   
 }

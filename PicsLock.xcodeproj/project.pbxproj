@@ -37,10 +37,11 @@
 		5EA1CFE0D167F68B04BFEC84 /* CreateFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C7822E720FA1B1781AA0 /* CreateFolderView.swift */; };
 		79033FAB21565AFA00766799 /* NewLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79033FAA21565AFA00766799 /* NewLoginView.swift */; };
 		79033FB12158E2F900766799 /* padlock_tick.json in Resources */ = {isa = PBXBuildFile; fileRef = 79033FB02158E2F900766799 /* padlock_tick.json */; };
+		794549E224A3E9A00068E9F1 /* DocumentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794549E124A3E9A00068E9F1 /* DocumentsManager.swift */; };
+		794549E424A3F08F0068E9F1 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794549E324A3F08F0068E9F1 /* Directory.swift */; };
 		7949DE982392893B000BA1DE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7949DE972392893B000BA1DE /* String.swift */; };
 		7949DE9B23928A8E000BA1DE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7949DE9A23928A8E000BA1DE /* Lottie */; };
 		7949DE9D23928BED000BA1DE /* ZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7949DE9C23928BED000BA1DE /* ZoomView.swift */; };
-		7977797623894ABA005DD38D /* BlaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7977797523894ABA005DD38D /* BlaVC.swift */; };
 		7977797823895034005DD38D /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7977797723895033005DD38D /* CameraViewController.swift */; };
 		797B2F5A215AB01D007622C8 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797B2F59215AB01D007622C8 /* SearchResultsController.swift */; };
 		799EB0DA2131605100D8A757 /* PicsLockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0D92131605100D8A757 /* PicsLockTests.swift */; };
@@ -99,9 +100,10 @@
 		5EA1CE885AAC5651DE05F8E2 /* AlbumsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
 		79033FAA21565AFA00766799 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
 		79033FB02158E2F900766799 /* padlock_tick.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = padlock_tick.json; sourceTree = "<group>"; };
+		794549E124A3E9A00068E9F1 /* DocumentsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsManager.swift; sourceTree = "<group>"; };
+		794549E324A3F08F0068E9F1 /* Directory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
 		7949DE972392893B000BA1DE /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		7949DE9C23928BED000BA1DE /* ZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomView.swift; sourceTree = "<group>"; };
-		7977797523894ABA005DD38D /* BlaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlaVC.swift; sourceTree = "<group>"; };
 		7977797723895033005DD38D /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		797B2F59215AB01D007622C8 /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		799EB0C12131604E00D8A757 /* PicsLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicsLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +178,7 @@
 			children = (
 				5EA1C6CC8D4D295B72729B27 /* Folder.swift */,
 				5EA1C72C315A99B79FEFF5B2 /* File.swift */,
+				794549E324A3F08F0068E9F1 /* Directory.swift */,
 				5EA1CDEE68145A02CB704C40 /* InputField.swift */,
 				5EA1CC5EC8FC3C132BD139A0 /* InfoTextView.swift */,
 				5EA1C37DF3FE777913033265 /* Documents.swift */,
@@ -220,6 +223,7 @@
 				5EA1CE4B9C00B95DE5E16999 /* FileService.swift */,
 				5EA1C534009D0CEA4A2C30E0 /* PermissionManager.swift */,
 				5EA1CA5482DFEA4FE3F58D44 /* ImageProvider.swift */,
+				794549E124A3E9A00068E9F1 /* DocumentsManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -228,7 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				5EA1CA0185A5ED285F360EBF /* FilesViewController.swift */,
-				7977797523894ABA005DD38D /* BlaVC.swift */,
 				5EA1C2C489D0975BBFC3EFBA /* FilesCollectionViewCell.swift */,
 				5EA1C6B51F28F506EEA89DF6 /* FilesCollectionView+Delegates.swift */,
 			);
@@ -398,7 +401,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Michael Frick";
 				TargetAttributes = {
 					799EB0C02131604E00D8A757 = {
@@ -486,6 +489,7 @@
 				5EA1C4962BCBB4F8403EB312 /* Folder.swift in Sources */,
 				5EA1CB093C8D058F7FD22F09 /* File.swift in Sources */,
 				7949DE982392893B000BA1DE /* String.swift in Sources */,
+				794549E424A3F08F0068E9F1 /* Directory.swift in Sources */,
 				79033FAB21565AFA00766799 /* NewLoginView.swift in Sources */,
 				5EA1CC35F1A3D2971A321A5E /* FilesViewController.swift in Sources */,
 				5EA1C5F590A8BC55CE5F83E3 /* FilesCollectionViewCell.swift in Sources */,
@@ -502,9 +506,9 @@
 				5EA1C950CE0529340813A417 /* CreateFolderViewController.swift in Sources */,
 				5EA1CDD678E185C3A9C278D3 /* UnlockHiddenFolderView.swift in Sources */,
 				79DEC914215F775D00A337DB /* URL+DataPath.swift in Sources */,
-				7977797623894ABA005DD38D /* BlaVC.swift in Sources */,
 				5EA1C2CAC2167FBCB90D65E4 /* InfoTextView.swift in Sources */,
 				5EA1C407A544E3776D15DAF9 /* Documents.swift in Sources */,
+				794549E224A3E9A00068E9F1 /* DocumentsManager.swift in Sources */,
 				5EA1C14F6A97E0F8108F7284 /* NameField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,6 +572,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -593,7 +598,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -628,6 +633,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -647,7 +653,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -659,6 +665,7 @@
 		799EB0EA2131605100D8A757 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 9R94XJAZ89;
@@ -668,7 +675,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = m.frick.FyleAgent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -679,6 +686,7 @@
 		799EB0EB2131605100D8A757 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 9R94XJAZ89;
@@ -688,7 +696,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = m.frick.FyleAgent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

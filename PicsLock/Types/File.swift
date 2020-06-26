@@ -1,6 +1,10 @@
 import Foundation
 
-struct File {
-    let name:String
-    let path:URL
+struct File: Directory {
+  var name: String
+  var path: URL
 }
+
+
+
+

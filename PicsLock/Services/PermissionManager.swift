@@ -3,7 +3,6 @@ import Photos
 import UIKit
 
 protocol PermissionManagerDelegate: class {
-
   func allowed(for sourceType: UIImagePickerController.SourceType)
   func denied(for sourceType: UIImagePickerController.SourceType)
 }
@@ -25,7 +24,8 @@ class PermissionManager {
                     self.delegate?.denied(for: .camera)
                 }
             }
-        }
+        @unknown default: break
+      }
     }
 
     func handlePhotoLibraryPermission() {
@@ -42,7 +42,8 @@ class PermissionManager {
                     self.delegate?.denied(for: .photoLibrary)
                 }
             }
-        }
+        @unknown default: break
+      }
     }
 
 }

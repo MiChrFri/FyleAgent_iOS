@@ -78,7 +78,7 @@ class AlbumsViewController: UIViewController {
 extension AlbumsViewController: LoginDelegate {
   func successfullyLoggedIn() {
     loggedIn = true
-    let folders = fileService.documentDirectories()
+    let folders = fileService.folders
     
     for folder in folders {
       if let accesscodeHash = UserDefaults.standard.object(forKey: folder.name) as? String {
@@ -97,7 +97,7 @@ extension AlbumsViewController: LoginDelegate {
 
 extension AlbumsViewController: CreateFolderDelegate {
   func didCreate() {
-    var folders = fileService.documentDirectories()
+    var folders = fileService.folders
     
     for (i, folder) in folders.enumerated() {
       if let accesscodeHash = UserDefaults.standard.object(forKey: folder.name) as? String {
