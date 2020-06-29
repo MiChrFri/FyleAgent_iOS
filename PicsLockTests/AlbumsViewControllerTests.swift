@@ -3,29 +3,29 @@ import UIKit
 @testable import PicsLock
 
 class AlbumsViewControllerTests: XCTestCase {
-    var viewController: AlbumsViewController!
+  var viewController: AlbumsViewController!
+  
+  override func setUp() {
+    super.setUp()
     
-    override func setUp() {
-        super.setUp()
-        
-        viewController = AlbumsViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
-        UIApplication.shared.keyWindow?.rootViewController = viewController
-        
-        let _ = navigationController.view
-        let _ = viewController.view
-    }
+    viewController = AlbumsViewController()
+    let navigationController = UINavigationController(rootViewController: viewController)
+    UIApplication.shared.keyWindow?.rootViewController = viewController
     
-    func testViewControllerNotNil() {
-        XCTAssertNotNil(viewController.view)
-    }
-    
-    func testCollectionViewNotNil() {
-        XCTAssertNotNil(viewController.collectionView)
-    }
-    
-    func testNumberOfCollectionViewCells() {
-        XCTAssertEqual(0, viewController.collectionView.numberOfItems(inSection: 0))
-    }
-    
+    let _ = navigationController.view
+    let _ = viewController.view
+  }
+  
+  func testViewControllerNotNil() {
+    XCTAssertNotNil(viewController.view)
+  }
+  
+  func testCollectionViewNotNil() {
+    XCTAssertNotNil(viewController.collectionView)
+  }
+  
+  func testNumberOfCollectionViewCells() {
+    XCTAssertEqual(0, viewController.collectionView.numberOfItems(inSection: 0))
+  }
+  
 }

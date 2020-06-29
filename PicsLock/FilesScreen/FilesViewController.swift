@@ -136,7 +136,12 @@ class FilesViewController: UIViewController {
     (orderedViewControllers[currentPage].view as? DetailView)?.nameField.becomeFirstResponder()
     
     let saveBtn = UIBarButtonItem(image: UIImage(named: "saveIcon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.saveDocument))
-    self.detailViewController?.navigationItem.rightBarButtonItem = saveBtn
+    
+    if orderedViewControllers.count == 1 {
+      orderedViewControllers[0].navigationItem.rightBarButtonItem = saveBtn
+    } else {
+      detailViewController?.navigationItem.rightBarButtonItem = saveBtn
+    }
   }
   
   @objc func saveDocument() {
@@ -150,7 +155,9 @@ class FilesViewController: UIViewController {
         document = savedDocument
         
         reloadData()
-        (view as? DetailView)?.nameField.isUserInteractionEnabled = false
+        (deatilVC?.view as? DetailView)?.nameField.isUserInteractionEnabled = false
+        (deatilVC?.view as? DetailView)?.nameField.resignFirstResponder()
+        
         setupNavigationItems()
       }
     }

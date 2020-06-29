@@ -39,11 +39,10 @@ extension FilesViewController: UICollectionViewDelegate, UICollectionViewDataSou
       self.navigationController?.pushViewController(orderedViewControllers[index], animated: false)
       setupNavigationItems(for: orderedViewControllers[index])
       return
+    } else {
+      self.navigationController?.pushViewController(detailViewController, animated: false)
+      setupNavigationItems(for: detailViewController)
     }
-  
-    self.navigationController?.pushViewController(detailViewController, animated: false)
-    
-    setupNavigationItems(for: detailViewController)
   }
   
   func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -76,7 +75,6 @@ extension FilesViewController: UICollectionViewDelegate, UICollectionViewDataSou
 extension FilesViewController: UIPageViewControllerDataSource {
   
   func presentationCount(for pageViewController: UIPageViewController) -> Int {
-    print(orderedViewControllers.count)
     return orderedViewControllers.count
   }
   
@@ -135,16 +133,5 @@ extension FilesViewController: UIPageViewControllerDataSource {
     
     viewController.navigationItem.rightBarButtonItems = [editName, delete]
   }
-  
-//  private func setupNavigationItems(for viewController: UIViewController) {
-//    self.detailViewController?.navigationItem.hidesBackButton = true
-//    let newBackButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(self.back))
-//    self.detailViewController?.navigationItem.leftBarButtonItem = newBackButton
-//
-//    let editName = UIBarButtonItem(image: UIImage(named: "editIcon"), style: .plain, target: self, action: #selector(self.editName))
-//    let delete = UIBarButtonItem(image: UIImage(named: "deleteIcon"), style: .plain, target: self, action: #selector(self.deleteDocument))
-//
-//    self.detailViewController?.navigationItem.rightBarButtonItems = [editName, delete]
-//  }
   
 }

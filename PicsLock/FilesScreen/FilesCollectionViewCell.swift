@@ -22,18 +22,18 @@ class FilesCollectionViewCell: UICollectionViewCell {
     func composeView(withImage image: UIImage) {
         contentView.addSubview(infoLabel)
         self.contentView.layer.masksToBounds = true
-        let mv = UIImageView(image: image)
+        let imageView = UIImageView(image: image)
         
-        mv.contentMode = .scaleAspectFill
-        mv.clipsToBounds = true
-        contentView.addSubview(mv)
-        mv.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        contentView.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            mv.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: margin),
-            mv.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -margin),
-            mv.topAnchor.constraint(equalTo: self.topAnchor, constant: margin),
-            mv.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -(margin + 30)),
+            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: margin),
+            imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -margin),
+            imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: margin),
+            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -(margin + 30)),
 
             infoLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0.0),
             infoLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0.0),

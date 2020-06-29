@@ -35,7 +35,7 @@ class SearchViewController: UIViewController {
       tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
     ])
     
-    for folder in fileService.folders {
+    for folder in fileService.folders() {
       if UserDefaults.standard.object(forKey: folder.name) == nil {
         for file in fileService.files(at: folder.path) {
           allFiles[file.name] = file.path

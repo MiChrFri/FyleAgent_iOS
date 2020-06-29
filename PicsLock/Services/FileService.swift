@@ -4,9 +4,8 @@ struct FileService {
   private let fileManager = FileManager.default
   private let resourceKeys: [URLResourceKey] = [.creationDateKey, .isDirectoryKey, .fileSizeKey]
   
-  var folders: [Folder] {
-    guard let documentsURL = DocumentsManager.documentsURL,
-    let enumerator = enumerator(forUrl: documentsURL) else { return [] }
+  func folders(at path: URL? = DocumentsManager.documentsURL) -> [Folder] {
+    guard let path = path, let enumerator = enumerator(forUrl: path) else { return [] }
     var folders = [Folder]()
     
     for case let url as URL in enumerator {
@@ -19,8 +18,18 @@ struct FileService {
     return folders
   }
   
-  func files(at documentsURL: URL ) -> [File] {
-    guard let enumerator = enumerator(forUrl: documentsURL) else { return [] }
+  func createFolder(folderName: String, codeHash: String?, at path: URL? = DocumentsManager.documentsURL) {
+    guard let folder = path?.appendingPathComponent(folderName) else { return }
+    
+    try? FileManager.default.createDirectory(atPath: folder.path, withIntermediateDirectories: true, attributes: nil)
+    if let accesscodeHash = codeHash {
+      let defaults = UserDefaults.standard
+      defaults.set(accesscodeHash, forKey: folderName)
+    }
+  }
+  
+  func files(at path: URL) -> [File] {
+    guard let enumerator = enumerator(forUrl: path) else { return [] }
     var files = [File]()
     
     for case let fileURL as URL in enumerator {

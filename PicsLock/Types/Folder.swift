@@ -13,8 +13,5 @@ struct Folder: Directory, Hashable {
   func hash(into hasher: inout Hasher) {
     hasher.combine(name)
   }
-  
-  static func ==(lhs: Folder, rhs: Folder) -> Bool {
-    return lhs.name == rhs.name
-  }
+
 }
