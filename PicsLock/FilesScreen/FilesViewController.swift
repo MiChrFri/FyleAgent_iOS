@@ -123,14 +123,9 @@ class FilesViewController: UIViewController {
     if let img = image {
       guard let data = img.jpegData(compressionQuality: 0.5) ?? img.pngData() else {return}
       
-      do {
-        let tmp_name = "\(Int(Date().timeIntervalSince1970)).png"
-        let imagePath = folderPath.appendingPathComponent(tmp_name)
-        try data.write(to: imagePath)
-        
-      } catch {
-        print(error.localizedDescription)
-      }
+      let tmp_name = "\(UUID()).png"
+      let imagePath = folderPath.appendingPathComponent(tmp_name)
+      try? data.write(to: imagePath)
       
       reloadData()
     }
@@ -150,7 +145,6 @@ class FilesViewController: UIViewController {
     guard var document = deatilVC?.document else { return }
     
     if let newName = (deatilVC?.view as? DetailView)?.nameField.text {
-      
       let documentsMananger = DocumentsManager()
       if let savedDocument = documentsMananger.saveDocument(document, forName: newName) {
         document = savedDocument

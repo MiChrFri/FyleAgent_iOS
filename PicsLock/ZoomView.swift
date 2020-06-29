@@ -55,7 +55,7 @@ final class ZoomView : UIScrollView {
   
   // MARK: - Functions
 
-  func scrollToCenter() {
+  private func scrollToCenter() {
     let centerOffset = CGPoint(
       x: contentSize.width > bounds.width ? (contentSize.width / 2) - (bounds.width / 2) : 0,
       y: contentSize.height > bounds.height ? (contentSize.height / 2) - (bounds.height / 2) : 0
