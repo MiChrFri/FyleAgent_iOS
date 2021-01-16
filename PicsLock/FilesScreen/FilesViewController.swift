@@ -216,6 +216,9 @@ extension FilesViewController: PermissionManagerDelegate {
     case .photoLibrary, .savedPhotosAlbum:
       alertTitle = "Photo Library"
       alertMessage = "Allow APPNAME to access your photo library if you want load and store photos from it. You can change the permissions in your settings and try again"
+    @unknown default:
+      alertTitle = "-"
+      alertMessage = "-"
     }
     
     let errorAlert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)

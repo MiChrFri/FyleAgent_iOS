@@ -9,13 +9,13 @@ class SetPasscodeView: UIView {
 
     init() {
         super.init(frame: CGRect.zero)
-        self.backgroundColor = .background
+        backgroundColor = .background
 
-        self.addSubview(descriptionField)
+        addSubview(descriptionField)
         descriptionField.text = "Welcome to PicsLock \n add a passcode to secure your files"
 
-        self.addSubview(primaryPasscodeField)
-        self.addSubview(secondaryPasscodeField)
+        addSubview(primaryPasscodeField)
+        addSubview(secondaryPasscodeField)
         primaryPasscodeField.becomeFirstResponder()
 
         setupLayout()
@@ -63,18 +63,18 @@ class SetPasscodeView: UIView {
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            secondaryPasscodeField.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            secondaryPasscodeField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24.0),
-            secondaryPasscodeField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24.0),
+            secondaryPasscodeField.centerYAnchor.constraint(equalTo: centerYAnchor),
+            secondaryPasscodeField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24.0),
+            secondaryPasscodeField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24.0),
 
             primaryPasscodeField.bottomAnchor.constraint(equalTo: secondaryPasscodeField.topAnchor, constant: -10.0),
-            primaryPasscodeField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24.0),
-            primaryPasscodeField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24.0),
+            primaryPasscodeField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24.0),
+            primaryPasscodeField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24.0),
 
-            descriptionField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24.0),
-            descriptionField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24.0),
+            descriptionField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24.0),
+            descriptionField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24.0),
             descriptionField.bottomAnchor.constraint(equalTo: primaryPasscodeField.topAnchor, constant: -50.0),
-            descriptionField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 40),
+            descriptionField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 40),
         ])
     }
 

@@ -5,17 +5,17 @@ protocol CreateFolderViewDelegate: class {
   func didClose()
 }
 
-class CreateFolderView: UIView {
+final class CreateFolderView: UIView {
   weak var delegate: CreateFolderViewDelegate?
   
-  lazy var backgroundView: UIView = {
+  private lazy var backgroundView: UIView = {
     let backgroundView = UIView(frame: CGRect.zero)
     backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
     backgroundView.translatesAutoresizingMaskIntoConstraints = false
     return backgroundView
   }()
   
-  lazy var newFolderView: UIView = {
+  private lazy var newFolderView: UIView = {
     let newFolderView = UIView(frame: CGRect.zero)
     newFolderView.backgroundColor = .alertBackground
     newFolderView.layer.cornerRadius = 12.0
@@ -23,32 +23,32 @@ class CreateFolderView: UIView {
     return newFolderView
   }()
   
-  lazy var closeButton: UIButton = {
+  private lazy var closeButton: UIButton = {
+    let largeConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .bold, scale: .large)
+    let largeBoldDoc = UIImage(systemName: "xmark.circle.fill", withConfiguration: largeConfig)
+    
     let closeButton = UIButton(frame: CGRect.zero)
-    closeButton.layer.cornerRadius = 20.0
-    closeButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
-    closeButton.setTitle("✖︎", for: .normal)
-    closeButton.titleLabel?.font = .closeButton
+    closeButton.setImage(largeBoldDoc, for: .normal)
     closeButton.addTarget(self, action: #selector(closeView), for: .touchUpInside)
     closeButton.translatesAutoresizingMaskIntoConstraints = false
     return closeButton
   }()
   
-  lazy var infoTextView: InfoTextView = {
+  private lazy var infoTextView: InfoTextView = {
     let infoTextView = InfoTextView()
     infoTextView.text = "Set the name for your folder and if you want a password for it"
     infoTextView.translatesAutoresizingMaskIntoConstraints = false
     return infoTextView
   }()
   
-  lazy var nameField: InputField = {
+  private lazy var nameField: InputField = {
     let nameField = InputField()
     nameField.placeholder = "Foldername"
     nameField.translatesAutoresizingMaskIntoConstraints = false
     return nameField
   }()
   
-  lazy var folderCode: InputField = {
+  private lazy var folderCode: InputField = {
     let folderCode = InputField()
     folderCode.placeholder = "FolderCode"
     folderCode.isSecureTextEntry = true
@@ -56,7 +56,7 @@ class CreateFolderView: UIView {
     return folderCode
   }()
   
-  lazy var doneButton: UIButton = {
+  private lazy var doneButton: UIButton = {
     let doneButton = UIButton(frame: CGRect.zero)
     doneButton.layer.cornerRadius = 8.0
     doneButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
@@ -106,10 +106,10 @@ class CreateFolderView: UIView {
   
   private func setupLayout() {
     NSLayoutConstraint.activate([
-      backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-      backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-      backgroundView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-      backgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+      backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
+      backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
+      backgroundView.topAnchor.constraint(equalTo: topAnchor),
+      backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
       
       newFolderView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 30.0),
       newFolderView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -30.0),

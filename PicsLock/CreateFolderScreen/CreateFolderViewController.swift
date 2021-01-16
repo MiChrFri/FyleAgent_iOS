@@ -4,7 +4,7 @@ protocol CreateFolderDelegate: class {
   func didCreate()
 }
 
-class CreateFolderViewController: UIViewController {
+final class CreateFolderViewController: UIViewController {
   private let fileService = FileService()
   weak var delegate: CreateFolderDelegate?
   

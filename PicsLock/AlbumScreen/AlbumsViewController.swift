@@ -20,7 +20,7 @@ class AlbumsViewController: UIViewController {
     let loginViewController = LoginViewController()
     loginViewController.delegate = self
     loginViewController.modalPresentationStyle = .fullScreen
-    self.navigationController?.present(loginViewController, animated:true, completion: nil)
+    navigationController?.present(loginViewController, animated:true, completion: nil)
   }
   
   func addCollectionView() {
@@ -36,7 +36,7 @@ class AlbumsViewController: UIViewController {
     collectionView.backgroundColor = .background
     
     collectionView.contentInset = UIEdgeInsets(top: 8.0, left: 16.0, bottom: 8.0, right: 16.0)
-    self.view.addSubview(collectionView)
+    view.addSubview(collectionView)
     
     setupNavigationItems()
     setupLayout()
@@ -46,32 +46,32 @@ class AlbumsViewController: UIViewController {
     let createFolderViewController = CreateFolderViewController()
     createFolderViewController.modalPresentationStyle = .overCurrentContext
     createFolderViewController.delegate = self
-    self.present(createFolderViewController, animated:true, completion: nil)
+    present(createFolderViewController, animated:true, completion: nil)
   }
   
   @objc func unlock() {
     let unlockHiddenFolderViewController = UnlockHiddenFolderViewController()
     unlockHiddenFolderViewController.modalPresentationStyle = .overCurrentContext
     unlockHiddenFolderViewController.delegate = self
-    self.present(unlockHiddenFolderViewController, animated:true, completion: nil)
+    present(unlockHiddenFolderViewController, animated:true, completion: nil)
   }
   
   private func setupNavigationItems() {
-    self.navigationItem.hidesBackButton = true
+    navigationItem.hidesBackButton = true
     
-    let unlockButton = UIBarButtonItem(image: UIImage(named: "lockIcon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.unlock))
-    self.navigationItem.leftBarButtonItem = unlockButton
+    let unlockButton = UIBarButtonItem(image: UIImage(named: "lockIcon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(unlock))
+    navigationItem.leftBarButtonItem = unlockButton
     
-    let newFolderButton = UIBarButtonItem(image: UIImage(named: "newFolderIcon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.newFolder))
-    self.navigationItem.rightBarButtonItem = newFolderButton
+    let newFolderButton = UIBarButtonItem(image: UIImage(named: "newFolderIcon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(newFolder))
+    navigationItem.rightBarButtonItem = newFolderButton
   }
   
   private func setupLayout() {
     collectionView.translatesAutoresizingMaskIntoConstraints = false
-    collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-    collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+    collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+    collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-    collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+    collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
   }
 }
 
@@ -144,7 +144,7 @@ extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDele
     let index = indexPath.row
     
     let filesViewController = FilesViewController(folderPath: visibleFoldersSorted[index].path)
-    self.navigationController?.pushViewController(filesViewController, animated: true)
+    navigationController?.pushViewController(filesViewController, animated: true)
   }
   
   func numberOfSections(in collectionView: UICollectionView) -> Int {

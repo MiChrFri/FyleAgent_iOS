@@ -5,7 +5,7 @@ class LoginViewController: UIViewController {
   private let passcodeHash: String!
   
   init() {
-    self.passcodeHash = UserDefaults.standard.object(forKey: "codeHash") as? String ?? ""
+    passcodeHash = UserDefaults.standard.object(forKey: "codeHash") as? String ?? ""
     super.init(nibName: nil, bundle: nil)
     
     if passcodeHash.isEmpty {
@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
         }
       } else {
         textField.text = ""
-        self.redFlash()
+        redFlash()
       }
     }
   }
@@ -64,6 +64,6 @@ extension LoginViewController: SetPasscodeDelegate {
     defaults.set(passcodeHash, forKey: "codeHash")
     
     delegate?.successfullyLoggedIn()
-    self.dismiss(animated: true)
+    dismiss(animated: true)
   }
 }

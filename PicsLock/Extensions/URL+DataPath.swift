@@ -4,7 +4,7 @@ extension URL {
     
     func dataPath() -> String {
         var path = "."
-        let components = self.pathComponents
+        let components = pathComponents
         var append = false
             
         for component in components {
