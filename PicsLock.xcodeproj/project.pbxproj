@@ -181,10 +181,7 @@
 				5EA1C6CC8D4D295B72729B27 /* Folder.swift */,
 				5EA1C72C315A99B79FEFF5B2 /* File.swift */,
 				794549E324A3F08F0068E9F1 /* Directory.swift */,
-				5EA1CDEE68145A02CB704C40 /* InputField.swift */,
-				5EA1CC5EC8FC3C132BD139A0 /* InfoTextView.swift */,
 				5EA1C37DF3FE777913033265 /* Documents.swift */,
-				5EA1CB6E1DB5B04FAC904660 /* NameField.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -258,6 +255,16 @@
 			path = UnlockHiddenFolderScreen.swift;
 			sourceTree = "<group>";
 		};
+		7955305C27120077000999A6 /* Shared UI */ = {
+			isa = PBXGroup;
+			children = (
+				5EA1CB6E1DB5B04FAC904660 /* NameField.swift */,
+				5EA1CC5EC8FC3C132BD139A0 /* InfoTextView.swift */,
+				5EA1CDEE68145A02CB704C40 /* InputField.swift */,
+			);
+			path = "Shared UI";
+			sourceTree = "<group>";
+		};
 		797B2F56215AA850007622C8 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +297,7 @@
 		799EB0C32131604E00D8A757 /* PicsLock */ = {
 			isa = PBXGroup;
 			children = (
+				7955305C27120077000999A6 /* Shared UI */,
 				79DEC912215F773900A337DB /* Extensions */,
 				797B2F56215AA850007622C8 /* Animation */,
 				5EA1C770951C6B24947ADD6A /* AlbumScreen */,

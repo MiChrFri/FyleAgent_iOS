@@ -1,6 +1,6 @@
 import UIKit
 
-protocol UnlockHiddenFolderDelegate: class {
+protocol UnlockHiddenFolderDelegate: AnyObject {
     func didEnter(folderCodeHash: String)
 }
 

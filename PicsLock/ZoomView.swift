@@ -74,10 +74,10 @@ final class ZoomView : UIScrollView {
     showsHorizontalScrollIndicator = false
     addSubview(imageView)
 
-    self.setupGustureRecognizer()
+    self.setupGestureRecognizer()
   }
   
-  private func setupGustureRecognizer() {
+  private func setupGestureRecognizer() {
     let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(_:)))
     doubleTapGesture.numberOfTapsRequired = 2
     addGestureRecognizer(doubleTapGesture)
@@ -165,7 +165,8 @@ final class ZoomView : UIScrollView {
     if self.zoomScale == 1 {
       zoom(
         to: zoomRect(
-          for: max(1, maximumZoomScale / 3),
+//          for: max(1, maximumZoomScale / 3),
+            for: max(1, 3),
           with: gestureRecognizer.location(in: gestureRecognizer.view)),
         animated: true
       )

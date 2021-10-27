@@ -1,6 +1,6 @@
 import UIKit
 
-protocol UnlockHiddenFolderViewDelegate: class {
+protocol UnlockHiddenFolderViewDelegate: AnyObject {
   func didEnter(codeHash: String?)
   func didClose()
 }

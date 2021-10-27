@@ -1,7 +1,7 @@
 import UIKit
 import Lottie
 
-class NewLoginView: UIView {
+final class NewLoginView: UIView {
     
     init() {
         super.init(frame: CGRect.zero)

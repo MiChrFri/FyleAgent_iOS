@@ -1,6 +1,6 @@
 import UIKit
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
   weak var delegate: LoginDelegate?
   private let passcodeHash: String!
   

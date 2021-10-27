@@ -1,3 +1,3 @@
-protocol LoginDelegate: class {
+protocol LoginDelegate: AnyObject {
     func successfullyLoggedIn()
 }

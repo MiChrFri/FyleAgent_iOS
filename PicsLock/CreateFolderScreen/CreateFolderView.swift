@@ -1,6 +1,6 @@
 import UIKit
 
-protocol CreateFolderViewDelegate: class {
+protocol CreateFolderViewDelegate: AnyObject {
   func didEnter(folderName: String, codeHash: String?)
   func didClose()
 }

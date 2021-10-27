@@ -1,6 +1,6 @@
 import UIKit
 
-class AlbumsViewController: UIViewController {
+final class AlbumsViewController: UIViewController {
   let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
   private var hiddenFolders: Set<Folder> = []
   private var visibleFolders: Set<Folder> = []

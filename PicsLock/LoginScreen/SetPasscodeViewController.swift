@@ -1,6 +1,6 @@
 import UIKit
 
-class SetPasscodeViewController: UIViewController {
+final class SetPasscodeViewController: UIViewController {
     weak var delegate: LoginDelegate?
 
     override func viewDidLoad() {

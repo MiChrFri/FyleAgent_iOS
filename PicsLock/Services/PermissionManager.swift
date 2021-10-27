@@ -2,7 +2,7 @@ import AVFoundation
 import Photos
 import UIKit
 
-protocol PermissionManagerDelegate: class {
+protocol PermissionManagerDelegate: AnyObject {
   func allowed(for sourceType: UIImagePickerController.SourceType)
   func denied(for sourceType: UIImagePickerController.SourceType)
 }
@@ -42,6 +42,8 @@ class PermissionManager {
                     self.delegate?.denied(for: .photoLibrary)
                 }
             }
+        case .limited:
+            self.delegate?.allowed(for: .photoLibrary)
         @unknown default: break
       }
     }

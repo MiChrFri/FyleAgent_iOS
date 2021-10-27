@@ -10,7 +10,7 @@ class AlbumsViewControllerTests: XCTestCase {
     
     viewController = AlbumsViewController()
     let navigationController = UINavigationController(rootViewController: viewController)
-    UIApplication.shared.keyWindow?.rootViewController = viewController
+      UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController = viewController
     
     let _ = navigationController.view
     let _ = viewController.view

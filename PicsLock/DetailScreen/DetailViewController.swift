@@ -1,12 +1,12 @@
 import UIKit
 
-protocol DocumentsDelegate: class {
+protocol DocumentsDelegate: AnyObject {
   func updated()
 }
 
 class DetailViewController: UIViewController {
   weak var delegate: DocumentsDelegate?
-  var document: Document!
+  var document: Document
   
   init(document: Document) {
     self.document = document

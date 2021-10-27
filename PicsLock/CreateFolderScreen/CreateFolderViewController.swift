@@ -1,6 +1,6 @@
 import UIKit
 
-protocol CreateFolderDelegate: class {
+protocol CreateFolderDelegate: AnyObject {
   func didCreate()
 }
 

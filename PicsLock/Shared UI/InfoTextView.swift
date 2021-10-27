@@ -1,6 +1,6 @@
 import UIKit
 
-class InfoTextView: UITextView {
+final class InfoTextView: UITextView {
 
     init() {
         super.init(frame: CGRect.zero, textContainer: nil)

@@ -1,10 +1,10 @@
 import UIKit
 
-protocol SetPasscodeDelegate: class {
+protocol SetPasscodeDelegate: AnyObject {
     func didSetPasscode(passcodeHash: String)
 }
 
-class SetPasscodeView: UIView {
+final class SetPasscodeView: UIView {
     weak var delegate: SetPasscodeDelegate?
 
     init() {
