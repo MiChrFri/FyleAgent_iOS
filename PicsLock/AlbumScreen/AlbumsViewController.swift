@@ -80,10 +80,10 @@ final class AlbumsViewController: UIViewController {
     private func setupNavigationItems() {
         navigationItem.hidesBackButton = true
         
-        let unlockButton = UIBarButtonItem(image: UIImage(named: "lockIcon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(unlock))
+        let unlockButton = UIBarButtonItem(image: UIImage(systemName: "lock.open"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(unlock))
         navigationItem.leftBarButtonItem = unlockButton
         
-        let newFolderButton = UIBarButtonItem(image: UIImage(named: "newFolderIcon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(newFolder))
+        let newFolderButton = UIBarButtonItem(image: UIImage(systemName: "folder.badge.plus"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(newFolder))
         navigationItem.rightBarButtonItem = newFolderButton
     }
     
@@ -108,11 +108,22 @@ extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDele
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? AlbumsCollectionViewCell {
+            cell.folderImageView.alpha = 0.5
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let index = indexPath.row
         
-        let filesViewController = FilesViewController(folderPath: viewModel.visibleFoldersSorted[index].path)
-        navigationController?.pushViewController(filesViewController, animated: true)
+        if let cell = collectionView.cellForItem(at: indexPath) as? AlbumsCollectionViewCell {
+            let filesViewController = FilesViewController(folderPath: self.viewModel.visibleFoldersSorted[index].path)
+            self.navigationController?.pushViewController(filesViewController, animated: true)
+            cell.folderImageView.alpha = 1.0
+        }
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView,

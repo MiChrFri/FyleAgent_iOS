@@ -66,7 +66,7 @@ class FilesViewController: UIViewController {
     private func setupNavigationItems() {
         title = folderPath.lastPathComponent
         
-        let newBackButton = UIBarButtonItem(image: UIImage(named: "newDocIcon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.addImage(sender:)))
+        let newBackButton = UIBarButtonItem(image: UIImage(systemName: "doc.badge.plus"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.addImage(sender:)))
         self.navigationItem.rightBarButtonItem = newBackButton
     }
     
@@ -133,10 +133,13 @@ class FilesViewController: UIViewController {
     }
     
     @objc private func editName() {
+            
+        orderedViewControllers[currentPage].view.backgroundColor = .red
+        
         orderedViewControllers[currentPage].nameField.isUserInteractionEnabled = true
         orderedViewControllers[currentPage].nameField.becomeFirstResponder()
         
-        let saveBtn = UIBarButtonItem(image: UIImage(named: "saveIcon"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.saveDocument))
+        let saveBtn = UIBarButtonItem(title: "save", style: .plain, target: self, action: #selector(self.saveDocument))
         
         if orderedViewControllers.count == 1 {
             orderedViewControllers[0].navigationItem.rightBarButtonItem = saveBtn
@@ -160,6 +163,8 @@ class FilesViewController: UIViewController {
                 
                 setupNavigationItems()
             }
+            
+            back()
         }
     }
     
@@ -368,8 +373,8 @@ extension FilesViewController: UIPageViewControllerDataSource {
         let newBackButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(back))
         viewController.navigationItem.leftBarButtonItem = newBackButton
         
-        let editName = UIBarButtonItem(image: UIImage(named: "editIcon"), style: .plain, target: self, action: #selector(editName))
-        let delete = UIBarButtonItem(image: UIImage(named: "deleteIcon"), style: .plain, target: self, action: #selector(deleteDocument))
+        let editName = UIBarButtonItem(image: UIImage(systemName: "pencil"), style: .plain, target: self, action: #selector(editName))
+        let delete = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(deleteDocument))
         
         viewController.navigationItem.rightBarButtonItems = [editName, delete]
     }

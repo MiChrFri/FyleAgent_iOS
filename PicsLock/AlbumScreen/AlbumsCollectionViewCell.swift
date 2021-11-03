@@ -26,7 +26,7 @@ final class AlbumsCollectionViewCell: UICollectionViewCell {
     contentView.layer.masksToBounds = true
     
     let imageView = folderImageView
-    imageView.image = UIImage(named: "folder.png")
+    imageView.image = UIImage(systemName: "folder.fill")
     contentView.addSubview(imageView)
     
     NSLayoutConstraint.activate([
@@ -42,7 +42,7 @@ final class AlbumsCollectionViewCell: UICollectionViewCell {
     ])
   }
   
-  private let folderImageView: UIImageView = {
+let folderImageView: UIImageView = {
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFit
     imageView.clipsToBounds = true
