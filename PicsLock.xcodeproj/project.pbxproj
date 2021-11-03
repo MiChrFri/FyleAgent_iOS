@@ -41,6 +41,7 @@
 		7977797823895034005DD38D /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7977797723895033005DD38D /* CameraViewController.swift */; };
 		797B2F5A215AB01D007622C8 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797B2F59215AB01D007622C8 /* SearchResultsController.swift */; };
 		798CA417273328CA00AAAA31 /* AlbumsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CA416273328CA00AAAA31 /* AlbumsViewModel.swift */; };
+		798CA4192733460200AAAA31 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CA4182733460200AAAA31 /* Button.swift */; };
 		799EB0E52131605100D8A757 /* PicsLockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0E42131605100D8A757 /* PicsLockUITests.swift */; };
 		799EB0F52131656100D8A757 /* AlbumsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0F42131656100D8A757 /* AlbumsViewControllerTests.swift */; };
 		79A935C7242FF8B70064DAB4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79A935C6242FF8B70064DAB4 /* Launch Screen.storyboard */; };
@@ -99,6 +100,7 @@
 		7977797723895033005DD38D /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		797B2F59215AB01D007622C8 /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		798CA416273328CA00AAAA31 /* AlbumsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewModel.swift; sourceTree = "<group>"; };
+		798CA4182733460200AAAA31 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		799EB0C12131604E00D8A757 /* PicsLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicsLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		799EB0D52131605100D8A757 /* PicsLockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicsLockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		799EB0DB2131605100D8A757 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				5EA1CB6E1DB5B04FAC904660 /* NameField.swift */,
 				5EA1CC5EC8FC3C132BD139A0 /* InfoTextView.swift */,
 				5EA1CDEE68145A02CB704C40 /* InputField.swift */,
+				798CA4182733460200AAAA31 /* Button.swift */,
 			);
 			path = "Shared UI";
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				5EA1C81B83C5996F2BF4D308 /* AlbumsCollectionViewCell.swift in Sources */,
 				5EA1C1EB775B4B3FF22C29DB /* AlbumsViewController.swift in Sources */,
 				5EA1C20349E73A70AB1C3519 /* UIColor.swift in Sources */,
+				798CA4192733460200AAAA31 /* Button.swift in Sources */,
 				5EA1C3AF73959DE6F77A9A67 /* UIFont.swift in Sources */,
 				5EA1CF60372C5CDB04768FB0 /* LoginViewController.swift in Sources */,
 				5EA1CC8C4DE19338D32A8465 /* SetPasscodeViewController.swift in Sources */,

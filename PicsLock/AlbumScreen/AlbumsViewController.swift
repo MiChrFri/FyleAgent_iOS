@@ -123,7 +123,6 @@ extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDele
             cell.folderImageView.alpha = 1.0
         }
         
-        
     }
     
     func collectionView(_ collectionView: UICollectionView,

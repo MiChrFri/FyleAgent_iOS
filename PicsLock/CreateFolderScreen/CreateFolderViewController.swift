@@ -57,14 +57,12 @@ final class CreateFolderViewController: UIViewController {
     }()
     
     private lazy var doneButton: UIButton = {
-        let doneButton = UIButton(frame: CGRect.zero)
-        doneButton.layer.cornerRadius = 8.0
-        doneButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
-        doneButton.setTitle("Create Folder", for: .normal)
-        doneButton.titleLabel?.font = .textButton
-        doneButton.addTarget(self, action: #selector(doneEntering), for: .touchUpInside)
-        doneButton.translatesAutoresizingMaskIntoConstraints = false
-        return doneButton
+        let button = Button()
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        button.setTitle("create folder", for: .normal)
+        button.addTarget(self, action: #selector(doneEntering), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     
@@ -124,11 +122,10 @@ final class CreateFolderViewController: UIViewController {
             closeButton.trailingAnchor.constraint(equalTo: newFolderView.trailingAnchor, constant: -8.0),
             closeButton.widthAnchor.constraint(equalToConstant: 40.0),
             closeButton.heightAnchor.constraint(equalToConstant: 40.0),
-            
+
             doneButton.bottomAnchor.constraint(equalTo: newFolderView.bottomAnchor, constant: -12.0),
-            doneButton.centerXAnchor.constraint(equalTo: newFolderView.centerXAnchor),
-            doneButton.widthAnchor.constraint(equalToConstant: 160.0),
-            doneButton.heightAnchor.constraint(equalToConstant: 40.0),
+            doneButton.leadingAnchor.constraint(equalTo: newFolderView.leadingAnchor, constant: 16.0),
+            doneButton.trailingAnchor.constraint(equalTo: newFolderView.trailingAnchor, constant: -16.0),
             
             nameField.leadingAnchor.constraint(equalTo: newFolderView.leadingAnchor, constant: 16.0),
             nameField.trailingAnchor.constraint(equalTo: newFolderView.trailingAnchor, constant: -16.0),
