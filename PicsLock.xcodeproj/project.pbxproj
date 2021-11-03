@@ -40,6 +40,7 @@
 		796B3A6224AA705D009F3313 /* FileServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B3A6124AA705D009F3313 /* FileServiceTests.swift */; };
 		7977797823895034005DD38D /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7977797723895033005DD38D /* CameraViewController.swift */; };
 		797B2F5A215AB01D007622C8 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797B2F59215AB01D007622C8 /* SearchResultsController.swift */; };
+		798CA417273328CA00AAAA31 /* AlbumsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CA416273328CA00AAAA31 /* AlbumsViewModel.swift */; };
 		799EB0E52131605100D8A757 /* PicsLockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0E42131605100D8A757 /* PicsLockUITests.swift */; };
 		799EB0F52131656100D8A757 /* AlbumsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799EB0F42131656100D8A757 /* AlbumsViewControllerTests.swift */; };
 		79A935C7242FF8B70064DAB4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79A935C6242FF8B70064DAB4 /* Launch Screen.storyboard */; };
@@ -97,6 +98,7 @@
 		796B3A6124AA705D009F3313 /* FileServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileServiceTests.swift; sourceTree = "<group>"; };
 		7977797723895033005DD38D /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		797B2F59215AB01D007622C8 /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
+		798CA416273328CA00AAAA31 /* AlbumsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewModel.swift; sourceTree = "<group>"; };
 		799EB0C12131604E00D8A757 /* PicsLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicsLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		799EB0D52131605100D8A757 /* PicsLockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicsLockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		799EB0DB2131605100D8A757 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				5EA1C37C08EA671CB033C8B2 /* AlbumsCollectionViewCell.swift */,
 				5EA1CE885AAC5651DE05F8E2 /* AlbumsViewController.swift */,
+				798CA416273328CA00AAAA31 /* AlbumsViewModel.swift */,
 			);
 			path = AlbumScreen;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				7949DE982392893B000BA1DE /* String.swift in Sources */,
 				794549E424A3F08F0068E9F1 /* Directory.swift in Sources */,
 				5EA1CC35F1A3D2971A321A5E /* FilesViewController.swift in Sources */,
+				798CA417273328CA00AAAA31 /* AlbumsViewModel.swift in Sources */,
 				5EA1C5F590A8BC55CE5F83E3 /* FilesCollectionViewCell.swift in Sources */,
 				7977797823895034005DD38D /* CameraViewController.swift in Sources */,
 				5EA1C1F010C69750F2A6E973 /* InputField.swift in Sources */,
@@ -663,7 +667,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.4;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = m.frick.FyleAgent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -684,7 +688,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.4;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = m.frick.FyleAgent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

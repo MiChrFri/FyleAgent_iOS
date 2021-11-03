@@ -2,19 +2,27 @@ import UIKit
 
 final class AlbumsViewController: UIViewController {
     let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-    private var hiddenFolders: Set<Folder> = []
-    private var visibleFolders: Set<Folder> = []
-    private var visibleFoldersSorted = [Folder]()
-    private var loggedIn = false
-    private lazy var fileService = FileService()
+    
+    private let viewModel: AlbumsViewModelProtocol
+    
+    init(viewModel: AlbumsViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        
+        self.viewModel.delegate = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if !loggedIn {
+        if !viewModel.loggedIn {
             if UserDefaults.standard.string(forKey: "codeHash") == nil {
                 let setPasscodeViewController = SetPasscodeViewController()
-                setPasscodeViewController.delegate = self
+                setPasscodeViewController.delegate = viewModel
                 navigationController?.present(setPasscodeViewController, animated: true)
             }
             else {
@@ -25,7 +33,7 @@ final class AlbumsViewController: UIViewController {
     
     private func login() {
         let loginViewController = LoginViewController()
-        loginViewController.delegate = self
+        loginViewController.delegate = viewModel
         loginViewController.modalPresentationStyle = .fullScreen
         navigationController?.present(loginViewController, animated:true, completion: nil)
     }
@@ -52,14 +60,14 @@ final class AlbumsViewController: UIViewController {
     @objc private func newFolder() {
         let createFolderViewController = CreateFolderViewController()
         createFolderViewController.modalPresentationStyle = .overCurrentContext
-        createFolderViewController.delegate = self
+        createFolderViewController.delegate = viewModel
         present(createFolderViewController, animated:true, completion: nil)
     }
     
     @objc private func unlock() {
         let unlockHiddenFolderViewController = UnlockHiddenFolderViewController()
         unlockHiddenFolderViewController.modalPresentationStyle = .overCurrentContext
-        unlockHiddenFolderViewController.delegate = self
+        unlockHiddenFolderViewController.delegate = viewModel
         present(unlockHiddenFolderViewController, animated:true, completion: nil)
     }
     
@@ -82,67 +90,14 @@ final class AlbumsViewController: UIViewController {
     }
 }
 
-extension AlbumsViewController: LoginDelegate {
-    func successfullyLoggedIn() {
-        loggedIn = true
-        let folders = fileService.folders()
-        
-        for folder in folders {
-            if let accesscodeHash = UserDefaults.standard.object(forKey: folder.name) as? String {
-                var f = folder
-                f.accesscodeHash = accesscodeHash
-                hiddenFolders.insert(f)
-            } else {
-                visibleFolders.insert(folder)
-            }
-        }
-        
-        visibleFoldersSorted = Array(visibleFolders).sorted(by: { $0.name > $1.name })
-        addCollectionView()
-    }
-}
-
-extension AlbumsViewController: CreateFolderDelegate {
-    func didCreate() {
-        var folders = fileService.folders()
-        
-        for (i, folder) in folders.enumerated() {
-            if let accesscodeHash = UserDefaults.standard.object(forKey: folder.name) as? String {
-                folders[i].accesscodeHash = accesscodeHash
-                hiddenFolders.insert(folders[i])
-            } else {
-                visibleFolders.insert(folders[i])
-            }
-        }
-        
-        visibleFoldersSorted = Array(visibleFolders).sorted(by: { $0.name > $1.name })
-        collectionView.reloadData()
-    }
-}
-
-extension AlbumsViewController: UnlockHiddenFolderDelegate {
-    func didEnter(folderCodeHash: String) {
-        
-        for folder in hiddenFolders {
-            if folder.accesscodeHash == folderCodeHash {
-                visibleFolders.insert(folder)
-                hiddenFolders.remove(folder)
-            }
-        }
-        
-        visibleFoldersSorted = Array(visibleFolders).sorted(by: { $0.name > $1.name })
-        collectionView.reloadData()
-    }
-}
-
 extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return visibleFolders.count
+        return viewModel.visibleFolders.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell_Id", for: indexPath) as! AlbumsCollectionViewCell
-        cell.name = visibleFoldersSorted[indexPath.row].name
+        cell.name = viewModel.visibleFoldersSorted[indexPath.row].name
         
         return cell
     }
@@ -150,7 +105,7 @@ extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let index = indexPath.row
         
-        let filesViewController = FilesViewController(folderPath: visibleFoldersSorted[index].path)
+        let filesViewController = FilesViewController(folderPath: viewModel.visibleFoldersSorted[index].path)
         navigationController?.pushViewController(filesViewController, animated: true)
     }
     
@@ -177,4 +132,15 @@ extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDele
         return 5.0
     }
     
+}
+
+
+extension AlbumsViewController: AlbumsViewModelDelegate {
+    func didLoadData() {
+        collectionView.reloadData()
+    }
+    
+    func loggedIn() {
+        addCollectionView()
+    }
 }

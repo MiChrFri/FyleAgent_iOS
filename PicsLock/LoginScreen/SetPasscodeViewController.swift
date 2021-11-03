@@ -46,7 +46,7 @@ final class SetPasscodeViewController: UIViewController {
         view.backgroundColor = .background
         
         view.addSubview(descriptionField)
-        descriptionField.text = "Welcome to PicsLock \n add a passcode to secure your files"
+        descriptionField.text = "Welcome to FyleAgent \n add a passcode to secure your files"
         
         view.addSubview(primaryPasscodeField)
         view.addSubview(secondaryPasscodeField)

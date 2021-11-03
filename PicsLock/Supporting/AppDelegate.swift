@@ -14,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let searchNavigationController = UINavigationController(rootViewController: SearchViewController())
         searchNavigationController.navigationBar.barTintColor = .navBar
         
-        let albumsNavigationController = UINavigationController(rootViewController: AlbumsViewController())
+        let albumsViewModel = AlbumsViewModel()
+        let albumsNavigationController = UINavigationController(rootViewController: AlbumsViewController(viewModel: albumsViewModel))
         albumsNavigationController.navigationBar.barTintColor = .navBar
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.navBarTitle]
         
