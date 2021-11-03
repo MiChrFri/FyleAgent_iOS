@@ -3,12 +3,11 @@ import UIKit
 @testable import PicsLock
 
 class AlbumsViewControllerTests: XCTestCase {
-    var viewController: AlbumsViewController!
+    var viewController = AlbumsViewController(viewModel: AlbumsViewModelMock())
     
     override func setUp() {
         super.setUp()
         
-        viewController = AlbumsViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController = viewController
         
@@ -26,6 +25,29 @@ class AlbumsViewControllerTests: XCTestCase {
     
     func testNumberOfCollectionViewCells() {
         XCTAssertEqual(0, viewController.collectionView.numberOfItems(inSection: 0))
+    }
+    
+}
+
+
+final class AlbumsViewModelMock: AlbumsViewModelProtocol {
+    var loggedIn = false
+    
+    var visibleFolders = Set<Folder>()
+    
+    var visibleFoldersSorted = [Folder]()
+    
+    var delegate: AlbumsViewModelDelegate?
+    
+    func successfullyLoggedIn() {
+        
+    }
+    
+    func didCreate() {
+
+    }
+    
+    func didEnter(folderCodeHash: String) {
     }
     
 }

@@ -9,7 +9,7 @@ final class AlbumsViewController: UIViewController {
         return layout
     }()
     
-    private lazy var collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
         collectionView.delegate = self
         collectionView.dataSource = self
