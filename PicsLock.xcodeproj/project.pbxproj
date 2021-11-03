@@ -18,24 +18,18 @@
 		5EA1C4962BCBB4F8403EB312 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C6CC8D4D295B72729B27 /* Folder.swift */; };
 		5EA1C5F590A8BC55CE5F83E3 /* FilesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C2C489D0975BBFC3EFBA /* FilesCollectionViewCell.swift */; };
 		5EA1C6A2C5D8C900B046394E /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CE4B9C00B95DE5E16999 /* FileService.swift */; };
-		5EA1C7091B840ACBD7F77C94 /* SetPasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C657D813E9907FB7DB7A /* SetPasscodeView.swift */; };
 		5EA1C798993BDA5611DD6318 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EA1C041490F6524A4137130 /* Assets.xcassets */; };
 		5EA1C81B83C5996F2BF4D308 /* AlbumsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C37C08EA671CB033C8B2 /* AlbumsCollectionViewCell.swift */; };
 		5EA1C950CE0529340813A417 /* CreateFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CD0670D9FD4F592288AC /* CreateFolderViewController.swift */; };
-		5EA1C9ED782656E3EE239C23 /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CB7772FBC3DD2DDCE7C1 /* LoginDelegate.swift */; };
 		5EA1CB093C8D058F7FD22F09 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C72C315A99B79FEFF5B2 /* File.swift */; };
 		5EA1CB14D7C62792BCD7212E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C1A2A8EC6688BB37A6ED /* AppDelegate.swift */; };
 		5EA1CB58AC9F309CC9FB20A8 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CA5482DFEA4FE3F58D44 /* ImageProvider.swift */; };
 		5EA1CC35F1A3D2971A321A5E /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CA0185A5ED285F360EBF /* FilesViewController.swift */; };
 		5EA1CC8C4DE19338D32A8465 /* SetPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C43CC3C047F021E471FA /* SetPasscodeViewController.swift */; };
 		5EA1CDD678E185C3A9C278D3 /* UnlockHiddenFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C81B5F8A5AC7A252911E /* UnlockHiddenFolderView.swift */; };
-		5EA1CE692D30DC44899ECD07 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C746FC9A95F0C951A57C /* DetailView.swift */; };
 		5EA1CE7C4AF04E7483D7B84E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CCA45139EC6AA18F0E2B /* DetailViewController.swift */; };
 		5EA1CF60372C5CDB04768FB0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1CE49A0D5A6C3241422BC /* LoginViewController.swift */; };
-		5EA1CF94D4B57E8B0FA9F759 /* FilesCollectionView+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C6B51F28F506EEA89DF6 /* FilesCollectionView+Delegates.swift */; };
 		5EA1CFDD65C0928F232F4E3F /* UnlockHiddenFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C726680E932A3F77034F /* UnlockHiddenFolderViewController.swift */; };
-		5EA1CFE0D167F68B04BFEC84 /* CreateFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1C7822E720FA1B1781AA0 /* CreateFolderView.swift */; };
-		79033FAB21565AFA00766799 /* NewLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79033FAA21565AFA00766799 /* NewLoginView.swift */; };
 		79033FB12158E2F900766799 /* padlock_tick.json in Resources */ = {isa = PBXBuildFile; fileRef = 79033FB02158E2F900766799 /* padlock_tick.json */; };
 		794549E224A3E9A00068E9F1 /* DocumentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794549E124A3E9A00068E9F1 /* DocumentsManager.swift */; };
 		794549E424A3F08F0068E9F1 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794549E324A3F08F0068E9F1 /* Directory.swift */; };
@@ -78,19 +72,14 @@
 		5EA1C43CC3C047F021E471FA /* SetPasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPasscodeViewController.swift; sourceTree = "<group>"; };
 		5EA1C47A779452A1A87A90D5 /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		5EA1C534009D0CEA4A2C30E0 /* PermissionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
-		5EA1C657D813E9907FB7DB7A /* SetPasscodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPasscodeView.swift; sourceTree = "<group>"; };
 		5EA1C6AF55726B3D9E92F5DB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
-		5EA1C6B51F28F506EEA89DF6 /* FilesCollectionView+Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FilesCollectionView+Delegates.swift"; sourceTree = "<group>"; };
 		5EA1C6CC8D4D295B72729B27 /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		5EA1C726680E932A3F77034F /* UnlockHiddenFolderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnlockHiddenFolderViewController.swift; sourceTree = "<group>"; };
 		5EA1C72C315A99B79FEFF5B2 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		5EA1C746FC9A95F0C951A57C /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		5EA1C7822E720FA1B1781AA0 /* CreateFolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFolderView.swift; sourceTree = "<group>"; };
 		5EA1C81B5F8A5AC7A252911E /* UnlockHiddenFolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnlockHiddenFolderView.swift; sourceTree = "<group>"; };
 		5EA1CA0185A5ED285F360EBF /* FilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
 		5EA1CA5482DFEA4FE3F58D44 /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		5EA1CB6E1DB5B04FAC904660 /* NameField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameField.swift; sourceTree = "<group>"; };
-		5EA1CB7772FBC3DD2DDCE7C1 /* LoginDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDelegate.swift; sourceTree = "<group>"; };
 		5EA1CC5EC8FC3C132BD139A0 /* InfoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTextView.swift; sourceTree = "<group>"; };
 		5EA1CCA45139EC6AA18F0E2B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5EA1CD0670D9FD4F592288AC /* CreateFolderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFolderViewController.swift; sourceTree = "<group>"; };
@@ -99,7 +88,6 @@
 		5EA1CE49A0D5A6C3241422BC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5EA1CE4B9C00B95DE5E16999 /* FileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		5EA1CE885AAC5651DE05F8E2 /* AlbumsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
-		79033FAA21565AFA00766799 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
 		79033FB02158E2F900766799 /* padlock_tick.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = padlock_tick.json; sourceTree = "<group>"; };
 		794549E124A3E9A00068E9F1 /* DocumentsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsManager.swift; sourceTree = "<group>"; };
 		794549E324A3F08F0068E9F1 /* Directory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
@@ -199,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				5EA1CCA45139EC6AA18F0E2B /* DetailViewController.swift */,
-				5EA1C746FC9A95F0C951A57C /* DetailView.swift */,
 			);
 			path = DetailScreen;
 			sourceTree = "<group>";
@@ -207,11 +194,8 @@
 		5EA1CACD80C72FE0DF29537C /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
-				5EA1CB7772FBC3DD2DDCE7C1 /* LoginDelegate.swift */,
 				5EA1CE49A0D5A6C3241422BC /* LoginViewController.swift */,
-				5EA1C657D813E9907FB7DB7A /* SetPasscodeView.swift */,
 				5EA1C43CC3C047F021E471FA /* SetPasscodeViewController.swift */,
-				79033FAA21565AFA00766799 /* NewLoginView.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -232,7 +216,6 @@
 			children = (
 				5EA1CA0185A5ED285F360EBF /* FilesViewController.swift */,
 				5EA1C2C489D0975BBFC3EFBA /* FilesCollectionViewCell.swift */,
-				5EA1C6B51F28F506EEA89DF6 /* FilesCollectionView+Delegates.swift */,
 			);
 			path = FilesScreen;
 			sourceTree = "<group>";
@@ -240,7 +223,6 @@
 		5EA1CD3EBB6A8F78B1A2B276 /* CreateFolderScreen */ = {
 			isa = PBXGroup;
 			children = (
-				5EA1C7822E720FA1B1781AA0 /* CreateFolderView.swift */,
 				5EA1CD0670D9FD4F592288AC /* CreateFolderViewController.swift */,
 			);
 			path = CreateFolderScreen;
@@ -492,27 +474,21 @@
 				5EA1C1EB775B4B3FF22C29DB /* AlbumsViewController.swift in Sources */,
 				5EA1C20349E73A70AB1C3519 /* UIColor.swift in Sources */,
 				5EA1C3AF73959DE6F77A9A67 /* UIFont.swift in Sources */,
-				5EA1C9ED782656E3EE239C23 /* LoginDelegate.swift in Sources */,
 				5EA1CF60372C5CDB04768FB0 /* LoginViewController.swift in Sources */,
-				5EA1C7091B840ACBD7F77C94 /* SetPasscodeView.swift in Sources */,
 				5EA1CC8C4DE19338D32A8465 /* SetPasscodeViewController.swift in Sources */,
 				5EA1CB14D7C62792BCD7212E /* AppDelegate.swift in Sources */,
 				5EA1C4962BCBB4F8403EB312 /* Folder.swift in Sources */,
 				5EA1CB093C8D058F7FD22F09 /* File.swift in Sources */,
 				7949DE982392893B000BA1DE /* String.swift in Sources */,
 				794549E424A3F08F0068E9F1 /* Directory.swift in Sources */,
-				79033FAB21565AFA00766799 /* NewLoginView.swift in Sources */,
 				5EA1CC35F1A3D2971A321A5E /* FilesViewController.swift in Sources */,
 				5EA1C5F590A8BC55CE5F83E3 /* FilesCollectionViewCell.swift in Sources */,
 				7977797823895034005DD38D /* CameraViewController.swift in Sources */,
 				5EA1C1F010C69750F2A6E973 /* InputField.swift in Sources */,
 				5EA1C6A2C5D8C900B046394E /* FileService.swift in Sources */,
 				5EA1CE7C4AF04E7483D7B84E /* DetailViewController.swift in Sources */,
-				5EA1CE692D30DC44899ECD07 /* DetailView.swift in Sources */,
-				5EA1CFE0D167F68B04BFEC84 /* CreateFolderView.swift in Sources */,
 				5EA1C35059EBF3F51541F2C4 /* PermissionManager.swift in Sources */,
 				5EA1CB58AC9F309CC9FB20A8 /* ImageProvider.swift in Sources */,
-				5EA1CF94D4B57E8B0FA9F759 /* FilesCollectionView+Delegates.swift in Sources */,
 				5EA1CFDD65C0928F232F4E3F /* UnlockHiddenFolderViewController.swift in Sources */,
 				5EA1C950CE0529340813A417 /* CreateFolderViewController.swift in Sources */,
 				5EA1CDD678E185C3A9C278D3 /* UnlockHiddenFolderView.swift in Sources */,
