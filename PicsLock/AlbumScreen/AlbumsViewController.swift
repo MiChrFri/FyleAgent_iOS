@@ -1,9 +1,24 @@
 import UIKit
 
 final class AlbumsViewController: UIViewController {
-    let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-    
     private let viewModel: AlbumsViewModelProtocol
+    
+    private lazy var flowLayout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        return layout
+    }()
+    
+    private lazy var collectionView: UICollectionView = {
+        let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .background
+        
+        collectionView.contentInset = UIEdgeInsets(top: 8.0, left: 16.0, bottom: 8.0, right: 16.0)
+        
+        return collectionView
+    }()
     
     init(viewModel: AlbumsViewModelProtocol) {
         self.viewModel = viewModel
@@ -42,15 +57,6 @@ final class AlbumsViewController: UIViewController {
         setNeedsStatusBarAppearanceUpdate()
         
         collectionView.register(AlbumsCollectionViewCell.self, forCellWithReuseIdentifier: "cell_Id")
-        let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
-        
-        layout.scrollDirection = UICollectionView.ScrollDirection.vertical
-        collectionView.setCollectionViewLayout(layout, animated: true)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.backgroundColor = .background
-        
-        collectionView.contentInset = UIEdgeInsets(top: 8.0, left: 16.0, bottom: 8.0, right: 16.0)
         view.addSubview(collectionView)
         
         setupNavigationItems()
@@ -109,10 +115,6 @@ extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDele
         navigationController?.pushViewController(filesViewController, animated: true)
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -121,7 +123,7 @@ extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDele
         
         return CGSize(width: width, height: width)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0)
     }

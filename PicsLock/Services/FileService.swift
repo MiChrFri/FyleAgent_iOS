@@ -23,8 +23,7 @@ struct FileService {
         
         try? FileManager.default.createDirectory(atPath: folder.path, withIntermediateDirectories: true, attributes: nil)
         if let accesscodeHash = codeHash {
-            let defaults = UserDefaults.standard
-            defaults.set(accesscodeHash, forKey: folderName)
+            UserDefaults.standard.set(accesscodeHash, forKey: folderName)
         }
     }
     

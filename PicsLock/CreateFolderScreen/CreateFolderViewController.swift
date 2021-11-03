@@ -99,8 +99,8 @@ final class CreateFolderViewController: UIViewController {
             if folderName.count > 0 {
                 var passcodeHash: String?
                 
-                if let folderCode = folderCode.text { //}&& !folderCode.isEmpty  {
-                    passcodeHash = folderCode.sha256()
+                if let code = folderCode.text, !code.isEmpty {
+                    passcodeHash = code.sha256()
                 }
                 
                 didEnter(folderName: folderName, codeHash: passcodeHash)

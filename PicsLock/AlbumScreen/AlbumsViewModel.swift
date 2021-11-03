@@ -2,7 +2,6 @@ import UIKit
 
 protocol AlbumsViewModelDelegate: AnyObject {
     func didLoadData()
-    
     func loggedIn()
 }
 
@@ -24,14 +23,13 @@ final class AlbumsViewModel: AlbumsViewModelProtocol {
     var delegate: AlbumsViewModelDelegate?
 }
 
-
 extension AlbumsViewModel: LoginDelegate {
     func successfullyLoggedIn() {
         loggedIn = true
         let folders = fileService.folders()
         
         for folder in folders {
-            if let accesscodeHash = UserDefaults.standard.object(forKey: folder.name) as? String {
+            if let accesscodeHash = UserDefaults.standard.string(forKey: folder.name) {
                 var f = folder
                 f.accesscodeHash = accesscodeHash
                 hiddenFolders.insert(f)
@@ -50,7 +48,7 @@ extension AlbumsViewModel: CreateFolderDelegate {
         var folders = fileService.folders()
         
         for (i, folder) in folders.enumerated() {
-            if let accesscodeHash = UserDefaults.standard.object(forKey: folder.name) as? String {
+            if let accesscodeHash = UserDefaults.standard.string(forKey: folder.name) {
                 folders[i].accesscodeHash = accesscodeHash
                 hiddenFolders.insert(folders[i])
             } else {
