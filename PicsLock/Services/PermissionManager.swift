@@ -3,13 +3,13 @@ import Photos
 import UIKit
 
 protocol PermissionManagerDelegate: AnyObject {
-  func allowed(for sourceType: UIImagePickerController.SourceType)
-  func denied(for sourceType: UIImagePickerController.SourceType)
+    func allowed(for sourceType: UIImagePickerController.SourceType)
+    func denied(for sourceType: UIImagePickerController.SourceType)
 }
 
-class PermissionManager {
+final class PermissionManager {
     weak var delegate: PermissionManagerDelegate?
-
+    
     func handleCameraPermission() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .denied, .restricted:
@@ -25,9 +25,9 @@ class PermissionManager {
                 }
             }
         @unknown default: break
-      }
+        }
     }
-
+    
     func handlePhotoLibraryPermission() {
         switch PHPhotoLibrary.authorizationStatus() {
         case .denied, .restricted:
@@ -45,9 +45,9 @@ class PermissionManager {
         case .limited:
             self.delegate?.allowed(for: .photoLibrary)
         @unknown default: break
-      }
+        }
     }
-
+    
 }
 
 

@@ -1,6 +1,6 @@
 import Foundation
 
 struct File: Directory {
-  var name: String
-  var path: URL
+    var name: String
+    var path: URL
 }
