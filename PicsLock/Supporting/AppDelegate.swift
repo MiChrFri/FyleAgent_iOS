@@ -12,17 +12,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().unselectedItemTintColor = .lightText
                 
         let searchNavigationController = UINavigationController(rootViewController: SearchViewController())
-        searchNavigationController.navigationBar.barTintColor = .navBar
         
         let albumsNavigationController = UINavigationController(rootViewController: AlbumsViewController())
-        albumsNavigationController.navigationBar.barTintColor = .navBar
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.navBarTitle]
-        
+
         albumsNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostRecent, tag: 0)
         searchNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
 
         tabBarController.viewControllers = [albumsNavigationController, searchNavigationController]
-        
+
+        styleNavigationBar(albumsNavigationController.navigationBar)
+        styleNavigationBar(searchNavigationController.navigationBar)
+
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
@@ -30,6 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.tintColor = .navBarItems
         
         return true
+    }
+
+    private func styleNavigationBar(_ navigationBar: UINavigationBar) {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .navBar
+        navigationBar.standardAppearance = appearance
+        navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
