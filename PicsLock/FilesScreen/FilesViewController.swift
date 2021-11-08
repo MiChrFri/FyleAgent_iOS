@@ -1,19 +1,28 @@
 import UIKit
+import AVKit
+import AVFoundation
 
 class FilesViewController: UIViewController {
     private var currentIndex = 0
     private var currentPage = 0
     private var detailViewController: UIPageViewController?
     
-    private(set) lazy var orderedViewControllers: [DetailViewController] = {
-        var vcs = [DetailViewController]()
+    private(set) lazy var orderedViewControllers: [UIViewController] = {
+        var vcs = [UIViewController]()
         
         for file in files {
-            if let img = UIImage(contentsOfFile: file.path.relativePath) {
-                let doc = Document(name: file.path.lastPathComponent, path: file.path, image: img)
-                let vc = DetailViewController(document: doc)
+            switch file.type {
+            case .video:
+                let vc = VideoViewController(with: file.path)
                 vcs.append(vc)
+            case .image:
+                if let img = UIImage(contentsOfFile: file.path.relativePath) {
+                    let doc = Document(name: file.path.lastPathComponent, path: file.path, image: img)
+                    let vc = DetailViewController(document: doc)
+                    vcs.append(vc)
+                }
             }
+
         }
         
         return vcs
@@ -133,11 +142,11 @@ class FilesViewController: UIViewController {
     }
     
     @objc private func editName() {
-            
-        orderedViewControllers[currentPage].view.backgroundColor = .red
+        guard let detailsVC = orderedViewControllers[currentPage] as? DetailViewController else { return }
+        detailsVC.view.backgroundColor = .red
         
-        orderedViewControllers[currentPage].nameField.isUserInteractionEnabled = true
-        orderedViewControllers[currentPage].nameField.becomeFirstResponder()
+        detailsVC.nameField.isUserInteractionEnabled = true
+        detailsVC.nameField.becomeFirstResponder()
         
         let saveBtn = UIBarButtonItem(title: "save", style: .plain, target: self, action: #selector(self.saveDocument))
         
@@ -149,17 +158,17 @@ class FilesViewController: UIViewController {
     }
     
     @objc private func saveDocument() {
-        let deatilVC = orderedViewControllers[currentPage]
-        var document = deatilVC.document
+        guard let detailsVC = orderedViewControllers[currentPage] as? DetailViewController else { return }
+        guard var document = detailsVC.document else { return }
         
-        if let newName = deatilVC.nameField.text {
+        if let newName = detailsVC.nameField.text {
             let documentsMananger = DocumentsManager()
             if let savedDocument = documentsMananger.saveDocument(document, forName: newName) {
                 document = savedDocument
                 
                 reloadData()
-                deatilVC.nameField.isUserInteractionEnabled = false
-                deatilVC.nameField.resignFirstResponder()
+                detailsVC.nameField.isUserInteractionEnabled = false
+                detailsVC.nameField.resignFirstResponder()
                 
                 setupNavigationItems()
             }
@@ -169,7 +178,8 @@ class FilesViewController: UIViewController {
     }
     
     @objc private func deleteDocument() {
-        let document = orderedViewControllers[currentPage].document
+        guard let detailsVC = orderedViewControllers[currentPage] as? DetailViewController else { return }
+        guard let document = detailsVC.document else { return }
         
         back()
         try? FileManager.default.removeItem(at: document.path)
@@ -256,7 +266,8 @@ extension FilesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "files_cell_Id", for: indexPath) as! FilesCollectionViewCell
         
-        if let img = UIImage(contentsOfFile: files[indexPath.row].path.relativePath) {
+//        if let img = UIImage(contentsOfFile: files[indexPath.row].path.relativePath) {
+        if let img = files[indexPath.row].thumbnail {
             cell.composeView(withImage: img)
             cell.name = files[indexPath.row].name
         }
@@ -265,31 +276,72 @@ extension FilesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let index = indexPath.row
-        
-        currentIndex = index
-        currentPage = index
-        
-        let transition = CATransition()
-        transition.duration = 0.1
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-        transition.type = CATransitionType.fade
-        self.navigationController?.view.layer.add(transition, forKey: nil)
-        
-        let detailViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        detailViewController.setViewControllers([orderedViewControllers[index]], direction: .forward, animated: true, completion: nil)
-        detailViewController.dataSource = self
-        
-        self.detailViewController = detailViewController
-        
-        if orderedViewControllers.count == 1 {
-            self.navigationController?.pushViewController(orderedViewControllers[index], animated: false)
-            setupNavigationItems(for: orderedViewControllers[index])
-            return
-        } else {
-            self.navigationController?.pushViewController(detailViewController, animated: false)
-            setupNavigationItems(for: detailViewController)
+        let file = files[indexPath.row]
+
+        switch file.type {
+        case .video:
+            let player = AVPlayer(url: file.path)
+            let playerController = AVPlayerViewController()
+            playerController.player = player
+            present(playerController, animated: true) {
+                player.play()
+            }
+        default:
+            let index = indexPath.row
+
+            currentIndex = index
+            currentPage = index
+
+            let transition = CATransition()
+            transition.duration = 0.1
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+            transition.type = CATransitionType.fade
+            self.navigationController?.view.layer.add(transition, forKey: nil)
+
+            let detailViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+            detailViewController.setViewControllers([orderedViewControllers[index]], direction: .forward, animated: true, completion: nil)
+            detailViewController.dataSource = self
+
+            self.detailViewController = detailViewController
+
+            if orderedViewControllers.count == 1 {
+                self.navigationController?.pushViewController(orderedViewControllers[index], animated: false)
+                setupNavigationItems(for: orderedViewControllers[index])
+                return
+            } else {
+                self.navigationController?.pushViewController(detailViewController, animated: false)
+                setupNavigationItems(for: detailViewController)
+            }
         }
+
+
+
+
+//        let index = indexPath.row
+//
+//        currentIndex = index
+//        currentPage = index
+//
+//        let transition = CATransition()
+//        transition.duration = 0.1
+//        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+//        transition.type = CATransitionType.fade
+//        self.navigationController?.view.layer.add(transition, forKey: nil)
+//
+//        let detailViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+//        detailViewController.setViewControllers([orderedViewControllers[index]], direction: .forward, animated: true, completion: nil)
+//        detailViewController.dataSource = self
+//
+//        self.detailViewController = detailViewController
+//
+//        if orderedViewControllers.count == 1 {
+//            self.navigationController?.pushViewController(orderedViewControllers[index], animated: false)
+//            setupNavigationItems(for: orderedViewControllers[index])
+//            return
+//        } else {
+//            self.navigationController?.pushViewController(detailViewController, animated: false)
+//            setupNavigationItems(for: detailViewController)
+//        }
     }
     
     func collectionView(

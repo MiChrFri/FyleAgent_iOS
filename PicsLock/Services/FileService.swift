@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 struct FileService {
     private let fileManager = FileManager.default
@@ -34,11 +35,19 @@ struct FileService {
         for case let fileURL as URL in enumerator {
             let resourceValues = try? fileURL.resourceValues(forKeys: Set(resourceKeys))
             if !(resourceValues?.isDirectory ?? false) {
-                files.append(File(name: fileURL.lastPathComponent, path: fileURL.absoluteURL))
+                let fileType = detectFileType(from: fileURL.pathExtension)
+                files.append(File(name: fileURL.lastPathComponent, path: fileURL.absoluteURL, type: fileType, thumbnail: UIImage(contentsOfFile: fileURL.relativePath)))
             }
         }
         
         return files
+    }
+
+    private func detectFileType(from fileExtension: String) -> FileType {
+        switch fileExtension {
+        case "png", "jpg": return .image
+        default: return .video
+        }
     }
     
     private func enumerator(forUrl url: URL) -> FileManager.DirectoryEnumerator? {

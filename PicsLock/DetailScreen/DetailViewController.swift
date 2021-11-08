@@ -4,9 +4,9 @@ protocol DocumentsDelegate: AnyObject {
     func updated()
 }
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     weak var delegate: DocumentsDelegate?
-    var document: Document
+    var document: Document?
     
     private lazy var zoomView: ZoomView = {
         let zoomView = ZoomView()
@@ -40,8 +40,11 @@ class DetailViewController: UIViewController {
     private func setupView() {
         view.addSubview(zoomView)
         view.addSubview(nameField)
-        nameField.text = document.name
-        zoomView.image = document.image
+        nameField.text = document?.name
+
+        if let document = document {
+            zoomView.image = document.image
+        }
         
         setupLayout()
     }
@@ -70,8 +73,9 @@ class DetailViewController: UIViewController {
     
     @objc func saveDocument() {
         if let newName = nameField.text {
-            if newName != document.name {
+            if newName != document?.name {
                 do {
+                    guard let document = document else { return }
                     var directory = document.path
                     directory.deleteLastPathComponent()
                     

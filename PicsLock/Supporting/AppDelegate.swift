@@ -6,14 +6,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        print("💚\(documentsUrl)")
+
         let tabBarController = UITabBarController()
         UITabBar.appearance().barTintColor = .navBar
         UITabBar.appearance().unselectedItemTintColor = .lightText
                 
         let searchNavigationController = UINavigationController(rootViewController: SearchViewController())
         
-        let albumsNavigationController = UINavigationController(rootViewController: AlbumsViewController())
+        let albumsNavigationController = UINavigationController(rootViewController: AlbumsViewController(viewModel: AlbumsViewModel()))
 
         albumsNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostRecent, tag: 0)
         searchNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
@@ -36,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .navBar
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.navBarItems]
         navigationBar.standardAppearance = appearance
         navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
     }
