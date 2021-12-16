@@ -99,6 +99,9 @@ class FilesViewController: UIViewController {
     private func presentImagePicker(withType type: UIImagePickerController.SourceType) {
         if let imagePicker = self.imageProvider.pickerController(from: type ) {
             imagePicker.delegate = self
+
+            imagePicker.mediaTypes = ["public.image", "public.movie"]
+
             self.present(imagePicker, animated: false)
         }
     }
@@ -130,6 +133,21 @@ class FilesViewController: UIViewController {
             
             reloadData()
         }
+    }
+
+    private func pickedVideo(videoUrl: URL?) {
+        guard let url = videoUrl else { return }
+        let videoData = NSData(contentsOf: url)
+
+        let type = url.lastPathComponent
+
+        print(type)
+
+        let tmp_name = "\(UUID()).\(type)"
+        let imagePath = folderPath.appendingPathComponent(tmp_name)
+        try? videoData?.write(to: imagePath)
+
+        reloadData()
     }
     
     @objc private func editName() {
@@ -191,9 +209,13 @@ extension FilesViewController: UIImagePickerControllerDelegate, UINavigationCont
     func imagePickerController(
         _ picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            guard let pickedImage = info[UIImagePickerController.InfoKey(rawValue: convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage))] as? UIImage else {dismiss(animated:false, completion:nil); return }
+
+            let videoUrl = info[.mediaURL] as? URL
+
+            let pickedImage = info[UIImagePickerController.InfoKey(rawValue: convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage))] as? UIImage
             
             dismiss(animated:false, completion: { () in
+                self.pickedVideo(videoUrl: videoUrl)
                 self.pickedImage(image: pickedImage)
             })
         }
@@ -255,11 +277,17 @@ extension FilesViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "files_cell_Id", for: indexPath) as! FilesCollectionViewCell
+
+        let filePath = files[indexPath.row].path.relativePath
         
-        if let img = UIImage(contentsOfFile: files[indexPath.row].path.relativePath) {
+        if let img = UIImage(contentsOfFile: filePath) {
             cell.composeView(withImage: img)
             cell.name = files[indexPath.row].name
+        } else {
+            cell.composeView(withImage: UIImage(systemName: "play.rectangle.fill")!)
+            cell.name = files[indexPath.row].name
         }
+        
         
         return cell
     }

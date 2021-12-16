@@ -12,8 +12,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().unselectedItemTintColor = .lightText
                 
         let searchNavigationController = UINavigationController(rootViewController: SearchViewController())
-        
-        let albumsNavigationController = UINavigationController(rootViewController: AlbumsViewController())
+
+        let viewModel = AlbumsViewModel()
+        let albumsNavigationController = UINavigationController(rootViewController: AlbumsViewController(viewModel: viewModel))
 
         albumsNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostRecent, tag: 0)
         searchNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
