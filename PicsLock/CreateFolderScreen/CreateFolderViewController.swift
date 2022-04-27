@@ -7,33 +7,36 @@ protocol CreateFolderDelegate: AnyObject {
 final class CreateFolderViewController: UIViewController {
     private let fileService = FileService()
     weak var delegate: CreateFolderDelegate?
-    
+
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [
+            iconView,
+            infoTextView,
+            nameField,
+            folderCode
+        ])
+        stackView.axis = .vertical
+        stackView.spacing = 16
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+
     private lazy var backgroundView: UIView = {
         let backgroundView = UIView(frame: CGRect.zero)
-        backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        backgroundView.backgroundColor = UIColor.alertBackground
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.layer.cornerRadius = 12
+        backgroundView.clipsToBounds = true
         return backgroundView
     }()
-    
-    private lazy var newFolderView: UIView = {
-        let newFolderView = UIView(frame: CGRect.zero)
-        newFolderView.backgroundColor = .alertBackground
-        newFolderView.layer.cornerRadius = 12.0
-        newFolderView.translatesAutoresizingMaskIntoConstraints = false
-        return newFolderView
+
+    private lazy var iconView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "folder.circle")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
-    
-    private lazy var closeButton: UIButton = {
-        let largeConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .bold, scale: .large)
-        let largeBoldDoc = UIImage(systemName: "xmark.circle.fill", withConfiguration: largeConfig)
-        
-        let closeButton = UIButton(frame: CGRect.zero)
-        closeButton.setImage(largeBoldDoc, for: .normal)
-        closeButton.addTarget(self, action: #selector(closeView), for: .touchUpInside)
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
-        return closeButton
-    }()
-    
+
     private lazy var infoTextView: InfoTextView = {
         let infoTextView = InfoTextView()
         infoTextView.text = "Set the name for your folder and if you want a password for it"
@@ -73,12 +76,8 @@ final class CreateFolderViewController: UIViewController {
     
     private func setupUI() {
         view.addSubview(backgroundView)
-        view.addSubview(newFolderView)
-        newFolderView.addSubview(closeButton)
-        newFolderView.addSubview(infoTextView)
-        newFolderView.addSubview(nameField)
-        newFolderView.addSubview(folderCode)
-        newFolderView.addSubview(doneButton)
+        backgroundView.addSubview(stackView)
+        view.addSubview(doneButton)
         nameField.becomeFirstResponder()
         
         setupLayout()
@@ -108,40 +107,19 @@ final class CreateFolderViewController: UIViewController {
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            stackView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor, constant: -doneButton.frame.height),
+
+            iconView.heightAnchor.constraint(equalToConstant: 100),
+
+            doneButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -28),
+            doneButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
             backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            newFolderView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 30.0),
-            newFolderView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -30.0),
-            newFolderView.topAnchor.constraint(equalTo: backgroundView.safeAreaLayoutGuide.topAnchor, constant: 30.0),
-            newFolderView.bottomAnchor.constraint(equalTo: backgroundView.centerYAnchor, constant: 50.0),
-            
-            closeButton.topAnchor.constraint(equalTo: newFolderView.topAnchor, constant: 8.0),
-            closeButton.trailingAnchor.constraint(equalTo: newFolderView.trailingAnchor, constant: -8.0),
-            closeButton.widthAnchor.constraint(equalToConstant: 40.0),
-            closeButton.heightAnchor.constraint(equalToConstant: 40.0),
-
-            doneButton.bottomAnchor.constraint(equalTo: newFolderView.bottomAnchor, constant: -12.0),
-            doneButton.leadingAnchor.constraint(equalTo: newFolderView.leadingAnchor, constant: 16.0),
-            doneButton.trailingAnchor.constraint(equalTo: newFolderView.trailingAnchor, constant: -16.0),
-            
-            nameField.leadingAnchor.constraint(equalTo: newFolderView.leadingAnchor, constant: 16.0),
-            nameField.trailingAnchor.constraint(equalTo: newFolderView.trailingAnchor, constant: -16.0),
-            nameField.centerYAnchor.constraint(equalTo: newFolderView.centerYAnchor),
-            nameField.centerXAnchor.constraint(equalTo: newFolderView.centerXAnchor),
-            
-            folderCode.leadingAnchor.constraint(equalTo: newFolderView.leadingAnchor, constant: 16.0),
-            folderCode.trailingAnchor.constraint(equalTo: newFolderView.trailingAnchor, constant: -16.0),
-            folderCode.topAnchor.constraint(equalTo:  nameField.bottomAnchor, constant: 16.0),
-            folderCode.centerXAnchor.constraint(equalTo: newFolderView.centerXAnchor),
-            
-            infoTextView.leadingAnchor.constraint(equalTo: newFolderView.leadingAnchor, constant: 16.0),
-            infoTextView.trailingAnchor.constraint(equalTo: newFolderView.trailingAnchor, constant: -16.0),
-            infoTextView.bottomAnchor.constraint(equalTo: nameField.topAnchor, constant: -20.0),
-            infoTextView.topAnchor.constraint(equalTo: closeButton.bottomAnchor, constant: 24.0),
-            infoTextView.centerXAnchor.constraint(equalTo: newFolderView.centerXAnchor),
+            backgroundView.topAnchor.constraint(equalTo: view.topAnchor, constant: -28),
+            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     

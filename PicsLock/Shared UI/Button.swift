@@ -4,7 +4,8 @@ final class Button: UIButton {
     init() {
         super.init(frame: CGRect.zero)
         titleLabel?.font = .textButton
-        contentEdgeInsets = UIEdgeInsets(top: 8, left: 18, bottom: 8, right: 18)
+
+        contentEdgeInsets = UIEdgeInsets(top: 12, left: 18, bottom: 12, right: 18)
     }
     
     required init?(coder: NSCoder) {

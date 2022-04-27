@@ -64,11 +64,23 @@ final class AlbumsViewController: UIViewController {
     }
     
     @objc private func newFolder() {
-        let createFolderViewController = CreateFolderViewController()
-        createFolderViewController.modalPresentationStyle = .overCurrentContext
-        createFolderViewController.delegate = viewModel
-        present(createFolderViewController, animated:true, completion: nil)
+        presentModal()
+//        let createFolderViewController = CreateFolderViewController()
+//        createFolderViewController.modalPresentationStyle = .overCurrentContext
+//        createFolderViewController.delegate = viewModel
+//        present(createFolderViewController, animated:true, completion: nil)
     }
+
+    private func presentModal() {
+        let createFolderViewController = CreateFolderViewController()
+        let nav = UINavigationController(rootViewController: createFolderViewController)
+
+        if let sheet = nav.sheetPresentationController {
+            sheet.detents = [.medium()]
+        }
+        present(nav, animated: true, completion: nil)
+    }
+
     
     @objc private func unlock() {
         let unlockHiddenFolderViewController = UnlockHiddenFolderViewController()

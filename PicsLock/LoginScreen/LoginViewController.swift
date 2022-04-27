@@ -1,5 +1,4 @@
 import UIKit
-import Lottie
 
 protocol LoginDelegate: AnyObject {
     func successfullyLoggedIn()
@@ -8,13 +7,6 @@ protocol LoginDelegate: AnyObject {
 final class LoginViewController: UIViewController {
     weak var delegate: LoginDelegate?
     private let passcodeHash: String
-    
-    private lazy var animationView: AnimationView = {
-        let animationView = AnimationView(name: "padlock_tick")
-        animationView.contentMode = .scaleAspectFill
-        animationView.translatesAutoresizingMaskIntoConstraints = false
-        return animationView
-    }()
     
     private lazy var passwordField: UITextField = {
         let passwordField = UITextField(frame: CGRect.zero)
@@ -31,11 +23,6 @@ final class LoginViewController: UIViewController {
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            animationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            animationView.widthAnchor.constraint(equalToConstant: 200),
-            animationView.heightAnchor.constraint(equalToConstant: 200),
-            animationView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100.0),
-            
             passwordField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             passwordField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24.0),
             passwordField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24.0),
@@ -57,7 +44,6 @@ final class LoginViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .background
-        view.addSubview(animationView)
         
         view.addSubview(passwordField)
         passwordField.becomeFirstResponder()
@@ -69,13 +55,9 @@ final class LoginViewController: UIViewController {
         if textField.text?.count ?? 0 >= 4 {
             if textField.text?.sha256() ?? "" == passcodeHash {
                 textField.isUserInteractionEnabled = false
-                
-                animationView.play(
-                    toFrame: 60,
-                    completion: { (finished) in
-                        self.delegate?.successfullyLoggedIn()
-                        self.dismiss(animated: true)
-                    })
+
+                self.delegate?.successfullyLoggedIn()
+                self.dismiss(animated: true)
             } else {
                 textField.text = ""
                 redFlash()

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -34,7 +34,6 @@
 		794549E224A3E9A00068E9F1 /* DocumentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794549E124A3E9A00068E9F1 /* DocumentsManager.swift */; };
 		794549E424A3F08F0068E9F1 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794549E324A3F08F0068E9F1 /* Directory.swift */; };
 		7949DE982392893B000BA1DE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7949DE972392893B000BA1DE /* String.swift */; };
-		7949DE9B23928A8E000BA1DE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7949DE9A23928A8E000BA1DE /* Lottie */; };
 		7949DE9D23928BED000BA1DE /* ZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7949DE9C23928BED000BA1DE /* ZoomView.swift */; };
 		796B3A6024AA6B6B009F3313 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B3A5F24AA6B6B009F3313 /* StringTests.swift */; };
 		796B3A6224AA705D009F3313 /* FileServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B3A6124AA705D009F3313 /* FileServiceTests.swift */; };
@@ -118,7 +117,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7949DE9B23928A8E000BA1DE /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +349,6 @@
 			);
 			name = PicsLock;
 			packageProductDependencies = (
-				7949DE9A23928A8E000BA1DE /* Lottie */,
 			);
 			productName = PicsLock;
 			productReference = 799EB0C12131604E00D8A757 /* PicsLock.app */;
@@ -429,7 +426,6 @@
 			);
 			mainGroup = 799EB0B82131604E00D8A757;
 			packageReferences = (
-				7949DE9923928A8E000BA1DE /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 799EB0C22131604E00D8A757 /* Products */;
 			projectDirPath = "";
@@ -666,7 +662,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9R94XJAZ89;
 				INFOPLIST_FILE = PicsLock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -687,7 +683,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9R94XJAZ89;
 				INFOPLIST_FILE = PicsLock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -826,25 +822,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		7949DE9923928A8E000BA1DE /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-ios";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.1.5;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		7949DE9A23928A8E000BA1DE /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7949DE9923928A8E000BA1DE /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 799EB0B92131604E00D8A757 /* Project object */;
 }
